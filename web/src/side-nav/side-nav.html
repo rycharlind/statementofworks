@@ -1,0 +1,10 @@
+<qu-side-nav class="side-nav">
+	<div quFlexColumn>
+		<div>
+			<qu-link [qlHref]="'/home'" class="qu-primary"><i class="material-icons">dashboard</i>Dashboard</qu-link>
+			<qu-link class="qu-primary"><i class="material-icons">folder</i>Templates</qu-link>
+			<qu-link class="qu-primary"><i class="material-icons">settings</i>Settings</qu-link>
+			<qu-link [qlHref]="'/sign-in'" class="qu-primary" (click)="signOut()"><i class="material-icons">power_settings_new</i>Sign Out</qu-link>
+		</div>
+	</div>
+</qu-side-nav>

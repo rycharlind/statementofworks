@@ -1,0 +1,11 @@
+<div class="home">
+	<h1>Home</h1>
+	<h3>{{email}}</h3>
+	<table>
+		<tr><th>Name</th><th>Status</th></tr>
+		<tr *ngFor="let item of items | async">
+			<td>{{item.name}}</td>
+			<td>{{item.status}}</td>
+		</tr>
+	</table>
+</div>

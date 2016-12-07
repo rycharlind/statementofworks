@@ -1,0 +1,17 @@
+<div class="sign-in">
+	<div class="sign-in-container qu-whiteframe-6">		
+		<h1>Sign In</h1>
+		<form #loginForm="ngForm">
+			<qu-input-container [placeholder]="'Email'">
+				<input name="email" ngModel required #email="ngModel">
+			</qu-input-container>
+			<br/>
+			<qu-input-container [placeholder]="'Password'">
+				<input type="password" name="password" ngModel required #password="ngModel">
+			</qu-input-container>
+			<br/>
+			<qu-button class="qu-raised qu-primary" (click)="signIn(email.value, password.value)">Sign In</qu-button>
+			<qu-button class="qu-raised qu-secondary" (click)="goTo('sign-up')">Sign Up</qu-button>
+		</form>
+	</div>
+</div>

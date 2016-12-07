@@ -1,0 +1,68 @@
+$qu-primary-btn-bg-color: white !default;
+$qu-primary-btn-color: black !default;
+
+.qu-ripple {
+	
+	&:before {
+		content: "";
+		
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		
+		display: block;
+		width: 0;
+		padding-top: 0;
+			
+		border-radius: 100%;
+		
+		background-color: rgba($qu-primary-btn-color, .2);
+		
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+
+	&:active:before { 
+		width: 120%;
+		padding-top: 120%;
+		
+		transition: width .35s ease-out, padding-top .35s ease-out;
+	}
+
+	&:hover {
+		background-color: darken($qu-primary-btn-bg-color, 10%) !important;
+	}
+}
+
+.qu-secondary {
+	.qu-ripple {	
+		&:before {
+			background-color: rgba(33, 33, 33, .098);
+		}
+
+		&:hover {
+			background-color: darken(#fff, 10%) !important;
+		}
+	}
+}
+
+[disabled]:active:before,
+[disabled]:active:before,
+[disabled]:before,
+[disabled]:before {	
+	background-color: transparent !important;
+	color: transparent !important;
+
+	transition: none;
+}
+
+[disabled], [disabled]:hover,
+[disabled], [disabled]:hover
+ {
+	background-color: rgba(0, 0, 0, 0.117647) !important;
+	color: rgba(0, 0, 0, 0.380392) !important;
+	cursor: default;
+}

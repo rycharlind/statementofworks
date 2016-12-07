@@ -1,0 +1,50 @@
+$sl-gray-dark: #616161 !default;
+$sl-secondary: #1976D0 !default;
+$sl-primary-darker: #B71C1C !default;
+
+.side-nav {
+	.qu-side-nav {
+		margin-top: 64px;
+	}
+
+	&-profile {
+		height: 150px;
+		color: white;
+		background-color: $sl-primary-darker;
+
+		h3 {
+			text-align: center;
+			font-weight: 100;
+		}
+	}
+
+	.qu-link-container {
+		margin: 0;
+	}
+
+	.qu-link {
+		width: 100%;
+		border-radius: 0;
+		background-color: white;
+		color: $sl-gray-dark;
+		height: 60px;
+		font-size: 20px;
+
+		&:before {			
+			background-color: rgba(33, 33, 33, .098) !important;
+		}
+		
+		&:hover {			
+			background-color: rgba(66, 66, 66, .098) !important;
+		}
+
+
+		> span {
+			justify-content: flex-start;
+
+			> i {
+				font-size: 30px;
+			}
+		}
+	}
+}

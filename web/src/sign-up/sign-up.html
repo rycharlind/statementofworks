@@ -1,0 +1,26 @@
+<div class="sign-up">   
+	<div class="sign-up-container qu-whiteframe-6" quFlexRow>
+		<h1>Sign Up</h1>
+		<form #signUpForm="ngForm" quFlexColumn>
+			<qu-input-container [placeholder]="'Email'">
+				<input name="email" ngModel required #email="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Password'">
+				<input name="password" ngModel required #password="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Confirm Password'">
+				<input name="passwordConfirm" ngModel #passwordConfirm="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Display Name'">
+				<input name="displayName" ngModel #displayName="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'First Name'">
+				<input name="firstName" ngModel #firstName="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Last Name'">
+				<input name="lastName" ngModel #lastName="ngModel">
+			</qu-input-container>
+			<qu-button [quDisabled]="!signUpForm.valid" class="qu-raised qu-primary" (click)="signUp(email.value, password.value)">Create Account</qu-button>
+		</form>
+	</div>	
+</div>

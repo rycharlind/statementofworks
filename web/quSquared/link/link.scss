@@ -1,0 +1,76 @@
+$qu-primary-btn-bg-color: black !default;
+$qu-primary-btn-color: white !default;
+
+.qu-link-container {
+	margin-bottom: 5px;
+
+	a {
+		font-size: 13.3333px;
+		text-decoration: none;
+	}
+
+	a {	
+		cursor: pointer;
+		position: relative;
+
+		display: inline-block;
+		margin: auto;
+		padding: 0;
+
+		overflow: hidden;
+
+		border-width: 0;
+		outline: none;
+		border-radius: 2px;
+		
+		background-color: white;
+		color: black;
+	}
+
+	a > * {
+		position: relative;
+	}
+
+	a span {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 12px 24px;
+    height: 100%;
+
+		> i {
+			margin-right: 8px;
+			margin-left: 8px;
+		}
+	}
+
+	/* Styles, not important */
+	*, *:before, *:after {
+		box-sizing: border-box;
+	}
+}
+
+.qu-primary {
+	.qu-link {
+		background-color: $qu-primary-btn-bg-color;
+		color: $qu-primary-btn-color;
+	}
+}
+
+.qu-secondary {
+	.qu-link {
+		background-color: $qu-primary-btn-color;
+		color: $qu-primary-btn-bg-color;
+		
+		border: 1px solid $qu-primary-btn-bg-color;
+	}
+}
+
+.qu-raised {
+	.qu-link {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+		-webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+	}
+}

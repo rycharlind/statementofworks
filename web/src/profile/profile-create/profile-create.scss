@@ -1,0 +1,27 @@
+.profile-create {    
+
+	&-container {
+		background-color: whitesmoke;
+
+		width: 720px;		
+		padding: 16px;
+    margin: 16px;
+		
+	}
+
+	form {
+		width: 100%;
+	}
+
+	h1 {
+		font-weight: 100;
+	}
+	
+	.qu-input-container {
+		max-width: 300px;
+	}
+
+	.qu-button {
+		width: 238px;
+	}
+}
