@@ -21,6 +21,7 @@
 				<input name="lastName" ngModel #lastName="ngModel">
 			</qu-input-container>
 			<qu-button [quDisabled]="!signUpForm.valid" class="qu-raised qu-primary" (click)="signUp(email.value, password.value)">Create Account</qu-button>
+			<qu-button class="qu-raised qu-secondary" (click)="goTo('sign-in')">Sign In</qu-button>
 		</form>
 	</div>	
 </div>

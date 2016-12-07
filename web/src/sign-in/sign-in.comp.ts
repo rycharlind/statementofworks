@@ -13,7 +13,6 @@ export class SignInComponent implements OnInit {
 
 	constructor(
 		private router: Router,
-		private signInService: SignInService,
 		private zone: NgZone,
 		af: AngularFire) {
 	}

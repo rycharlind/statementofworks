@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { SignUpService } from './sign-up.svc';
-import { AngularFire, AngularFireAuth } from 'angularfire2';
+import { AngularFire, AngularFireAuth, FirebaseListObservable } from 'angularfire2';
+import { UserProfile } from '../model/user-profile';
 
 @Component({
 	selector: 'sl-sign-up',
@@ -10,17 +11,22 @@ import { AngularFire, AngularFireAuth } from 'angularfire2';
 })
 export class SignUpComponent implements OnInit {
 	errorMessage: string;
+	userProfiles: FirebaseListObservable<any[]>;
+	firstName: string;
+	lastName: string;
 
 	constructor(
-		private signUpService: SignUpService,
 		private router: Router,
 		af: AngularFire) {
+			this.userProfiles = af.database.list('/userProfiles');
 	}
 
 	ngOnInit() {
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
 				console.log(user);
+				var userProfile = new UserProfile(this.firstName, this.lastName);
+				this.userProfiles.push(userProfile);
 				this.router.navigate(['home']);
 			} else {
 				console.log("No User");
@@ -34,5 +40,9 @@ export class SignUpComponent implements OnInit {
 				console.log(error.message);
 			}
 		});
+	}
+
+	goTo(route) {
+		this.router.navigate([route]);
 	}
 }
