@@ -15,6 +15,7 @@ export class ProfileViewComponent implements OnInit {
 	firstName: string;
 	lastName: string;
 	email: string;
+	isEmailVerified: boolean;
 
 	constructor(
 		af: AngularFire,
@@ -36,6 +37,7 @@ export class ProfileViewComponent implements OnInit {
 
 	getUserProfileInfo(user: firebase.User) {
 		this.email = user.email;
+		this.isEmailVerified = user.emailVerified;
 		firebase.database().ref('/userProfiles/' + user.uid).once('value').then((snapshot) => {
 			this.firstName = snapshot.val().firstName;
 			this.lastName = snapshot.val().lastName;
