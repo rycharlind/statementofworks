@@ -14,7 +14,7 @@ export class ProfileViewComponent implements OnInit {
 
 	constructor(
 		af: AngularFire,
-		private router: Router,) {
+		private router: Router) {
 	}
 
 	ngOnInit() {

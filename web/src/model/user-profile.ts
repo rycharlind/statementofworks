@@ -3,7 +3,8 @@ export class UserProfile {
   firstName: string;
   lastName: string;
   
-  constructor (fname, lname) {
+  constructor (uid, fname, lname) {
+      this.uid = uid;
       this.firstName = fname;
       this.lastName = lname;
   }

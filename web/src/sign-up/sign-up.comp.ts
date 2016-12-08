@@ -24,9 +24,9 @@ export class SignUpComponent implements OnInit {
 	ngOnInit() {
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
-				console.log(user);
-				var userProfile = new UserProfile(this.firstName, this.lastName);
-				this.userProfiles.push(userProfile);
+				console.log(user.uid);
+				//var userProfile = new UserProfile(user.uid, this.firstName, this.lastName);
+				//this.userProfiles.push(userProfile);
 				this.router.navigate(['home']);
 			} else {
 				console.log("No User");

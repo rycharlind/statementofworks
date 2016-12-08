@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Project } from '../model/project';
 
 @Component({
 	selector: 'sl-home',
@@ -27,5 +28,10 @@ export class HomeComponent implements OnInit {
 				this.router.navigate(['sign-in']);
 			}
 		});
+	}
+
+	addProject(name, status) {
+		var project = new Project(name, status);
+		this.items.push(project);
 	}
 }
