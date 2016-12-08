@@ -21,7 +21,7 @@ export class SignInComponent implements OnInit {
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
 				console.log(user);
-				this.router.navigate(['home']);
+				this.router.navigate(['']);
 			} else {
 				console.log("No User");
 			}
