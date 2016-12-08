@@ -4,6 +4,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from './home.comp';
 
 const routes: Routes = [
-   { path: "home", component: HomeComponent }
+   { path: "", component: HomeComponent }
 ];
 export const HomeRoutes: ModuleWithProviders = RouterModule.forChild(routes);

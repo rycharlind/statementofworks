@@ -4,6 +4,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { SplashComponent } from "./splash.comp";
 
 const routes: Routes = [
-  { path: "", component: SplashComponent },
+  { path: "splash", component: SplashComponent },
 ];
 export const SplashRoutes: ModuleWithProviders = RouterModule.forChild(routes);
