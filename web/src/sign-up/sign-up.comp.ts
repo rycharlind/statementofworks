@@ -26,11 +26,11 @@ export class SignUpComponent implements OnInit {
 			if (user) {
 				console.log(user);
 				
-				// Need to check if the user is new
-				let up = new UserProfile(user.uid, this.firstName, this.lastName);
-				this.userProfiles.push(up);
+				// Update User Profile info
+				let up = new UserProfile(this.firstName, this.lastName);
+				firebase.database().ref('userProfiles/' + user.uid).set(up);
 
-				// Navigate to the home page after us is registered
+				// Navigate to the home page after user is registered
 				this.router.navigate(['']);
 			} else {
 				console.log("No User");
