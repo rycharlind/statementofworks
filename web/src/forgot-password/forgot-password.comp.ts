@@ -15,4 +15,8 @@ export class ForgotPasswordComponent {
     ngOnInit() {
     }
 
+    sendForgotPasswordEmail(email) { 
+        firebase.auth().sendPasswordResetEmail(email);
+    }
+
 }

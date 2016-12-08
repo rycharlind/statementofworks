@@ -9,6 +9,7 @@ import { Project } from '../model/project';
 	templateUrl: './home.html',
 	providers: []
 })
+
 export class HomeComponent implements OnInit {
 
 	items: FirebaseListObservable<any[]>;
