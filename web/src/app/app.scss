@@ -29,6 +29,10 @@ $qu-side-nav-color: $sl-secondary;
 	min-height: calc(100% - 32px);
 }
 
+h1 {
+  color:rgba(0,0,0,0.68);
+}
+
 @import '../../quSquared/quSquared';
 
 @import '../header/header';

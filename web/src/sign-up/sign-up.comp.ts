@@ -31,14 +31,16 @@ export class SignUpComponent implements OnInit {
 				this.userProfiles.push(up);
 
 				// Navigate to the home page after us is registered
-				this.router.navigate(['home']);
+				this.router.navigate(['']);
 			} else {
 				console.log("No User");
 			}
 		});
 	}
 
-	signUp(email, password) {
+	signUp(email, password, fname, lname) {
+		this.firstName = fname;
+		this.lastName = lname;
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 			if (error) {
 				console.log(error.message);
