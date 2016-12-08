@@ -1,7 +1,4 @@
 $sl-primary: #8BC34A;
-$sl-primary-dark: #C62828;
-$sl-primary-darker: #B71C1C;
-
 $sl-secondary: #1976D2;
 
 $sl-gray: grey;
@@ -9,10 +6,14 @@ $sl-gray-dark: #616161;
 
 $qu-primary-bg: $sl-primary;
 $qu-primary-color: #ecf0f1;
+
+// Buttons
 $qu-primary-btn-bg-color: $sl-primary;
 $qu-primary-btn-color: white;
-$qu-secondary-btn-bg-color:green;
+$qu-secondary-btn-bg-color:$sl-secondary;
 $qu-secondary-btn-color:white;
+
+// Sidenav
 $qu-side-nav-bg: white;
 $qu-side-nav-border: whitesmoke;
 $qu-side-nav-color: $sl-secondary;
@@ -43,4 +44,5 @@ h1 {
 @import '../side-nav/side-nav';
 @import '../sign-in/sign-in';
 @import '../sign-up/sign-up';
+@import '../forgot-password/forgot-password';
 @import '../splash/splash';

@@ -16,6 +16,7 @@ import { HomeModule } from '../home/home.module';
 import { ProfileModule } from '../profile/profile.module';
 import { SignInModule } from '../sign-in/sign-in.module';
 import { SignUpModule } from '../sign-up/sign-up.module';
+import { ForgotPasswordModule } from '../forgot-password/forgot-password.module';
 import { SplashModule } from '../splash/splash.module';
 
 export const firebaseConfig = {
@@ -37,6 +38,7 @@ export const firebaseConfig = {
     ProfileModule,
     SignInModule,
     SignUpModule,
+    ForgotPasswordModule,
     SplashModule,
     RouterModule.forRoot(AppRoutes),
     AngularFireModule.initializeApp(firebaseConfig),

@@ -43,4 +43,8 @@ export class SignInComponent implements OnInit {
 		this.router.navigate([route]);
 	}
 
+	forgotPassword(email) {
+		firebase.auth().sendPasswordResetEmail(email);
+	}
+
 }
