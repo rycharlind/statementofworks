@@ -44,7 +44,7 @@ $qu-primary-btn-color: black !default;
 		}
 
 		&:hover {
-			background-color: darken(#fff, 10%) !important;
+			background-color: darken($qu-secondary-btn-bg-color, 10%) !important;
 		}
 	}
 }

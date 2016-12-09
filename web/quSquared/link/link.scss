@@ -56,16 +56,19 @@ $qu-primary-btn-color: white !default;
 		background-color: rgba(0,0,0,0);
 		color:$sl-primary;
 		&:hover {
-			background-color: darken($qu-primary-btn-color, 10%) !important;
+			color: darken($sl-primary, 10%) !important;
 		}
 	}
 }
 
 .qu-secondary {
 	.qu-link {
-		background-color: $qu-primary-btn-color;
-		color: $qu-primary-color;
-		border: 1px solid $qu-primary-btn-bg-color;
+		background-color: rgba(0,0,0,0);
+		color: $sl-secondary;
+		//border: 1px solid $qu-primary-btn-bg-color;
+		&:hover {
+			color: darken($sl-secondary, 10%) !important;
+		}
 	}
 }
 
