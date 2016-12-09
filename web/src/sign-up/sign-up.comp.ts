@@ -27,11 +27,12 @@ export class SignUpComponent implements OnInit {
 				console.log(user);
 				
 				// Update User Profile info
-				let up = new UserProfile(this.firstName, this.lastName);
-				firebase.database().ref('userProfiles/' + user.uid).set(up);
-
-				// Send email verification
-				user.sendEmailVerification();
+				if (this.firstName) {
+					let up = new UserProfile(this.firstName, this.lastName);
+					firebase.database().ref('userProfiles/' + user.uid).set(up);
+					// Send email verification
+					user.sendEmailVerification();
+				}
 
 				// Navigate to the home page after user is registered
 				this.router.navigate(['']);

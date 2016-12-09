@@ -11,7 +11,6 @@ import { UserProfile } from '../../model/user-profile';
 })
 export class ProfileViewComponent implements OnInit {
 
-	userProfiles: FirebaseListObservable<any[]>;
 	firstName: string;
 	lastName: string;
 	email: string;
@@ -20,7 +19,6 @@ export class ProfileViewComponent implements OnInit {
 	constructor(
 		af: AngularFire,
 		private router: Router) {
-			this.userProfiles = af.database.list('/userProfiles');
 	}
 
 	ngOnInit() {
@@ -36,11 +34,13 @@ export class ProfileViewComponent implements OnInit {
 	}
 
 	getUserProfileInfo(user: firebase.User) {
-		this.email = user.email;
-		this.isEmailVerified = user.emailVerified;
+		console.log("Get User Profile");
 		firebase.database().ref('/userProfiles/' + user.uid).once('value').then((snapshot) => {
+			console.log("Received user profile");
 			this.firstName = snapshot.val().firstName;
 			this.lastName = snapshot.val().lastName;
+			this.email = user.email;
+			this.isEmailVerified = user.emailVerified;
 		});
 	}
 }
