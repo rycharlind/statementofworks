@@ -1,3 +1,5 @@
+$qu-input-container-focus-color:#2196F3;
+
 .qu-input-container {
 
 	* { box-sizing:border-box; }
@@ -37,10 +39,10 @@
 	> input:focus ~ label, > input:valid ~ label 		{
     top: 8px;
     font-size: 12px;
-    color: #1976D2;
+    color: $qu-input-container-focus-color;
 	}
 
 	> input:active, > input:focus {
-		border-color: #1976D2;
+		border-color: $qu-input-container-focus-color;
 	}
 }
