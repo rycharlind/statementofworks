@@ -1,24 +1,26 @@
 <div class="home">
-	<h1>Home</h1>
-	<h3>{{email}}</h3>
-	<div>
-		<qu-input-container [placeholder]="'Project Name'">
-			<input name="projectName" ngModel required #projectName="ngModel">
-		</qu-input-container>
-		<br/>
-		<qu-input-container [placeholder]="'Project Status'">
-			<input name="projectStatus" ngModel required #projectStatus="ngModel">
-		</qu-input-container>
-		<qu-button class="qu-raised qu-primary" (click)="addProject(projectName.value, projectStatus.value)">Add</qu-button>
+	<div class="qu-whiteframe-6">
+		<h1>Home</h1>
+		<h3>{{email}}</h3>
+		<div>
+			<qu-input-container [placeholder]="'Project Name'">
+				<input name="projectName" ngModel required #projectName="ngModel">
+			</qu-input-container>
+			<br/>
+			<qu-input-container [placeholder]="'Project Status'">
+				<input name="projectStatus" ngModel required #projectStatus="ngModel">
+			</qu-input-container>
+			<qu-button class="qu-raised qu-primary" (click)="addProject(projectName.value, projectStatus.value)">Add</qu-button>
+		</div>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Status</th>
+			</tr>
+			<tr *ngFor="let item of items | async">
+				<td>{{item.name}}</td>
+				<td>{{item.status}}</td>
+			</tr>
+		</table>
 	</div>
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>Status</th>
-		</tr>
-		<tr *ngFor="let item of items | async">
-			<td>{{item.name}}</td>
-			<td>{{item.status}}</td>
-		</tr>
-	</table>
 </div>
