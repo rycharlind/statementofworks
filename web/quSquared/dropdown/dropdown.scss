@@ -1,0 +1,14 @@
+.qu-menu {
+	width:300px;
+	position:fixed;
+	right:30px;
+	top:50px;
+	padding:12px;
+	a.qu-menu-item {
+		display:block;
+		text-decoration: none;
+		padding:6px;
+		color:$sl-primary;
+		font-size:20px;
+	}
+}

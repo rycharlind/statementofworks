@@ -2,6 +2,14 @@
 	<div quFlexRow [quFlexAlign]="'center center'">
 		<qu-button class="qu-primary" (click)="toggle()"><i class="material-icons">menu</i></qu-button>
 		<span></span>
-		<qu-button class="qu-primary" (click)="goTo('profile/view')"><i class="material-icons">account_circle</i></qu-button>
+		<qu-button class="qu-primary" dropdown-open><i class="material-icons">account_circle</i></qu-button>
+		<div class="dropdown" dropdown>
+			<a dropdown-open>My Heroes</a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Badman</a></li>
+				<li><a href="#">Sadman</a></li>
+				<li><a href="#">Lieman</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
