@@ -1,29 +1,47 @@
-import { Directive, ElementRef, ContentChild, Output, EventEmitter, Input } from "@angular/core";
-import { NgForm } from '@angular/forms';
+import {Directive, ElementRef, ContentChild, Output, EventEmitter, Input} from "@angular/core";
+import {DropdownNotClosableZone} from "./DropdownNotClosableZone.dir";
 
 @Directive({
-	selector: '[dropdown]',
-	exportAs: "dropdown"
+    selector: "[dropdown]",
+    exportAs: "dropdown"
 })
-
 export class Dropdown {
 
-	@Input("dropdownToggle")
-	toggleClick = true;
+    // -------------------------------------------------------------------------
+    // Inputs / Outputs
+    // -------------------------------------------------------------------------
 
-	@Input("dropdownFocusActivate")
-	activateOnFocus = false;
+    @Input("dropdownToggle")
+    toggleClick = true;
 
-	@Output()
-	onOpen = new EventEmitter();
+    @Input("dropdownFocusActivate")
+    activateOnFocus = false;
 
-	@Output()
-	onClose = new EventEmitter();
+    @Output()
+    onOpen = new EventEmitter();
 
-	constructor(private elementRef: ElementRef) {
+    @Output()
+    onClose = new EventEmitter();
+
+    // -------------------------------------------------------------------------
+    // Properties
+    // -------------------------------------------------------------------------
+
+    @ContentChild(DropdownNotClosableZone)
+    notClosableZone: DropdownNotClosableZone;
+
+    // -------------------------------------------------------------------------
+    // Constructor
+    // -------------------------------------------------------------------------
+
+    constructor(private elementRef: ElementRef) {
     }
 
-	open() {
+    // -------------------------------------------------------------------------
+    // Public Methods
+    // -------------------------------------------------------------------------
+
+    open() {
         const element: HTMLElement = this.elementRef.nativeElement;
         element.classList.add("open");
         this.onOpen.emit(undefined);
@@ -40,5 +58,11 @@ export class Dropdown {
         return element.classList.contains("open");
     }
 
+    isInClosableZone(element: HTMLElement) {
+        if (!this.notClosableZone)
+            return false;
+
+        return this.notClosableZone.contains(element);
+    }
 
 }
