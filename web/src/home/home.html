@@ -3,43 +3,57 @@
 		<h1>SOW's</h1>
 		<h3>{{email}}</h3>
 		<form #sowForm="ngForm" quFlexColumn>
-			<qu-input-container [placeholder]="'SOW Number'">
-				<input type="number" name="sowNumber" [(ngModel)]="sow.number" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Description'">
-				<input type="text" name="sowDescription" [(ngModel)]="sow.description" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Title'">
-				<input type="text" name="sowTitle" [(ngModel)]="sow.title" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Start Date'">
-				<input type="date" name="sowStartDate" [(ngModel)]="sow.startDate" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'End Date'">
-				<input type="date"  name="sowEndDate" [(ngModel)]="sow.endDate" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Cost'">
-				<input type="number" name="sowCost" [(ngModel)]="sow.cost" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Type'">
-				<input type="text" name="sowType" [(ngModel)]="sow.type" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Sub Type'">
-				<input type="text" name="sowSubType" [(ngModel)]="sow.subType" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Vendor'">
-				<input type="text" name="sowVendor" [(ngModel)]="sow.vendor" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Business Owner'">
-				<input type="text" name="sowBusinessOwner" [(ngModel)]="sow.businessOwner" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Funding Source'">
-				<input type="text" name="sowFundingSource" [(ngModel)]="sow.fundingSource" required>
-			</qu-input-container>
-			<qu-input-container [placeholder]="'Funding Glid'">
-				<input type="text" name="sowFundingGlid" [(ngModel)]="sow.fundingGlid" required>
-			</qu-input-container>
-			<qu-button class="qu-raised qu-primary" (click)="createSow()">Create sow</qu-button>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'SOW Number'">
+					<input type="number" name="sowNumber" [(ngModel)]="sow.number" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Title'">
+					<input type="text" name="sowTitle" [(ngModel)]="sow.title" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Description'">
+					<input type="text" name="sowDescription" [(ngModel)]="sow.description" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Start Date'">
+					<input type="date" name="sowStartDate" [(ngModel)]="sow.startDate" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'End Date'">
+					<input type="date" name="sowEndDate" [(ngModel)]="sow.endDate" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Cost'">
+					<input type="number" name="sowCost" [(ngModel)]="sow.cost" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Type'">
+					<input type="text" name="sowType" [(ngModel)]="sow.type" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Sub Type'">
+					<input type="text" name="sowSubType" [(ngModel)]="sow.subType" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Vendor'">
+					<input type="text" name="sowVendor" [(ngModel)]="sow.vendor" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Business Owner'">
+					<input type="text" name="sowBusinessOwner" [(ngModel)]="sow.businessOwner" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Funding Source'">
+					<input type="text" name="sowFundingSource" [(ngModel)]="sow.fundingSource" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Funding Glid'">
+					<input type="text" name="sowFundingGlid" [(ngModel)]="sow.fundingGlid" required>
+				</qu-input-container>
+			</div>
+			<qu-button class="qu-raised qu-primary" (click)="createSow()" [quDisabled]="!sowForm.valid">Create SOW</qu-button>
 		</form>
 		<table>
 			<tr>
@@ -64,6 +78,7 @@
 				<td>{{item.endDate}}</td>
 				<td>{{item.cost}}</td>
 				<td>{{item.type}}</td>
+				<td>{{item.subType}}</td>
 				<td>{{item.vendor}}</td>
 				<td>{{item.businessOwner}}</td>
 				<td>{{item.fundingSource}}</td>

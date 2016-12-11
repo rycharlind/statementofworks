@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup } from '@angular/forms';
 import {BrowserModule} from "@angular/platform-browser";
-import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { Router } from "@angular/router";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';

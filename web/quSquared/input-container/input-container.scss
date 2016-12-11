@@ -5,7 +5,8 @@ $qu-input-container-focus-color:#2196F3;
 	* { box-sizing:border-box; }
 	
 	position:relative; 
-	margin-bottom:10px; 
+    display:flex;
+    flex-grow:1;
 	
 	> input {
     font-size: 18px;
