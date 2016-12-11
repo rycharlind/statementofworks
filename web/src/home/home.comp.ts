@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';
+import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
 
 @Component({
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
 	constructor(
 		private userService: UserService,
 		af: AngularFire, private router: Router) {
-		this.items = af.database.list('/projects');
+		this.items = af.database.list('/sows');
 	}
 
 	ngOnInit() {
@@ -30,8 +31,34 @@ export class HomeComponent implements OnInit {
 		console.log(this.userService.user);
 	}
 
-	addProject(name, status) {
-		var project = new Project(name, status);
-		this.items.push(project);
+	createSOW(
+		sowName, 
+		sowDescription, 
+		sowTitle, 
+		sowStartDate, 
+		sowEndDate, 
+		sowCost, 
+		sowType, 
+		sowSubType, 
+		sowVendor, 
+		sowBusinessOwner,
+		sowFundingSource,
+		sowFundingGlid ) {
+			
+			var sow = new Sow(
+				sowName, 
+				sowDescription,
+				sowTitle,
+				sowStartDate,
+				sowEndDate,
+				sowCost,
+				sowType,
+				sowSubType,
+				sowVendor,
+				sowBusinessOwner,
+				sowFundingSource,
+				sowFundingGlid
+				);
+			this.items.push(sow);
 	}
 }

@@ -43,6 +43,7 @@ export class Dropdown {
 
     open() {
         const element: HTMLElement = this.elementRef.nativeElement;
+                console.log(element.offsetTop);
         element.classList.add("open");
         this.onOpen.emit(undefined);
     }

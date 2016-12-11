@@ -1,22 +1,60 @@
 <div class="home">
 	<div class="qu-whiteframe-6">
-		<h1>Wagadsf</h1>
+		<h1>SOW's</h1>
 		<h3>{{email}}</h3>
 		<div>
-			<qu-input-container [placeholder]="'Project Name'">
-				<input name="projectName" ngModel required #projectName="ngModel">
+			<qu-input-container [placeholder]="'SOW Number'">
+				<input name="sowNumber" ngModel required #sowNumber="ngModel">
 			</qu-input-container>
-			<br/>
-			<qu-input-container [placeholder]="'Project Status'">
-				<input name="projectStatus" ngModel required #projectStatus="ngModel">
+			<qu-input-container [placeholder]="'Description'">
+				<input name="sowDescription" ngModel required #sowDescription="ngModel">
 			</qu-input-container>
-			<qu-button class="qu-raised qu-primary" (click)="addProject(projectName.value, projectStatus.value)">Add</qu-button>
-			<qu-button class="qu-raised qu-primary" (click)="getUser()">Add</qu-button>
+			<qu-input-container [placeholder]="'Title'">
+				<input name="sowTitle" ngModel required #sowTitle="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Start Date'">
+				<input name="sowStartDate" ngModel required #sowStartDate="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'End Date'">
+				<input name="sowEndDate" ngModel required #sowEndDate="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Cost'">
+				<input name="sowCost" ngModel required #sowCost="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Type'">
+				<input name="sowType" ngModel required #sowType="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Sub Type'">
+				<input name="sowSubType" ngModel required #sowSubType="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Vendor'">
+				<input name="sowVendor" ngModel required #sowVendor="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Business Owner'">
+				<input name="sowBusinessOwner" ngModel required #sowBusinessOwner="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Funding Source'">
+				<input name="sowFundingSource" ngModel required #sowFundingSource="ngModel">
+			</qu-input-container>
+			<qu-input-container [placeholder]="'Funding Glid'">
+				<input name="sowFundingGlid" ngModel required #sowFundingGlid="ngModel">
+			</qu-input-container>
+			<qu-button class="qu-raised qu-primary" (click)="createSOW(sowNumber.value, sowDescription.value, sowTitle.value, sowStartDate.value, sowEndDate.value, sowCost.value, sowType.value, sowSubType.value, sowVendor.value, sowBusinessOwner.value, sowFundingSource.value, sowFundingGlid.value)">Create SOW</qu-button>
 		</div>
 		<table>
 			<tr>
-				<th>Name</th>
-				<th>Status</th>
+				<th>SOW Number</th>
+				<th>Description</th>
+				<th>Title</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Cost</th>
+				<th>Type</th>
+				<th>Sub-Type</th>
+				<th>Vendor</th>
+				<th>Business Owner</th>
+				<th>Funding Source</th>
+				<th>Funding Glid</th>
 			</tr>
 			<tr *ngFor="let item of items | async">
 				<td>{{item.name}}</td>

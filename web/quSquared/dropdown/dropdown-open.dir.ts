@@ -6,28 +6,13 @@ import {Dropdown} from "./dropdown.dir";
 })
 export class DropdownOpen implements OnDestroy {
 
-    // -------------------------------------------------------------------------
-    // Private Properties
-    // -------------------------------------------------------------------------
-
-    /**
-     * This hack is needed for dropdown not to open and instantly closed
-     */
     private openedByFocus: boolean = false;
  
     private closeDropdownOnOutsideClick = (event: MouseEvent) => this.close(event);
 
-    // -------------------------------------------------------------------------
-    // Constructor
-    // -------------------------------------------------------------------------
-
     constructor(@Host() public dropdown: Dropdown,
                 private elementRef: ElementRef) {
     }
-
-    // -------------------------------------------------------------------------
-    // Public Methods
-    // -------------------------------------------------------------------------
 
     @HostListener("click")
     openDropdown() {
@@ -72,17 +57,9 @@ export class DropdownOpen implements OnDestroy {
         }
     }
 
-    // -------------------------------------------------------------------------
-    // Lifecycle Methods
-    // -------------------------------------------------------------------------
-
     ngOnDestroy() {
         document.removeEventListener("click", this.closeDropdownOnOutsideClick);
     }
-
-    // -------------------------------------------------------------------------
-    // Private Methods
-    // -------------------------------------------------------------------------
 
     private close(event: Event) {
         if (!this.dropdown.isInClosableZone(<HTMLElement> event.target)
