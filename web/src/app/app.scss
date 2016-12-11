@@ -18,6 +18,18 @@ $qu-side-nav-bg: white;
 $qu-side-nav-border: whitesmoke;
 $qu-side-nav-color: $sl-secondary;
 
+html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+body {
+    background: whitesmoke;
+		color: rgba(0,0,0,0.87);
+    margin: 0;
+}
+
 .app {
 	height: calc(100vh - 64px);
   padding-top: 64px;
