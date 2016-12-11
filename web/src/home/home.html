@@ -5,15 +5,18 @@
 		<form #sowForm="ngForm" quFlexColumn>
 			<div quFlexRow>
 				<qu-input-container [placeholder]="'SOW Number'">
-					<input type="number" name="sowNumber" [(ngModel)]="sow.number" required>
+					<input type="text" name="sowNumber" [(ngModel)]="sow.number" required>
 				</qu-input-container>
 				<qu-input-container [placeholder]="'Title'">
 					<input type="text" name="sowTitle" [(ngModel)]="sow.title" required>
 				</qu-input-container>
-			</div>
-			<div quFlexRow>
 				<qu-input-container [placeholder]="'Description'">
 					<input type="text" name="sowDescription" [(ngModel)]="sow.description" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Step'">
+					<input type="text" name="sowStep" [(ngModel)]="sow.step" required>
 				</qu-input-container>
 			</div>
 			<div quFlexRow>
@@ -60,6 +63,7 @@
 				<th>SOW Number</th>
 				<th>Description</th>
 				<th>Title</th>
+				<th>Step</th>
 				<th>Start Date</th>
 				<th>End Date</th>
 				<th>Cost</th>
@@ -74,6 +78,7 @@
 				<td>{{item.number}}</td>
 				<td>{{item.description}}</td>
 				<td>{{item.title}}</td>
+				<td>{{item.step}}</td>
 				<td>{{item.startDate}}</td>
 				<td>{{item.endDate}}</td>
 				<td>{{item.cost}}</td>

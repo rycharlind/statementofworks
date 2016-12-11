@@ -2,6 +2,7 @@ export class Sow {
   number: number;
   description: string;
   title: string;
+  step:string;
   startDate: Date;
   endDate: Date;
   cost: number;
