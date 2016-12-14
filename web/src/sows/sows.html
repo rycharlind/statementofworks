@@ -1,5 +1,32 @@
 <div class="sows">
 	<div class="qu-whiteframe-6">
 
+		<!-- OSS List -->
+		<div class="os-list" quFlexColumn>
+			<div class="os-list-item" *ngFor="let sow of items | async">
+				<div class="os-list-item-header" quFlexRow>
+					<div class="os-list-item-left">
+						{{sow.number}} (<strong>{{sow.step}}</strong>)
+					</div>
+					<div class="os-list-item-right">
+						<span>{{sow.businessOwner}}</span> <i class="material-icons">account_box</i>
+					</div>
+				</div>
+				<div class="os-list-item-content" quFlexRow>
+					{{sow.title}}
+				</div>
+				<div class="os-list-item-footer" quFlexRow>
+					<div class="os-list-item-left">
+						<i class="material-icons">date_range</i> <span>{{sow.startDate}} - {{sow.endDate}}</span>
+					</div>
+					<div class="os-list-item-right">
+						{{sow.vendor}}
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
 	</div>
 </div>

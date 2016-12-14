@@ -1,13 +1,75 @@
 .sows {
-    padding:32px;
+    padding:16px;
     .qu-whiteframe-6 {
-        padding:32px;
+        padding:20px;
+    }
+
+    .os-list {
+        &-item {
+            padding:10px;
+            border-bottom:1px solid #979797;
+            font-size: 12px;
+            &-header {
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                letter-spacing: -0.2px;
+                .os-list-item-left {
+                    color: rgba(0, 0, 0, 0.58);
+                }
+                .os-list-item-right {
+                    color: #2196f3;
+                    span {
+                        line-height:1.5;
+                    }
+                    i {
+                        font-size:18px;
+                    }
+                }
+            }
+
+            &-content {
+                padding:4px 0px;
+                font-size: 16px;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                letter-spacing: -0.3px;
+            }
+
+            &-footer {
+	            letter-spacing: -0.2px;
+	            color: rgba(0, 0, 0, 0.54);
+                .os-list-item-left {
+                    span {
+                        margin-left:4px;
+                        line-height:1.5;
+                    }
+                    i {
+                        font-size:18px;
+                    }
+                }
+            }
+
+            &-right, &-left {
+                display:flex;
+                flex-grow:1;
+            }
+            &-right {
+                justify-content: flex-end;
+            }
+        }
     }
 
     qu-input-container {
         display:flex;
         flex-grow:1;
         padding:6px;
+    }
+
+    .qu-flex-row {
+        align-items:stretch;
+        align-content:space-between;
     }
 
 }
