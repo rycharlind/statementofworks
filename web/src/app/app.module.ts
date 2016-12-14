@@ -18,6 +18,7 @@ import { SignInModule } from '../sign-in/sign-in.module';
 import { SignUpModule } from '../sign-up/sign-up.module';
 import { ForgotPasswordModule } from '../forgot-password/forgot-password.module';
 import { SplashModule } from '../splash/splash.module';
+import { SowsModule } from '../sows/sows.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA2lKWhBJZq_shhMFGXtbyH2eD-nKS7RWU",
@@ -40,6 +41,7 @@ export const firebaseConfig = {
     SignUpModule,
     ForgotPasswordModule,
     SplashModule,
+    SowsModule,
     RouterModule.forRoot(AppRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot()
@@ -48,7 +50,6 @@ export const firebaseConfig = {
     AppComponent,
     HeaderComponent,
     SideNavComponent
-
   ],
   providers: [
   ],

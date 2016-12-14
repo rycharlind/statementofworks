@@ -16,9 +16,6 @@ export class DropdownOpen implements OnDestroy {
 
     @HostListener("click")
     openDropdown() {
-
-        
-
         if (this.dropdown.activateOnFocus && this.openedByFocus) {
             this.openedByFocus = false;
             return;
