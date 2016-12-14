@@ -6,9 +6,9 @@
 
     .os-list {
         &-item {
-            padding:10px;
-            border-bottom:1px solid #979797;
+            padding:10px 50px 10px 0px;
             font-size: 12px;
+            position:relative;
             &-header {
                 font-weight: normal;
                 font-style: normal;
@@ -21,6 +21,7 @@
                     color: #2196f3;
                     span {
                         line-height:1.5;
+                        margin-right:4px;
                     }
                     i {
                         font-size:18px;
@@ -58,7 +59,20 @@
             &-right {
                 justify-content: flex-end;
             }
+
+            .arrow {
+                position:absolute;
+                width:24px;
+                height:24px;
+                top:50%;
+                right:10px;
+                margin-top:-12px;
+            }
         }
+    }
+
+    div.os-list-item:not(:last-child) {
+        border-bottom:1px solid #979797;
     }
 
     qu-input-container {
