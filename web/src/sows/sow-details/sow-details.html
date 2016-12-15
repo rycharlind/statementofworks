@@ -1,0 +1,32 @@
+<div class="sow-details">
+
+    <div id="sowPrimaryDetails">
+        <div class="number">
+            {{sow.number}}
+        </div>
+        <div class="title">
+            {{sow.title}}
+        </div>
+        <div class="desc">
+            {{sow.description}}
+        </div>
+    </div>
+    <div id="sowSecondaryDetails">
+        <div quFlexRow>
+            <div class="sow-detail-item">
+                <label>Date Range</label>
+                <span>{{sow.startDate}} - {{sow.endDate}}</span>
+            </div>
+        </div>
+        <div quFlexRow>
+            <div class="sow-detail-item">
+                <label>Step</label>
+                <span>{{sow.step}}</span>
+            </div>
+            <div class="sow-detail-item">
+                <label>Type</label>
+                <span>{{sow.type}} - {{sow.subType}}</span>
+            </div>
+        </div>
+    </div>
+</div>

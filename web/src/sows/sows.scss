@@ -7,7 +7,7 @@
 
     .os-list {
         &-item {
-            padding:10px 50px 10px 0px;
+            padding:10px 50px 10px 10px;
             font-size: 12px;
             position:relative;
             &-header {
@@ -69,6 +69,11 @@
                 right:10px;
                 margin-top:-12px;
             }
+
+            &:hover {
+                cursor:pointer;
+                background-color:rgba(0,0,0,0.03);
+            }
         }
     }
 
@@ -88,3 +93,5 @@
     }
 
 }
+
+@import './sow-details/sow-details';

@@ -7,6 +7,8 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';
 import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
+import { SowDetailsComponent } from './sow-details/sow-details.comp';
+import { SowsService } from './sows.svc';
 
 @Component({
 	selector: 'sl-sows',
@@ -22,7 +24,9 @@ export class SowsComponent implements OnInit {
 
 	constructor(
 		private userService: UserService,
+		private sowsService: SowsService,
 		af: AngularFire, private router: Router) {
+		
 		this.items = af.database.list('/sows');
 		this.sow = new Sow();
 	}
@@ -38,5 +42,9 @@ export class SowsComponent implements OnInit {
 	createSow() {
 		console.log(this.sow)
 		this.items.push(this.sow);
+	}
+
+	selectSow(sow: Sow) {
+		this.sowsService.announceSowSelected(sow);
 	}
 }

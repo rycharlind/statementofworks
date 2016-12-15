@@ -1,0 +1,50 @@
+.sow-details {
+    text-align: left;
+
+    #sowPrimaryDetails {
+        margin-bottom:24px;
+        div {
+            margin-bottom:16px;
+        }
+        .number {
+            font-size:18px;
+            letter-spacing: -0.4px;
+	        color: rgba(0, 0, 0, 0.58);
+        }
+        .title {
+            font-size: 24px;
+	        font-weight: 500;
+	        letter-spacing: -0.5px;
+	        color: rgba(0, 0, 0, 0.58);
+        }
+        .desc {
+            font-size: 16px;
+	        letter-spacing: -0.3px;
+	        color: rgba(0, 0, 0, 0.58);
+        }
+    }
+
+    #sowSecondaryDetails {
+        div.qu-flex-row {
+            margin-bottom:16px;
+        }
+    
+    }
+
+    .sow-detail-item {
+        margin-right:32px;
+        label {
+            display:block;
+            font-size: 14px;
+	        font-weight: 500;
+	        letter-spacing: -0.3px;
+	        color: rgba(0, 0, 0, 0.58);
+        }
+        span {
+            font-size: 24px;
+	        letter-spacing: -0.5px;
+	        color: rgba(0, 0, 0, 0.87);
+        }
+    }
+
+}

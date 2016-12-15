@@ -1,12 +1,9 @@
 <div class="sows">
-
-
 	<div quFlexRow>
-
 		<!-- OSS List -->
 		<div class="qu-whiteframe-6 qu-flex-30">
 			<div class="os-list" quFlexColumn>
-				<div class="os-list-item" *ngFor="let sow of items | async">
+				<div class="os-list-item qu-ripple" *ngFor="let sow of items | async" (click)="selectSow(sow)">
 					<div class="os-list-item-header" quFlexRow>
 						<div class="os-list-item-left">
 							{{sow.number}} (<strong>{{sow.step}}</strong>)
@@ -33,7 +30,44 @@
 
 		<!-- SOW Details -->
 		<div class="qu-whiteframe-6 qu-flex">
-			<h1>SOW Details</h1>
+			<md-tab-group>
+				<md-tab>
+					<template md-tab-label>
+						Details
+					</template>
+					<sow-details></sow-details>
+				</md-tab>
+				<md-tab>
+					<template md-tab-label>
+						Activity
+					</template>
+					<h1>Activity</h1>
+					<p>...</p>
+				</md-tab>
+				<md-tab>
+					<template md-tab-label>
+						Comments
+					</template>
+					<h1>Comments</h1>
+					<p>...</p>
+				</md-tab>
+				<md-tab>
+					<template md-tab-label>
+						Docs
+					</template>
+					<h1>Docs</h1>
+					<p>...</p>
+				</md-tab>
+				<md-tab>
+					<template md-tab-label>
+						Members
+					</template>
+					<h1>Members</h1>
+					<p>...</p>
+				</md-tab>
+			</md-tab-group>
+
+
 		</div>
 
 	</div>
