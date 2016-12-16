@@ -1,9 +1,12 @@
 <div class="sow-details">
 
-    <div class="qu-flex-align-items-end" quFlexColumn>
-        <qu-button class="qu-raised qu-primary" (click)="toggleView()">
-            <label *ngIf="!isEditable">Edit</label>
-            <label *ngIf="isEditable">Save</label>
+    <div class="sow-details-toolbar qu-flex-justify-content-end" quFlexRow>
+        <qu-button class="qu-raised qu-danger">
+            <i class="material-icons">delete</i>
+        </qu-button>
+        <qu-button class="qu-raised qu-secondary" (click)="toggleView()">
+            <i class="material-icons" *ngIf="!isEditable">create</i>
+            <i class="material-icons" *ngIf="isEditable">save</i>
         </qu-button>
     </div>
 

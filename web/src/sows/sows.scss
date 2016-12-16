@@ -19,7 +19,7 @@
                     color: rgba(0, 0, 0, 0.58);
                 }
                 .os-list-item-right {
-                    color: #2196f3;
+                    color:$sl-secondary;
                     span {
                         line-height:1.5;
                         margin-right:4px;
@@ -84,15 +84,17 @@
     .md-tab-header {
         margin-bottom:24px;
         .md-tab-label.md-tab-active {
-            border-bottom:3px solid #2196F3;
-            color:#2196F3;
+            border-bottom:3px solid $sl-secondary;
+            color:$sl-secondary;
         }
     }
 
-    .qu-flex-row {
-        align-items:stretch;
-        align-content:space-between;
+    .sows-toolbar {
+        .qu-button-container {
+            margin-right:6px;
+        }
     }
+
 
 }
 
