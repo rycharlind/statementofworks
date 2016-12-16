@@ -1,74 +1,82 @@
 <div class="sows">
 	<div quFlexRow>
-		<!-- OSS List -->
-		<div class="qu-whiteframe-6 qu-flex-30">
-			<div class="os-list" quFlexColumn>
-				<div class="os-list-item qu-ripple" *ngFor="let sow of items | async" (click)="selectSow(sow)">
-					<div class="os-list-item-header" quFlexRow>
-						<div class="os-list-item-left">
-							{{sow.number}} (<strong>{{sow.step}}</strong>)
+
+		<div class="qu-flex-30">
+			<!-- OSS List -->
+			<div class="qu-whiteframe-6">
+				<div class="os-list">
+					<div class="os-list-item qu-ripple" *ngFor="let sow of items | async" (click)="selectSow(sow)">
+						<div class="os-list-item-header" quFlexRow>
+							<div class="os-list-item-left">
+								{{sow.number}} (<strong>{{sow.step}}</strong>)
+							</div>
+							<div class="os-list-item-right">
+								<span>{{sow.businessOwner}}</span> <i class="material-icons">account_box</i>
+							</div>
 						</div>
-						<div class="os-list-item-right">
-							<span>{{sow.businessOwner}}</span> <i class="material-icons">account_box</i>
+						<div class="os-list-item-content" quFlexRow>
+							{{sow.title}}
 						</div>
+						<div class="os-list-item-footer" quFlexRow>
+							<div class="os-list-item-left">
+								<i class="material-icons">date_range</i> <span>{{sow.startDate}} - {{sow.endDate}}</span>
+							</div>
+							<div class="os-list-item-right">
+								{{sow.vendor}}
+							</div>
+						</div>
+						<div class="arrow"><i class="material-icons">keyboard_arrow_right</i></div>
 					</div>
-					<div class="os-list-item-content" quFlexRow>
-						{{sow.title}}
-					</div>
-					<div class="os-list-item-footer" quFlexRow>
-						<div class="os-list-item-left">
-							<i class="material-icons">date_range</i> <span>{{sow.startDate}} - {{sow.endDate}}</span>
-						</div>
-						<div class="os-list-item-right">
-							{{sow.vendor}}
-						</div>
-					</div>
-					<div class="arrow"><i class="material-icons">keyboard_arrow_right</i></div>
 				</div>
 			</div>
-		</div>
-
-		<!-- SOW Details -->
-		<div class="qu-whiteframe-6 qu-flex">
-			<md-tab-group>
-				<md-tab>
-					<template md-tab-label>
-						<i class="material-icons">assignment</i> Details
-					</template>
-					<sow-details></sow-details>
-				</md-tab>
-				<md-tab>
-					<template md-tab-label>
-						<i class="material-icons">linear_scale</i> Activity
-					</template>
-					<h1>Activity</h1>
-					<p>...</p>
-				</md-tab>
-				<md-tab>
-					<template md-tab-label>
-						<i class="material-icons">chat</i> Comments
-					</template>
-					<h1>Comments</h1>
-					<p>...</p>
-				</md-tab>
-				<md-tab>
-					<template md-tab-label>
-						<i class="material-icons">insert_drive_file</i> Docs
-					</template>
-					<h1>Docs</h1>
-					<p>...</p>
-				</md-tab>
-				<md-tab>
-					<template md-tab-label>
-						<i class="material-icons">people</i> Members
-					</template>
-					<h1>Members</h1>
-					<p>...</p>
-				</md-tab>
-			</md-tab-group>
-
 
 		</div>
+
+		<div class="qu-flex">
+
+			<!-- SOW Details -->
+			<div class="qu-whiteframe-6">
+				<md-tab-group>
+					<md-tab>
+						<template md-tab-label>
+							<i class="material-icons">assignment</i> Details
+						</template>
+						<sow-details></sow-details>
+					</md-tab>
+					<md-tab>
+						<template md-tab-label>
+							<i class="material-icons">linear_scale</i> Activity
+						</template>
+						<h1>Activity</h1>
+						<p>...</p>
+					</md-tab>
+					<md-tab>
+						<template md-tab-label>
+							<i class="material-icons">chat</i> Comments
+						</template>
+						<h1>Comments</h1>
+						<p>...</p>
+					</md-tab>
+					<md-tab>
+						<template md-tab-label>
+							<i class="material-icons">insert_drive_file</i> Docs
+						</template>
+						<h1>Docs</h1>
+						<p>...</p>
+					</md-tab>
+					<md-tab>
+						<template md-tab-label>
+							<i class="material-icons">people</i> Members
+						</template>
+						<h1>Members</h1>
+						<p>...</p>
+					</md-tab>
+				</md-tab-group>
+			</div>
+
+		</div>
+
+
 
 	</div>
 

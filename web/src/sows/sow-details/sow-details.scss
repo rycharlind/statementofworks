@@ -29,7 +29,6 @@
     }
 
     .sow-detail-item {
-        margin-right:64px;
         label {
             display:block;
             font-size: 14px;
@@ -42,6 +41,15 @@
 	        letter-spacing: -0.5px;
 	        color: rgba(0, 0, 0, 0.87);
         }
+    }
+
+    .qu-input-container {
+        padding:6px;
+    }
+
+    .qu-flex-align-items-end {
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
     }
 
 }

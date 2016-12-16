@@ -1,4 +1,5 @@
 export class Sow {
+  $key: string;
   number: number;
   description: string;
   title: string;
