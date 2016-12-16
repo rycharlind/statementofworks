@@ -34,12 +34,15 @@ export class SowDetailsComponent implements OnInit {
     }
 
     saveSow(sow: any) {
-
         let key = sow.$key;
         delete sow.$exists;
         delete sow.$key;
         console.log(sow);
         firebase.database().ref('/sows/' + key).update(sow);
+    }
+
+    deleteSow() {
+        firebase.database().ref('/sows/' + this.sow.$key).remove();
     }
 
 }
