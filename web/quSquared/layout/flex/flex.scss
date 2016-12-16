@@ -32,6 +32,11 @@
    justify-content: flex-end;	
 }
 
+.qu-flex-justify-content-space-between {
+   -webkit-justify-content: space-between;
+   justify-content: space-between;	
+}
+
 .qu-flex-align-items-start {
    -webkit-align-items: flex-start;
    align-items: flex-start;
