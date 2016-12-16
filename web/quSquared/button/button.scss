@@ -79,6 +79,13 @@
 	}
 }
 
+.qu-warning > .qu-button-container {
+	.qu-button {
+		background-color: $sl-warning;
+		color: white;
+	}
+}
+
 .qu-raised > .qu-button-container {
 	.qu-button {
     	box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
