@@ -81,10 +81,12 @@
         border-bottom:1px solid #979797;
     }
 
-    qu-input-container {
-        display:flex;
-        flex-grow:1;
-        padding:6px;
+    .md-tab-header {
+        margin-bottom:24px;
+        .md-tab-label.md-tab-active {
+            border-bottom:3px solid #2196F3;
+            color:#2196F3;
+        }
     }
 
     .qu-flex-row {
