@@ -35,13 +35,9 @@ export class SowsComponent implements OnInit {
 		this.userService.authUser();
 	}
 
-	getUser() {
-		console.log(this.userService.user);
-	}
-
 	createSow() {
-		console.log(this.sow)
-		this.items.push(this.sow);
+		//console.log(this.sow)
+		//this.items.push(this.sow);
 	}
 
 	selectSow(sow: Sow) {
