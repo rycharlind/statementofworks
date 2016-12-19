@@ -1,6 +1,7 @@
 export class Sow {
   $key: string;
-  number: number;
+  dateCreated: Date;
+  number: string;
   description: string;
   title: string;
   step:string;
@@ -13,4 +14,7 @@ export class Sow {
   businessOwner: string;
   fundingSource: string;
   fundingGlid: string;
+  constructor() {
+    this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
+  }
 }

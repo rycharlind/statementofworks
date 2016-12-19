@@ -17,6 +17,9 @@ export class SowDetailsComponent implements OnInit {
         this.sowsService.getSelectedSow().subscribe(
             s => {
                 this.sow = s; 
+                if (this.sowsService.isNewSow) {
+                    this.isEditable = true;
+                }
             }
         );
     }
@@ -34,11 +37,14 @@ export class SowDetailsComponent implements OnInit {
     }
 
     saveSow(sow: any) {
-        let key = sow.$key;
-        delete sow.$exists;
-        delete sow.$key;
         console.log(sow);
-        firebase.database().ref('/sows/' + key).update(sow);
+        let key = sow.$key;
+        if (key) {
+            delete sow.$key;
+            delete sow.$exists;
+            firebase.database().ref('/sows/' + key).update(sow);
+            sow.$key = key;
+        }
     }
 
     deleteSow() {
