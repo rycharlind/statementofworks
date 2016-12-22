@@ -2,16 +2,18 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from "@angular/router";
 import { SignInService } from './sign-in.svc';
 import { AngularFire, AngularFireAuth } from 'angularfire2';
+import { UserService } from '../firebase-service/user.svc';
 
 @Component({
 	selector: 'sl-sign-in',
 	templateUrl: './sign-in.html',
-	providers: [SignInService]
+	providers: [SignInService, UserService]
 })
 export class SignInComponent implements OnInit {
 	errorMessage: string;
 
 	constructor(
+		private userService: UserService,
 		private router: Router,
 		private zone: NgZone,
 		af: AngularFire) {
@@ -21,7 +23,7 @@ export class SignInComponent implements OnInit {
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
 				console.log(user);
-				this.router.navigate(['']);
+				this.router.navigate(['sows']);
 			} else {
 				console.log("No User");
 			}
@@ -32,11 +34,7 @@ export class SignInComponent implements OnInit {
 	}
 
 	signIn(email, password) {
-		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-			if (error) {
-				console.log(error.message);
-			}
-		});
+		this.userService.signIn(email, password);
 	}
 
 	goTo(route) {

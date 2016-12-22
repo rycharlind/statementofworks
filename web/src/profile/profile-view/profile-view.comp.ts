@@ -3,11 +3,13 @@ import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { AngularFire, AngularFireAuth, FirebaseListObservable } from 'angularfire2';
 import { UserProfile } from '../../model/user-profile';
+import { UserService } from '../../firebase-service/user.svc';
+
 
 @Component({
 	selector: 'sl-profile-view',
 	templateUrl: './profile-view.html',
-	providers: []
+	providers: [UserService]
 })
 export class ProfileViewComponent implements OnInit {
 
@@ -17,20 +19,13 @@ export class ProfileViewComponent implements OnInit {
 	isEmailVerified: boolean;
 
 	constructor(
+		private userService: UserService,
 		af: AngularFire,
 		private router: Router) {
 	}
 
 	ngOnInit() {
-		firebase.auth().onAuthStateChanged((user) => {
-			if (user) {
-				console.log(user);
-				this.getUserProfileInfo(user);
-			} else {
-				console.log("No User");
-				this.router.navigate(['sign-in']);
-			}
-		});
+		this.userService.authUser();
 	}
 
 	getUserProfileInfo(user: firebase.User) {

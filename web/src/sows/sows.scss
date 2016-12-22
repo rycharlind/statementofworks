@@ -1,0 +1,101 @@
+.sows {
+    padding:16px;
+    .qu-whiteframe-6 {
+        padding:20px;
+        margin:8px;
+    }
+
+    .os-list {
+        &-item {
+            padding:10px 50px 10px 10px;
+            font-size: 12px;
+            position:relative;
+            &-header {
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                letter-spacing: -0.2px;
+                .os-list-item-left {
+                    color: rgba(0, 0, 0, 0.58);
+                }
+                .os-list-item-right {
+                    color:$sl-secondary;
+                    span {
+                        line-height:1.5;
+                        margin-right:4px;
+                    }
+                    i {
+                        font-size:18px;
+                    }
+                }
+            }
+
+            &-content {
+                padding:4px 0px;
+                font-size: 16px;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                letter-spacing: -0.3px;
+            }
+
+            &-footer {
+	            letter-spacing: -0.2px;
+	            color: rgba(0, 0, 0, 0.54);
+                .os-list-item-left {
+                    span {
+                        margin-left:4px;
+                        line-height:1.5;
+                    }
+                    i {
+                        font-size:18px;
+                    }
+                }
+            }
+
+            &-right, &-left {
+                display:flex;
+                flex-grow:1;
+            }
+            &-right {
+                justify-content: flex-end;
+            }
+
+            .arrow {
+                position:absolute;
+                width:24px;
+                height:24px;
+                top:50%;
+                right:10px;
+                margin-top:-12px;
+            }
+
+            &:hover {
+                cursor:pointer;
+                background-color:rgba(0,0,0,0.03);
+            }
+        }
+    }
+
+    div.os-list-item:not(:last-child) {
+        border-bottom:1px solid #979797;
+    }
+
+    .md-tab-header {
+        margin-bottom:24px;
+        .md-tab-label.md-tab-active {
+            border-bottom:3px solid $sl-secondary;
+            color:$sl-secondary;
+        }
+    }
+
+    .sows-toolbar {
+        .qu-button-container {
+            margin-right:6px;
+        }
+    }
+
+
+}
+
+@import './sow-details/sow-details';

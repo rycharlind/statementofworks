@@ -1,38 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgForm, FormGroup } from '@angular/forms';
+import {BrowserModule} from "@angular/platform-browser";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { Router } from "@angular/router";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';
+import { Sow } from '../model/sow';
+import { UserService } from '../firebase-service/user.svc';
 
 @Component({
 	selector: 'sl-home',
 	templateUrl: './home.html',
-	providers: []
+	providers: [UserService]
 })
 
 export class HomeComponent implements OnInit {
 
 	items: FirebaseListObservable<any[]>;
 	email: string;
+	sow: Sow;
 
-	constructor(af: AngularFire, private router: Router) {
-		this.items = af.database.list('/projects');
+	constructor(
+		private userService: UserService,
+		af: AngularFire, private router: Router) {
+		this.items = af.database.list('/sows');
+		this.sow = new Sow();
 	}
 
 	ngOnInit() {
-		firebase.auth().onAuthStateChanged((user) => {
-			if (user) {
-				console.log(user);
-				this.email = user.email;
-			} else {
-				console.log("No User");
-				this.router.navigate(['sign-in']);
-			}
-		});
+		this.userService.authUser();
 	}
 
-	addProject(name, status) {
-		var project = new Project(name, status);
-		this.items.push(project);
+	getUser() {
+		console.log(this.userService.user);
+	}
+
+	createSow() {
+		console.log(this.sow)
+		this.items.push(this.sow);
 	}
 }

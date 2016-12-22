@@ -3,4 +3,11 @@
     .qu-whiteframe-6 {
         padding:32px;
     }
+
+    qu-input-container {
+        display:flex;
+        flex-grow:1;
+        padding:6px;
+    }
+
 }

@@ -1,0 +1,61 @@
+.sow-details {
+    text-align: left;
+
+    #sowPrimaryDetails {
+        margin-bottom:24px;
+        .number {
+            margin-bottom:12px;
+            font-size:18px;
+            letter-spacing: -0.4px;
+	        color: rgba(0, 0, 0, 0.58);
+        }
+        .title {
+            font-size: 24px;
+	        font-weight: 500;
+	        letter-spacing: -0.5px;
+	        color: rgba(0, 0, 0, 0.78);
+        }
+        .desc {
+            font-size: 16px;
+	        letter-spacing: -0.3px;
+	        color: rgba(0, 0, 0, 0.58);
+        }
+    }
+
+    #sowSecondaryDetails {
+        div.qu-flex-row {
+            margin-bottom:16px;
+        }
+    }
+
+    .sow-detail-item {
+        label {
+            display:block;
+            font-size: 14px;
+	        font-weight: 500;
+	        letter-spacing: -0.3px;
+	        color: rgba(0, 0, 0, 0.58);
+        }
+        span {
+            font-size: 24px;
+	        letter-spacing: -0.5px;
+	        color: rgba(0, 0, 0, 0.87);
+        }
+    }
+
+    .sow-details-toolbar {
+        .qu-button-container {
+            margin-right:6px;
+        }
+    }
+
+    .qu-input-container {
+        padding:6px;
+    }
+
+    .qu-flex-align-items-end {
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+    }
+
+}

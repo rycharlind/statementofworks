@@ -1,7 +1,19 @@
 <div class="header qu-whiteframe-6">
-	<div quFlexRow [quFlexAlign]="'center center'">
+	<div class="qu-flex-justify-content-space-between qu-flex-align-items-center" quFlexRow>
 		<qu-button class="qu-primary" (click)="toggle()"><i class="material-icons">menu</i></qu-button>
-		<span></span>
-		<qu-button class="qu-primary" (click)="goTo('profile/view')"><i class="material-icons">account_circle</i></qu-button>
+		<div class="header-logo"></div>
+
+		<div>
+			<qu-button class="qu-primary"><i class="material-icons">search</i></qu-button>
+			<span class="dropdown" dropdown [dropdownToggle]="false">
+				<qu-button class="qu-primary dropdown-button" dropdown-open><i class="material-icons">account_circle</i></qu-button>
+				<ul class="dropdown-menu">
+					<li><a>Badman</a></li>
+					<li><a>Sadman</a></li>
+					<li><a>Lieman</a></li>
+				</ul>
+			</span>
+		</div>
+
 	</div>
 </div>

@@ -1,25 +1,93 @@
 <div class="home">
 	<div class="qu-whiteframe-6">
-		<h1>Test1</h1>
+		<h1>SOW's</h1>
 		<h3>{{email}}</h3>
-		<div>
-			<qu-input-container [placeholder]="'Project Name'">
-				<input name="projectName" ngModel required #projectName="ngModel">
-			</qu-input-container>
-			<br/>
-			<qu-input-container [placeholder]="'Project Status'">
-				<input name="projectStatus" ngModel required #projectStatus="ngModel">
-			</qu-input-container>
-			<qu-button class="qu-raised qu-primary" (click)="addProject(projectName.value, projectStatus.value)">Add</qu-button>
-		</div>
+		<form #sowForm="ngForm" quFlexColumn>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'SOW Number'">
+					<input type="text" name="sowNumber" [(ngModel)]="sow.number" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Title'">
+					<input type="text" name="sowTitle" [(ngModel)]="sow.title" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Description'">
+					<input type="text" name="sowDescription" [(ngModel)]="sow.description" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Step'">
+					<input type="text" name="sowStep" [(ngModel)]="sow.step" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Start Date'">
+					<input type="date" name="sowStartDate" [(ngModel)]="sow.startDate" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'End Date'">
+					<input type="date" name="sowEndDate" [(ngModel)]="sow.endDate" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Cost'">
+					<input type="number" name="sowCost" [(ngModel)]="sow.cost" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Type'">
+					<input type="text" name="sowType" [(ngModel)]="sow.type" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Sub Type'">
+					<input type="text" name="sowSubType" [(ngModel)]="sow.subType" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Vendor'">
+					<input type="text" name="sowVendor" [(ngModel)]="sow.vendor" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Business Owner'">
+					<input type="text" name="sowBusinessOwner" [(ngModel)]="sow.businessOwner" required>
+				</qu-input-container>
+			</div>
+			<div quFlexRow>
+				<qu-input-container [placeholder]="'Funding Source'">
+					<input type="text" name="sowFundingSource" [(ngModel)]="sow.fundingSource" required>
+				</qu-input-container>
+				<qu-input-container [placeholder]="'Funding Glid'">
+					<input type="text" name="sowFundingGlid" [(ngModel)]="sow.fundingGlid" required>
+				</qu-input-container>
+			</div>
+			<qu-button class="qu-raised qu-primary" (click)="createSow()" [quDisabled]="!sowForm.valid">Create SOW</qu-button>
+		</form>
 		<table>
 			<tr>
-				<th>Name</th>
-				<th>Status</th>
+				<th>SOW Number</th>
+				<th>Description</th>
+				<th>Title</th>
+				<th>Step</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Cost</th>
+				<th>Type</th>
+				<th>Sub-Type</th>
+				<th>Vendor</th>
+				<th>Business Owner</th>
+				<th>Funding Source</th>
+				<th>Funding Glid</th>
 			</tr>
 			<tr *ngFor="let item of items | async">
-				<td>{{item.name}}</td>
-				<td>{{item.status}}</td>
+				<td>{{item.number}}</td>
+				<td>{{item.description}}</td>
+				<td>{{item.title}}</td>
+				<td>{{item.step}}</td>
+				<td>{{item.startDate}}</td>
+				<td>{{item.endDate}}</td>
+				<td>{{item.cost}}</td>
+				<td>{{item.type}}</td>
+				<td>{{item.subType}}</td>
+				<td>{{item.vendor}}</td>
+				<td>{{item.businessOwner}}</td>
+				<td>{{item.fundingSource}}</td>
+				<td>{{item.fundingGlid}}</td>
 			</tr>
 		</table>
 	</div>

@@ -1,0 +1,101 @@
+<div class="sow-details">
+
+    <div class="sow-details-toolbar qu-flex-justify-content-end" quFlexRow>
+        <qu-button class="qu-raised qu-danger" (click)="deleteSow()">
+            <i class="material-icons">delete</i>
+        </qu-button>
+        <qu-button class="qu-raised qu-tertiary">
+            <i class="material-icons">control_point_duplicate</i>
+        </qu-button>
+        <qu-button class="qu-raised qu-secondary" (click)="toggleView()">
+            <i class="material-icons" *ngIf="!isEditable">create</i>
+            <i class="material-icons" *ngIf="isEditable">save</i>
+        </qu-button>
+    </div>
+
+    <div id="sowPrimaryDetails">
+        <div class="number">
+            <span *ngIf="!isEditable" class="sow-detail-item">{{sow.number}}</span>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Number'">
+                <input type="text" name="sowVendor" [(ngModel)]="sow.number" required>
+            </qu-input-container>
+        </div>
+        <div class="title">
+            <span *ngIf="!isEditable" class="sow-detail-item">{{sow.title}}</span>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Title'">
+                <input type="text" name="sowTitle" [(ngModel)]="sow.title" required>
+            </qu-input-container>
+        </div>
+        <div class="desc">
+            <span *ngIf="!isEditable" class="sow-detail-item">{{sow.description}}</span>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Description'">
+                <input type="text" name="sowDescription" [(ngModel)]="sow.description" required>
+            </qu-input-container>
+        </div>
+    </div>
+    <div id="sowSecondaryDetails">
+        <div quFlexRow>
+            <div *ngIf="!isEditable" class="sow-detail-item">
+                <label>Date Range</label>
+                <span>{{sow.startDate}} - {{sow.endDate}}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Start Date'">
+                <input type="date" name="sowStartDate" [(ngModel)]="sow.startDate" required>
+            </qu-input-container>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'End Date'">
+                <input type="date" name="sowEndDate" [(ngModel)]="sow.endDate" required>
+            </qu-input-container>
+        </div>
+        <div quFlexRow>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
+                <label>Step</label>
+                <span>{{sow.step}}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Step'">
+                <input type="text" name="sowStep" [(ngModel)]="sow.step" required>
+            </qu-input-container>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
+                <label>Type</label>
+                <span>{{sow.type}} - {{sow.subType}}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Type'">
+                <input type="text" name="sowType" [(ngModel)]="sow.type" required>
+            </qu-input-container>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'SubType'">
+                <input type="text" name="sowSubType" [(ngModel)]="sow.subType" required>
+            </qu-input-container>
+        </div>
+        <div quFlexRow>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
+                <label>Business Owner</label>
+                <span>{{sow.businessOwner}}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Business Owner'">
+                <input type="text" name="sowBusinessOwner" [(ngModel)]="sow.businessOwner" required>
+            </qu-input-container>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
+                <label>Vendor</label>
+                <span>{{sow.vendor}}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Vendor'">
+                <input type="text" name="sowVedor" [(ngModel)]="sow.vendor" required>
+            </qu-input-container>
+        </div>
+        <div quFlexRow>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
+                <label>Funding Source</label>
+                <span>{{sow.fundingSource}}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Funding Source'">
+                <input type="text" name="sowFundingSource" [(ngModel)]="sow.fundingSource" required>
+            </qu-input-container>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
+                <label>Funding Glid</label>
+                <span>{{sow.fundingGlid}}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Funding Glid'">
+                <input type="text" name="sowFundingGlid" [(ngModel)]="sow.fundingGlid" required>
+            </qu-input-container>
+        </div>
+    </div>
+</div>

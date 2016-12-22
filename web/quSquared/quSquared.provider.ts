@@ -5,13 +5,18 @@ import { FlexRowDirective, FlexColumnDirective, FlexAlignDirective } from './lay
 import { LinkComponent } from './link/link.comp';
 import { InputContainerComponent } from './input-container/input-container.comp';
 import { SideNavComponent } from './side-nav/side-nav.comp';
+import { DropdownNotClosableZone } from './dropdown/dropdownNotClosableZone.dir';
+import { Dropdown } from './dropdown/dropdown.dir'; 
+import { DropdownOpen } from './dropdown/dropdown-open.dir';
 
 export const quSquaredProvider: Provider[] = [
 	ButtonComponent,
 	FlexAlignDirective,
   FlexColumnDirective,
 	FlexRowDirective,
-	InputContainerComponent,	
+	InputContainerComponent,	 
 	LinkComponent,
-	SideNavComponent
+	SideNavComponent,
+	Dropdown,
+	DropdownOpen
 ];

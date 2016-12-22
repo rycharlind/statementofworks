@@ -1,22 +1,22 @@
 $sl-primary: #8BC34A;
 $sl-secondary: #1976D2;
+$sl-tertiary: #ff9800;
 
-$sl-gray: grey;
-$sl-gray-dark: #616161;
+$sl-danger: #F44336;
+$sl-warning: #FFEB3B;
+$sl-info: #03A9F4;
 
-$qu-primary-bg: $sl-primary;
-$qu-primary-color: #ecf0f1;
-
-// Buttons
-$qu-primary-btn-bg-color: $sl-primary;
-$qu-primary-btn-color: white;
-$qu-secondary-btn-bg-color:$sl-secondary;
-$qu-secondary-btn-color:white;
-
-// Sidenav
-$qu-side-nav-bg: white;
-$qu-side-nav-border: whitesmoke;
-$qu-side-nav-color: $sl-secondary;
+html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+body {
+    background: whitesmoke;
+		color: rgba(0,0,0,0.87);
+    margin: 0;
+}
 
 .app {
 	height: calc(100vh - 64px);
@@ -46,3 +46,4 @@ h1 {
 @import '../sign-up/sign-up';
 @import '../forgot-password/forgot-password';
 @import '../splash/splash';
+@import '../sows/sows';

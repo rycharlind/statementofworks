@@ -4,9 +4,6 @@
 
 	-webkit-flex-direction: row;
 	flex-direction: row;
-
-   -webkit-justify-content: flex-start;
-   justify-content: flex-start;
 }
 
 .qu-flex-column {
@@ -35,6 +32,11 @@
    justify-content: flex-end;	
 }
 
+.qu-flex-justify-content-space-between {
+   -webkit-justify-content: space-between;
+   justify-content: space-between;	
+}
+
 .qu-flex-align-items-start {
    -webkit-align-items: flex-start;
    align-items: flex-start;
@@ -48,4 +50,16 @@
 .qu-flex-align-items-end {
    -webkit-align-items: flex-end;
    align-items: flex-end;
+}
+
+.qu-flex-30 {
+    flex-basis: 35%;
+}
+
+.qu-flex-50 {
+    flex-basis: 50%;
+}
+
+.qu-flex {
+    flex-grow: 1;
 }

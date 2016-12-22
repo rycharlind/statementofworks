@@ -1,8 +1,3 @@
-$qu-primary-btn-bg-color: black !default;
-$qu-primary-btn-color: white !default;
-$qu-secondary-btn-bg-color: black !default;
-$qu-secondary-btn-color: white !default;
-
 .qu-button-container {
 	display: inline-block;
 	margin-bottom: 5px;
@@ -36,12 +31,7 @@ $qu-secondary-btn-color: white !default;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		padding: 12px 24px;
-
-		> i {
-			margin-right: 8px;
-			margin-left: 8px;
-		}
+		padding: 8px 16px;
 	}
 
 	/* Styles, not important */
@@ -56,22 +46,50 @@ $qu-secondary-btn-color: white !default;
 
 .qu-primary > .qu-button-container {
 	.qu-button {
-		background-color: $qu-primary-btn-bg-color;
-		color: $qu-primary-btn-color;		
+		background-color: $sl-primary;
+		color: white;		
 	}
 }
 
 .qu-secondary > .qu-button-container {
 	.qu-button {
-		background-color: $qu-secondary-btn-bg-color;
-		color: $qu-secondary-btn-color;
+		background-color: $sl-secondary;
+		color: white;
+	}
+}
+
+.qu-tertiary > .qu-button-container {
+	.qu-button {
+		background-color: $sl-tertiary;
+		color: white;
+	}
+}
+
+.qu-tertiary.qu-swap > .qu-button-container {
+	.qu-button {
+		background-color: white;
+		color:$sl-tertiary;
+	}
+}
+
+.qu-danger > .qu-button-container {
+	.qu-button {
+		background-color: $sl-danger;
+		color: white;
+	}
+}
+
+.qu-warning > .qu-button-container {
+	.qu-button {
+		background-color: $sl-warning;
+		color: white;
 	}
 }
 
 .qu-raised > .qu-button-container {
 	.qu-button {
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    	box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 		-webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
-    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    	transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 	}
 }
