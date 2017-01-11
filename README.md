@@ -1,4 +1,4 @@
-## Statement of Works
+# Statement of Works
 
 ## Getting Started
 
@@ -17,19 +17,15 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 Clone the Statement of Works repository using [git][git]:
 
 ```
-git clone https://github.com/rycharlind/statementofworks.git <your-project-name>
-```
+git clone https://github.com/quSquared/SkaterLeague.git <your-project-name>
 
-### Go into the Web directory
-
-```
-cd web
 ```
 
 ### Install Dependencies
 
 ```
 npm install
+
 ```
 
 ### Run the Application
@@ -39,9 +35,10 @@ this server is:
 
 ```
 npm run app
+
 ```
 
-Now browse to the app at `http://localhost:8080/index.html`.
+Now browse to the app at `http://localhost:7777/index.html`.
 
 ## Testing
 

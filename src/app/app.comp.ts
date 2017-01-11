@@ -1,7 +1,5 @@
 import { Component, ViewEncapsulation  } from '@angular/core';
 
-import '../../../common/css/styles.css';
-
 @Component({
   selector: 'sl-app',
   templateUrl: './app.html',
