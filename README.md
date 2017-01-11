@@ -14,18 +14,16 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 
 ### Clone Statement of Works
 
-Clone the Statement of Works repository using [git][git]:
+Clone the Statement of Works repository:
 
 ```
-git clone https://github.com/quSquared/SkaterLeague.git <your-project-name>
-
+git clone https://github.com/rycharlind/statementofworks.git
 ```
 
 ### Install Dependencies
 
 ```
 npm install
-
 ```
 
 ### Run the Application
@@ -35,10 +33,9 @@ this server is:
 
 ```
 npm run app
-
 ```
 
-Now browse to the app at `http://localhost:7777/index.html`.
+Now browse to the app at `http://localhost:8080`.
 
 ## Testing
 
