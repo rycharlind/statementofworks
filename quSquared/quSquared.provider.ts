@@ -5,7 +5,7 @@ import { FlexRowDirective, FlexColumnDirective, FlexAlignDirective } from './lay
 import { LinkComponent } from './link/link.comp';
 import { InputContainerComponent } from './input-container/input-container.comp';
 import { SideNavComponent } from './side-nav/side-nav.comp';
-import { DropdownNotClosableZone } from './dropdown/dropdownNotClosableZone.dir';
+import { DropdownNotClosableZone } from './dropdown/dropdown-not-closable-zone.dir';
 import { Dropdown } from './dropdown/dropdown.dir'; 
 import { DropdownOpen } from './dropdown/dropdown-open.dir';
 

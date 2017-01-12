@@ -25,10 +25,21 @@ export class SowDocsComponent implements OnInit {
 
     uploadFile() {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
-        var storageRef = firebase.storage().ref().child(this.sow.$key + '/' + file.name);
+        var storageRef = firebase.storage().ref().child(file.name);
         storageRef.put(file).then(function (snapshot) {
-            console.log('Uploaded a file!');
+            console.log(snapshot.downloadURL);
         });
+    }
+
+    addURLToSow(url: string, sow: any) {
+        let key = sow.$key;
+        if (key) {
+            delete sow.$key;
+            delete sow.$exists;
+            sow.docs.push(url);
+            firebase.database().ref('/sows/' + key).update(sow);
+            sow.$key = key;
+        }
     }
 
 }

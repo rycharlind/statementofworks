@@ -1,5 +1,5 @@
 import {Directive, ElementRef, ContentChild, Output, EventEmitter, Input} from "@angular/core";
-import {DropdownNotClosableZone} from './dropdownNotClosableZone.dir';
+import {DropdownNotClosableZone} from './dropdown-not-closable-zone.dir';
 
 @Directive({
     selector: "[dropdown]",
