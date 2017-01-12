@@ -1,7 +1,12 @@
 <div class="sow-docs">
     <h1>Sow Docs</h1>
+
+<div *ngFor="let document of sow.documents">
+    <a target="_blank" href="{{document}}"> {{document}} </a>
+</div>
     <input type="file" id="upload" />
     <qu-button class="qu-raised qu-secondary" (click)="uploadFile()">
         Upload
     </qu-button>
+    <div>{{ progress }}</div>
 </div>

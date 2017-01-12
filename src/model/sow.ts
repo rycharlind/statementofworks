@@ -14,6 +14,7 @@ export class Sow {
   businessOwner: string;
   fundingSource: string;
   fundingGlid: string;
+  documents: string[];
   constructor() {
     this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
   }

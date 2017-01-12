@@ -9,8 +9,8 @@ import { AngularFire } from 'angularfire2';
 })
 
 export class SowDocsComponent implements OnInit {
-
     sow = new Sow();
+    progress: any;
 
     constructor(private sowsService: SowsService, af: AngularFire) {
         this.sowsService.getSelectedSow().subscribe(
@@ -26,17 +26,28 @@ export class SowDocsComponent implements OnInit {
     uploadFile() {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
         var storageRef = firebase.storage().ref().child(file.name);
-        storageRef.put(file).then(function (snapshot) {
+        var uploadTask = storageRef.put(file);
+        uploadTask.then(snapshot => {
+            if (this.sow.documents == null) {
+                this.sow.documents = [];
+            }
+            this.sow.documents.push(snapshot.downloadURL);
+            this.saveSow(this.sow);
             console.log(snapshot.downloadURL);
         });
+
+        uploadTask.on('state_changed', snapshot => {
+            this.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        },
+            function (error) { console.log(error); }
+        );
     }
 
-    addURLToSow(url: string, sow: any) {
+    saveSow(sow: any) {
         let key = sow.$key;
         if (key) {
             delete sow.$key;
             delete sow.$exists;
-            sow.docs.push(url);
             firebase.database().ref('/sows/' + key).update(sow);
             sow.$key = key;
         }
