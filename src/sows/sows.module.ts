@@ -8,6 +8,7 @@ import { QuSquaredModule } from '../../quSquared';
 import { SowsRoutes } from './sows.routes';
 import { SowsComponent } from './sows.comp';
 import { SowDetailsComponent } from './sow-details/sow-details.comp';
+import { SowDocsComponent } from './sow-docs/sow-docs.comp';
 import { SowsService } from './sows.svc';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SowsService } from './sows.svc';
   ],
   declarations: [
 		SowsComponent,
-    SowDetailsComponent
+    SowDetailsComponent,
+    SowDocsComponent
   ],
   providers: [SowsService]
 })
