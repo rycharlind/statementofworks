@@ -72,6 +72,8 @@ export class SowDocsComponent implements OnInit {
                 return "excel"
             case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
                 return "word"
+            case "image/png" || "image/jpg" || "image/jpeg":
+                return "image"
             default:
                 return "other"
 

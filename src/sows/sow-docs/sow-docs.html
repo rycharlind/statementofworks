@@ -1,15 +1,17 @@
 <div class="sow-docs">
-<div quFlexRow>
+<div quFlexRow class="qu-flex-wrap">
     <div class="document qu-flex-25" *ngFor="let document of sow.documents" 
         [class.doc-type-pdf]="document.type=='pdf'" 
         [class.doc-type-excel]="document.type=='excel'" 
         [class.doc-type-word]="document.type=='word'"
+        [class.doc-type-image]="document.type=='image'"
         [class.doc-type-other]="document.type=='other'"> 
         <a target="_blank" href="{{document.downloadURL}}">
             <i class="fa"
                 [class.fa-file-pdf-o]="document.type=='pdf'"
                 [class.fa-file-excel-o]="document.type=='excel'"
-                [class.fa-file-word-o]="document.type=='word'"  
+                [class.fa-file-word-o]="document.type=='word'"
+                [class.fa-file-image-o]="document.type=='image'"  
                 [class.fa-file-o]="document.type=='other'"></i>
             <div class="title-container">
                 <span class="title">{{document.name}}</span>

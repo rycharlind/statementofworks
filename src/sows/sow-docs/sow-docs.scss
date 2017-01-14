@@ -5,7 +5,7 @@
             display:block;
             height: 132px;
             margin:3px;
-            background-color: #2196f3;
+            background-color: #B1B1B1;
 	        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
             .fa {
                 margin-top:42px;
@@ -41,8 +41,8 @@
         &.doc-type-excel a {
             background-color:#4caf50; 
         }
-        &.doc-type-other a {
-            background-color:#B1B1B1;
+        &.doc-type-image a {
+            background-color:#FF9800; 
         }
     }    
 }
