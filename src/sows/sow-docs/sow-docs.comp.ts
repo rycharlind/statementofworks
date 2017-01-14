@@ -5,7 +5,8 @@ import { AngularFire } from 'angularfire2';
 
 @Component({
     selector: 'sow-docs',
-    templateUrl: 'sow-docs.html'
+    templateUrl: 'sow-docs.html',
+    styleUrls: ['sow-docs.scss']
 })
 
 export class SowDocsComponent implements OnInit {

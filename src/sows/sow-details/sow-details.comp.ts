@@ -1,7 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { SowsService } from '../sows.svc';
 import { Sow } from '../../model/sow';
 import { AngularFire } from 'angularfire2';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+
+import { ConfirmDialogComponent } from './confirm-dialog.comp'
 
 @Component({
     selector: 'sow-details',
@@ -13,10 +16,13 @@ export class SowDetailsComponent implements OnInit {
     sow = new Sow();
     isEditable: boolean = false;
 
-    constructor(private sowsService: SowsService, af: AngularFire) {
+    dialogRef: MdDialogRef<any>;
+
+    constructor(private sowsService: SowsService, af: AngularFire, public dialog: MdDialog,
+        public viewContainerRef: ViewContainerRef) {
         this.sowsService.getSelectedSow().subscribe(
             s => {
-                this.sow = s; 
+                this.sow = s;
                 if (this.sowsService.isNewSow) {
                     this.isEditable = true;
                 }
@@ -47,8 +53,21 @@ export class SowDetailsComponent implements OnInit {
         }
     }
 
-    deleteSow() {
-        firebase.database().ref('/sows/' + this.sow.$key).remove();
+    deleteSow(ev: any, mdDialog: any) {
+
+        let config = new MdDialogConfig();
+        config.viewContainerRef = this.viewContainerRef;
+
+        this.dialogRef = this.dialog.open(ConfirmDialogComponent, config);
+
+        this.dialogRef.afterClosed().subscribe(result => {
+            if (result == 'yes'){
+                firebase.database().ref('/sows/' + this.sow.$key).remove();
+                 // also have it refresh details
+            }
+
+            this.dialogRef = null;
+        });
     }
 
 }
