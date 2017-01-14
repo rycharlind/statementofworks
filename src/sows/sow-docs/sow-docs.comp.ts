@@ -34,7 +34,7 @@ export class SowDocsComponent implements OnInit {
                 this.sow.documents = [];
             }
 
-            var doc = new Doc()
+            var doc = new Doc();
             doc.name = file.name;
             doc.type = this.getFileType(file);
             doc.downloadURL = snapshot.downloadURL;

@@ -19,6 +19,7 @@ import { SignUpModule } from '../sign-up/sign-up.module';
 import { ForgotPasswordModule } from '../forgot-password/forgot-password.module';
 import { SplashModule } from '../splash/splash.module';
 import { SowsModule } from '../sows/sows.module';
+import { DocUploaderModule } from '../doc-uploader/doc-uploader.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA2lKWhBJZq_shhMFGXtbyH2eD-nKS7RWU",
