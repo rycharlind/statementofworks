@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SowsService } from '../sows.svc';
 import { Sow } from '../../model/sow';
+import { Doc } from '../../model/doc';
 import { AngularFire } from 'angularfire2';
 
 @Component({
@@ -26,15 +27,25 @@ export class SowDocsComponent implements OnInit {
 
     uploadFile() {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
+        console.log(file.type);
         var storageRef = firebase.storage().ref().child(file.name);
         var uploadTask = storageRef.put(file);
         uploadTask.then(snapshot => {
             if (this.sow.documents == null) {
                 this.sow.documents = [];
             }
-            this.sow.documents.push(snapshot.downloadURL);
+
+            var doc = new Doc()
+            doc.name = file.name;
+            doc.type = this.getFileType(file);
+            doc.downloadURL = snapshot.downloadURL;
+
+            console.log(doc);
+
+            this.sow.documents.push(doc);
             this.saveSow(this.sow);
             console.log(snapshot.downloadURL);
+
         });
 
         uploadTask.on('state_changed', snapshot => {
@@ -51,6 +62,22 @@ export class SowDocsComponent implements OnInit {
             delete sow.$exists;
             firebase.database().ref('/sows/' + key).update(sow);
             sow.$key = key;
+        }
+    }
+
+    getFileType(file: File) {
+        switch (file.type) {
+            case "application/pdf":
+                return "pdf";
+            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+                return "excel"
+            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+                return "word"
+            case "image/png" || "image/jpg" || "image/jpeg":
+                return "image"
+            default:
+                return "other"
+
         }
     }
 

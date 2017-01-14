@@ -60,6 +60,14 @@
     flex-basis: 50%;
 }
 
+.qu-flex-25 {
+    flex-basis: 25%;
+}
+
 .qu-flex {
     flex-grow: 1;
+}
+
+.qu-flex-wrap {
+    flex-wrap:wrap;
 }
