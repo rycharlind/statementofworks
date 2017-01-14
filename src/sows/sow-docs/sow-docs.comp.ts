@@ -26,6 +26,7 @@ export class SowDocsComponent implements OnInit {
 
     uploadFile() {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
+        console.log(file.type);
         var storageRef = firebase.storage().ref().child(file.name);
         var uploadTask = storageRef.put(file);
         uploadTask.then(snapshot => {
@@ -35,8 +36,10 @@ export class SowDocsComponent implements OnInit {
 
             var doc = new Doc()
             doc.name = file.name;
-            doc.type = this.deriveFileType(file);
+            doc.type = this.getFileType(file);
             doc.downloadURL = snapshot.downloadURL;
+
+            console.log(doc);
 
             this.sow.documents.push(doc);
             this.saveSow(this.sow);
@@ -61,12 +64,17 @@ export class SowDocsComponent implements OnInit {
         }
     }
 
-    deriveFileType(file: File) {
+    getFileType(file: File) {
         switch (file.type) {
             case "application/pdf":
                 return "pdf";
             case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
                 return "excel"
+            case "application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+                return "word"
+            default:
+                return "other"
+
         }
     }
 
