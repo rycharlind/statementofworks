@@ -61,9 +61,11 @@ export class SowDetailsComponent implements OnInit {
         this.dialogRef = this.dialog.open(ConfirmDialogComponent, config);
 
         this.dialogRef.afterClosed().subscribe(result => {
-            if (result == 'yes'){
+            if (result == 'yes') {
                 firebase.database().ref('/sows/' + this.sow.$key).remove();
-                 // also have it refresh details
+
+                //this.sowsService.announceSowSelected(this.items[0])
+                this.sowsService.isNewSow = false;
             }
 
             this.dialogRef = null;
