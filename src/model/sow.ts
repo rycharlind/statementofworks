@@ -1,3 +1,5 @@
+import { Doc } from './doc';
+
 export class Sow {
   $key: string;
   dateCreated: Date;
@@ -14,7 +16,7 @@ export class Sow {
   businessOwner: string;
   fundingSource: string;
   fundingGlid: string;
-  documents: string[];
+  documents: Doc[];
   constructor() {
     this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
   }

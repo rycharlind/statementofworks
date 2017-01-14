@@ -1,8 +1,13 @@
 <div class="sow-docs">
-    <h1>Sow Docs</h1>
-
-<div *ngFor="let document of sow.documents">
-    <a target="_blank" href="{{document}}"> {{document}} </a>
+<div quFlexRow>
+    <div class="document qu-flex-25" *ngFor="let document of sow.documents" [class.doc-type-pdf]="document.type=='application/pdf'"> 
+        <a target="_blank" href="{{document.downloadURL}}">
+            <i class="fa fa-file"></i>
+            <div class="title-container">
+                <span class="title">{{document.name}}</span>
+            </div>
+        </a>
+    </div>
 </div>
     <input type="file" id="upload" />
     <qu-button class="qu-raised qu-secondary" (click)="uploadFile()">

@@ -1,4 +1,43 @@
-.sow-docs{
-
-    
+.sow-docs {
+    .document {
+        a {
+            position:relative;
+            display:block;
+            height: 132px;
+            margin:3px;
+            background-color: #2196f3;
+	        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            .fa {
+                margin-top:42px;
+                color:#fff;
+            }
+            .title-container {
+                position:absolute;
+                width:100%;
+                background-color: rgba(0, 0, 0, 0.22);
+                bottom:0px;
+                left:0px;
+                span {
+                    display:block;
+                    padding:10px 6px;
+                    text-align: left;
+                    font-size: 12px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    letter-spacing: -0.2px;
+                    color: #ffffff;
+                }
+            }
+        }
+        &.doc-type-pdf a {
+            background-color:#ef5350;
+        }
+        &.doc-type-word a {
+            background-color:#2196f3;
+        }
+        &.doc-type-excel a {
+            background-color:#4caf50;
+        }
+    }    
 }

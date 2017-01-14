@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SowsService } from '../sows.svc';
 import { Sow } from '../../model/sow';
+import { Doc } from '../../model/doc';
 import { AngularFire } from 'angularfire2';
 
 @Component({
@@ -31,9 +32,16 @@ export class SowDocsComponent implements OnInit {
             if (this.sow.documents == null) {
                 this.sow.documents = [];
             }
-            this.sow.documents.push(snapshot.downloadURL);
+
+            var doc = new Doc()
+            doc.name = file.name;
+            doc.type = this.deriveFileType(file);
+            doc.downloadURL = snapshot.downloadURL;
+
+            this.sow.documents.push(doc);
             this.saveSow(this.sow);
             console.log(snapshot.downloadURL);
+
         });
 
         uploadTask.on('state_changed', snapshot => {
@@ -50,6 +58,15 @@ export class SowDocsComponent implements OnInit {
             delete sow.$exists;
             firebase.database().ref('/sows/' + key).update(sow);
             sow.$key = key;
+        }
+    }
+
+    deriveFileType(file: File) {
+        switch (file.type) {
+            case "application/pdf":
+                return "pdf";
+            case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+                return "excel"
         }
     }
 
