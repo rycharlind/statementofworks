@@ -10,6 +10,7 @@ import { SowsComponent } from './sows.comp';
 import { SowDetailsComponent } from './sow-details/sow-details.comp';
 import { SowDocsComponent } from './sow-docs/sow-docs.comp';
 import { SowsService } from './sows.svc';
+import {ConfirmDialogComponent} from './sow-details/confirm-dialog.comp'
 
 @NgModule({
   imports: [
@@ -22,8 +23,10 @@ import { SowsService } from './sows.svc';
   declarations: [
 		SowsComponent,
     SowDetailsComponent,
-    SowDocsComponent
+    SowDocsComponent,
+    ConfirmDialogComponent
   ],
+  entryComponents: [ConfirmDialogComponent],
   providers: [SowsService]
 })
 export class SowsModule { }
