@@ -12,7 +12,7 @@ import { SowsService } from './sows.svc';
 
 @Component({
 	selector: 'sl-sows',
-	templateUrl: './sows.html',
+    templateUrl: './sows.html',
 	providers: [UserService]
 })
 

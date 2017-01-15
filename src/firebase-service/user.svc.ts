@@ -20,12 +20,16 @@ export class UserService {
     authUser() {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                this.user = user;
+		this.user = user;
             } else {
                 console.log("No User");
                 this.router.navigate(['sign-in']);
             }
         });
+    }
+
+    getName(): string{
+        return this.user.email
     }
 
 }

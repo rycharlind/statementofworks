@@ -8,9 +8,10 @@ import { QuSquaredModule } from '../../quSquared';
 import { SowsRoutes } from './sows.routes';
 import { SowsComponent } from './sows.comp';
 import { SowDetailsComponent } from './sow-details/sow-details.comp';
+import { SowCommentsComponent } from './sow-comments/sow-comments.comp'
 import { SowDocsComponent } from './sow-docs/sow-docs.comp';
 import { SowsService } from './sows.svc';
-import {ConfirmDialogComponent} from './sow-details/confirm-dialog.comp'
+import {ConfirmDialogComponent} from './sow-details/confirm-dialog.comp';
 
 @NgModule({
   imports: [
@@ -23,10 +24,11 @@ import {ConfirmDialogComponent} from './sow-details/confirm-dialog.comp'
   declarations: [
 		SowsComponent,
     SowDetailsComponent,
+    SowCommentsComponent,
     SowDocsComponent,
     ConfirmDialogComponent
   ],
   entryComponents: [ConfirmDialogComponent],
-  providers: [SowsService]
+    providers: [SowsService]
 })
 export class SowsModule { }
