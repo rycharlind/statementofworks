@@ -14,10 +14,10 @@ export class SowCommentsComponent {
     sow = new Sow();
 
     currentComment: string;
-    
+
     constructor(
-	private sowsService: SowsService,
-	private userService: UserService
+        private sowsService: SowsService,
+        private userService: UserService
     ) {
         this.sowsService.getSelectedSow().subscribe(
             s => {
@@ -26,17 +26,17 @@ export class SowCommentsComponent {
         );
     }
 
-    saveComment(){
+    saveComment() {
         if (this.sow.comments == null) {
             this.sow.comments = [];
         }
 
-	this.sow.comments.push(
-	    new Comment(this.userService.getName(), this.currentComment, this.sow.$key)
-	);
-	this.currentComment = '';
-	
-        //this.saveSow(this.sow);
+        this.sow.comments.push(
+            new Comment(this.userService.getName(), this.currentComment, this.sow.$key)
+        );
+        this.currentComment = '';
+
+        this.sowsService.saveSow(this.sow);
     }
 
 }
