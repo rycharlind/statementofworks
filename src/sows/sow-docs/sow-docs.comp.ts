@@ -43,7 +43,7 @@ export class SowDocsComponent implements OnInit {
             console.log(doc);
 
             this.sow.documents.push(doc);
-            this.saveSow(this.sow);
+            this.sowsService.saveSow(this.sow);
             console.log(snapshot.downloadURL);
 
         });
@@ -53,16 +53,6 @@ export class SowDocsComponent implements OnInit {
         },
             function (error) { console.log(error); }
         );
-    }
-
-    saveSow(sow: any) {
-        let key = sow.$key;
-        if (key) {
-            delete sow.$key;
-            delete sow.$exists;
-            firebase.database().ref('/sows/' + key).update(sow);
-            sow.$key = key;
-        }
     }
 
     getFileType(file: File) {

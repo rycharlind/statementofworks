@@ -1,25 +1,20 @@
 export class Comment {
 
-    dateCreated: Date;
-    date: string
+    dateCreated: any;
+    date: string;
     
     constructor(
 	public author: string,
-	public msg: string,
-	sowKey: string
+	public msg: string
     ){
 	this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
-
-	console.log('/sows/' + sowKey + '/comments')
-	var dateRef  = firebase.database().ref('/sows/' + sowKey );
-	dateRef.once('value', snapShot => {
-	    this.date = snapShot.val().toString();
-	});
     }
-
+    
     setDate(){
-	console.log(this.dateCreated)
-	return this.dateCreated.toString();
+    	console.log('rite b4 date')
+    	console.log(this.dateCreated);
+    	this.date =  new Date(this.dateCreated).getMonth().toString();
     }
+    
 }
 
