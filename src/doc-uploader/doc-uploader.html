@@ -1,12 +1,19 @@
-<div class="doc-uploader">
-    <div class="doc-uploder-title">
+<div class="doc-uploader" [class.show]="isDisplayed" >
+    <div class="doc-uploader-title qu-flex-row qu-flex-justify-content-space-between">
         <span>Uploading 1 item</span>
+        <a (click)="close()"><i class="fa fa-window-close"></i></a>
     </div>
-    <div class="doc-uploader-status">
-        <span>Upload is running ...</span>
-        <qu-link class="qu-primary" [qlHref]="'/'">Cancel</qu-link>
+    <div class="doc-uploader-status qu-flex-row qu-flex-justify-content-space-between">
+        <span>{{ uploadState }}</span>
+        <a (click)="cancel()">Cancel</a>
     </div>
-    <div class="doc-uploader-file">
-        <span><i class="fa fa-file-o"></i> SOW-EDFD-44544</span>
+    <div class="doc-uploader-file qu-flex-row qu-flex-justify-content-space-between">
+        <span><i class="fa"
+                    [class.fa-file-pdf-o]="getFileType(file)=='pdf'"
+                    [class.fa-file-excel-o]="getFileType(file)=='excel'"
+                    [class.fa-file-word-o]="getFileType(file)=='word'"
+                    [class.fa-file-image-o]="getFileType(file)=='image'"  
+                    [class.fa-file-o]="getFileType(file)=='other'"></i> {{ file.name }}</span>
+        <span>{{ progress }}</span>
     </div>
 </div>

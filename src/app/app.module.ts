@@ -12,6 +12,7 @@ import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.comp';
 import { HeaderComponent } from '../header/header.comp';
 import { SideNavComponent } from '../side-nav/side-nav.comp';
+import { DocUploaderComponent } from '../doc-uploader/doc-uploader.comp';
 import { HomeModule } from '../home/home.module';
 import { ProfileModule } from '../profile/profile.module';
 import { SignInModule } from '../sign-in/sign-in.module';
@@ -19,7 +20,6 @@ import { SignUpModule } from '../sign-up/sign-up.module';
 import { ForgotPasswordModule } from '../forgot-password/forgot-password.module';
 import { SplashModule } from '../splash/splash.module';
 import { SowsModule } from '../sows/sows.module';
-import { DocUploaderModule } from '../doc-uploader/doc-uploader.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA2lKWhBJZq_shhMFGXtbyH2eD-nKS7RWU",
@@ -50,7 +50,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideNavComponent
+    SideNavComponent,
+    DocUploaderComponent
   ],
   providers: [
   ],

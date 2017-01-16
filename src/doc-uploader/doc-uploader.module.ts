@@ -9,11 +9,11 @@ import { DocUploaderComponent } from './doc-uploader.comp';
 @NgModule({
   imports: [
     CommonModule,
-	FormsModule,
-	QuSquaredModule
+	  FormsModule,
+	  QuSquaredModule
   ],
   declarations: [
-	DocUploaderComponent
+	  DocUploaderComponent
   ]
 })
 export class DocUploaderModule { }

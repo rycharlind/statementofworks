@@ -1,6 +1,49 @@
 .doc-uploader {
-    display:none;
     position:fixed;
-    bottom:32px;
+    bottom:-150px;
     right:32px;
+    z-index:999999;
+    width:348px;
+    background-color: #fff;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    transition:bottom 0.3s;
+    -webkit-transition:bottom 0.3s;
+    &-title {
+        padding:16px;
+        background-color: rgba(0, 0, 0, 0.75);
+        color:#fff;
+        a {
+            cursor:pointer;
+        }
+    }
+    &-status {
+        padding:8px 16px;
+        background-color: #d8d8d8;
+        font-size: 12px;
+	    letter-spacing: -0.2px;
+	    color: rgba(0, 0, 0, 0.46);
+        a {
+            cursor:pointer;
+            color:#4a90e2;
+        }
+    }
+    &-file {
+        padding:16px;
+        .fa-file-pdf-o {
+            color:$pdf-color;
+        }
+        .fa-file-excel-o {
+            color:$excel-color;
+        }
+        .fa-file-word-o {
+            color:$word-color;
+        }
+    }
+    &.show {
+        bottom:32px;
+    }
+    &.hide {
+        display:none;
+    }
 }
+

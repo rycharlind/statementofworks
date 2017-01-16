@@ -5,8 +5,8 @@ import {MdMenu} from '@angular/material';
 import { SideNavService } from '../../quSquared/side-nav/side-nav.svc';
 
 @Component({
-  selector: 'sl-header',
-  templateUrl: './header.html',
+  	selector: 'sl-header',
+  	templateUrl: './header.html',
 	providers: [SideNavService]
 })
 export class HeaderComponent { 
