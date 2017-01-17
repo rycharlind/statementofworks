@@ -1,7 +1,6 @@
 export class Comment {
 
     dateCreated: any;
-    date: string;
     
     constructor(
 	public author: string,
@@ -9,12 +8,5 @@ export class Comment {
     ){
 	this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
     }
-    
-    setDate(){
-    	console.log('rite b4 date')
-    	console.log(this.dateCreated);
-    	this.date =  new Date(this.dateCreated).getMonth().toString();
-    }
-    
 }
 
