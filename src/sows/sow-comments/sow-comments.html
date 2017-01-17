@@ -1,0 +1,16 @@
+<div class="sow-comments">
+  <h1>Comments</h1>
+
+  <div *ngFor="let comment of sow.comments">
+    {{comment.msg}} <br>
+    {{comment.author}} <br>
+    {{comment.date}}
+  </div>
+
+  New comment:<br>
+  <input [(ngModel)]="currentComment" placeholder="Add a new comment...">
+  <br><br>
+  <qu-button class="qu-raised qu-secondary" (click)="saveComment()">
+    Submit
+  </qu-button>
+</div>
