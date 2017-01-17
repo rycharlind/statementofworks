@@ -22,13 +22,7 @@ export class SowCommentsComponent {
         this.sowsService.getSelectedSow().subscribe(
             s => {
                 this.sow = s;
-
-		if (this.sow.comments){
-		    for(var i=0; i < this.sow.comments.length; i++){
-			this.sow.comments[i].date = new Date(this.sow.comments[i].dateCreated).toString();
-		    }}
-	    }
-        );
+        });
     }
 
     saveComment() {
@@ -36,13 +30,13 @@ export class SowCommentsComponent {
             this.sow.comments = [];
         }
 
-	var c = new Comment
-	(this.userService.getName(), this.currentComment);
+        var c = new Comment
+        (this.userService.getName(), this.currentComment);
 
-        this.sow.comments.push(c);
+            this.sow.comments.push(c);
 
-        this.currentComment = ''; //clear textfield
+            this.currentComment = ''; //clear textfield
 
-        this.sowsService.saveSow(this.sow);
+            this.sowsService.saveSow(this.sow);
     }
 }

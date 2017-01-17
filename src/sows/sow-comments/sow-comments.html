@@ -4,7 +4,7 @@
   <div *ngFor="let comment of sow.comments">
     {{comment.msg}} <br>
     {{comment.author}} <br>
-    {{comment.date}}
+    {{comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}
   </div>
 
   New comment:<br>
