@@ -1,7 +1,7 @@
 <div class="sow-comments">
   <h1>Comments</h1>
 
-  <div *ngFor="let comment of sow.comments">
+  <div *ngFor="let comment of comments | async">
     {{comment.msg}} <br>
     {{comment.author}} <br>
     {{comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}
