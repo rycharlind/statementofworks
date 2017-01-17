@@ -24,11 +24,16 @@ export class SowDocsComponent implements OnInit {
     }
 
     ngOnInit() {
+        document.addEventListener("contextmenu", e => {
+            console.log(e);
+        });
     }
 
     uploadFile() {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
         this.docUploaderService.upload(file, this.sow);
     }
+
+
 
 }

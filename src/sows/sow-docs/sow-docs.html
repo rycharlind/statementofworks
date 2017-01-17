@@ -1,9 +1,12 @@
 <div class="sow-docs">
-    <input type="file" id="upload" />
-    <qu-button class="qu-raised qu-secondary" (click)="uploadFile()">
-        Upload
-    </qu-button>
-    <div>{{ progress }}</div>
+    
+    <div quFlexRow class="toolbar">
+        <label class="btn-label-file" for="upload">
+            <input type="file" id="upload" (change)="uploadFile()" />
+            <span><i class="fa fa-cloud-upload"></i> Upload File</span>
+        </label>
+    </div>
+
     <div quFlexRow class="qu-flex-wrap">
         <div class="document qu-flex-25" *ngFor="let document of sow.documents" 
             [class.doc-type-pdf]="document.type=='pdf'" 

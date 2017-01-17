@@ -44,5 +44,22 @@
         &.doc-type-image a {
             background-color:#FF9800; 
         }
-    }    
+    }
+
+    .btn-label-file {
+        padding:8px 16px;
+        background-color:blue;
+        color:#fff;
+        cursor: pointer;
+        border-radius: 4px;
+	    background-color: #ff9800;
+	    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        input {
+            display:none;
+        }
+    } 
+
+    .toolbar {
+        margin-bottom:8px;
+    } 
 }
