@@ -1,3 +1,29 @@
-.sow-comments{
-    
+.sow-comments {
+    .comment {
+        padding:16px;
+        max-width:300px;
+        .author {
+            padding:8px;
+            text-align:right;
+            font-size: 12px;
+	        letter-spacing: -0.2px;
+        }
+        .msg {
+            padding:16px;
+            border-radius: 8px;
+	        background-color: #d8d8d8;
+            font-size: 16px;
+	        letter-spacing: -0.2px;
+        }
+        .date {
+            padding:6px;
+            text-align: center;
+            font-size: 10px;;
+	        letter-spacing: -0.2px;
+	        color: rgba(0, 0, 0, 0.64);
+        }
+    }
+    .qu-input-container {
+        margin-right:6px;
+    }
 }

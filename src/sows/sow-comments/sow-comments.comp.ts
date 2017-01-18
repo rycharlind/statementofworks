@@ -33,6 +33,5 @@ export class SowCommentsComponent {
         var c = new Comment(this.userService.getName(), this.currentComment);
         this.comments.push(c);
         this.currentComment = ''; // clear textfield
-        //this.sowsService.saveSow(this.sow);
     }
 }
