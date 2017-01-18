@@ -4,7 +4,7 @@
   <div *ngFor="let comment of comments | async" class="qu-flex-align-items-end" quFlexColumn> 
     <div class="comment"> 
     <div class="author">{{comment.author}}</div>
-    <div class="msg">{{comment.msg}}</div>
+    <div class="msg text-right">{{comment.msg}}</div>
     <div class="date">{{comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}</div>
     </div>
   </div>
