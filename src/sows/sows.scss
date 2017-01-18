@@ -1,8 +1,10 @@
 .sows {
     padding:16px;
     .qu-whiteframe-6 {
-        padding:20px;
-        margin:8px;
+        padding:16px;
+        &:first-child {
+            margin-right:12px;
+        }
     }
 
     .os-list {
@@ -90,6 +92,7 @@
     }
 
     .sows-toolbar {
+        margin-bottom:10px;
         .qu-button-container {
             margin-right:6px;
         }

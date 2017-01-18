@@ -35,13 +35,17 @@
     </div>
     <div id="sowSecondaryDetails">
         <div quFlexRow>
-            <div *ngIf="!isEditable" class="sow-detail-item">
-                <label>Date Range</label>
-                <span>{{sow.startDate}} - {{sow.endDate}}</span>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
+                <label>Start Date</label>
+                <span>{{sow.startDate | date:'MMMM dd, yyyy'}}</span>
             </div>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Start Date'">
                 <input type="date" name="sowStartDate" [(ngModel)]="sow.startDate" required>
             </qu-input-container>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
+                <label>End Date</label>
+                <span>{{sow.endDate | date:'MMMM dd, yyyy'}}</span>
+            </div>
             <qu-input-container *ngIf="isEditable" [placeholder]="'End Date'">
                 <input type="date" name="sowEndDate" [(ngModel)]="sow.endDate" required>
             </qu-input-container>
