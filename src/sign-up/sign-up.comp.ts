@@ -4,6 +4,8 @@ import { SignUpService } from './sign-up.svc';
 import { AngularFire, AngularFireAuth, FirebaseListObservable } from 'angularfire2';
 import { UserProfile } from '../model/user-profile';
 
+import { ErrorService } from '../error-service/error.svc'
+
 @Component({
 	selector: 'sl-sign-up',
 	templateUrl: './sign-up.html',
@@ -17,15 +19,16 @@ export class SignUpComponent implements OnInit {
 
 	constructor(
 		private router: Router,
+		private errorService: ErrorService,
 		af: AngularFire) {
-			this.userProfiles = af.database.list('/userProfiles');
+		this.userProfiles = af.database.list('/userProfiles');
 	}
 
 	ngOnInit() {
 		firebase.auth().onAuthStateChanged((user: firebase.User) => {
 			if (user) {
 				console.log(user);
-				
+
 				// Update User Profile info
 				if (this.firstName) {
 					let up = new UserProfile(this.firstName, this.lastName);
@@ -42,12 +45,20 @@ export class SignUpComponent implements OnInit {
 		});
 	}
 
-	signUp(email, password, fname, lname) {
+	signUp(email, password, password2, fname, lname) {
+
+		if (password !== password2) {
+			this.errorService.displayError("Passwords do not match.");
+			return;
+		}
+
 		this.firstName = fname;
 		this.lastName = lname;
-		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+
+		firebase.auth().createUserWithEmailAndPassword(email, password).catch(error => {
 			if (error) {
 				console.log(error.message);
+				this.errorService.displayError(error.message);
 			}
 		});
 	}
