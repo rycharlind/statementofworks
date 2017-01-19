@@ -56,6 +56,13 @@ export class SowsComponent implements OnInit {
 	selectSow(sow: Sow) {
 		this.sowsService.isNewSow = false;
 		this.sowsService.announceSowSelected(sow);
+		
+		let osListItems : HTMLCollectionOf<Element> = document.getElementsByClassName("os-list-item");
+		for (let i in osListItems)
+			if (osListItems.item(Number(i)).getAttribute("id") == sow.$key)
+				osListItems.item(Number(i)).classList.add("os-list-active");
+			else
+				osListItems.item(Number(i)).classList.remove("os-list-active");		
 	}
 
 	newSow() {
@@ -64,5 +71,6 @@ export class SowsComponent implements OnInit {
 		this.sowsService.isNewSow = true;
 		this.items.push(sow);
 	}
+
 
 }

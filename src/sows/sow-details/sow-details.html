@@ -17,7 +17,7 @@
         <div class="number">
             <span *ngIf="!isEditable" class="sow-detail-item">{{sow.number}}</span>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Number'">
-                <input type="text" name="sowVendor" [(ngModel)]="sow.number" required>
+                <input type="text" name="sowNumber" [(ngModel)]="sow.number" required>
             </qu-input-container>
         </div>
         <div class="title">
@@ -78,7 +78,7 @@
                 <span>{{sow.vendor}}</span>
             </div>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Vendor'">
-                <input type="text" name="sowVedor" [(ngModel)]="sow.vendor" required>
+                <input type="text" name="sowVendor" [(ngModel)]="sow.vendor" required>
             </qu-input-container>
         </div>
         <div quFlexRow>

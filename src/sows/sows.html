@@ -14,7 +14,7 @@
 			<!-- OSS List -->
 			<div class="qu-whiteframe-6">
 				<div class="os-list">
-					<div class="os-list-item qu-ripple" *ngFor="let sow of items | async" (click)="selectSow(sow)">
+					<div class="os-list-item qu-ripple" *ngFor="let sow of items | async" [id]="sow.$key" (click)="selectSow(sow)">
 						<div class="os-list-item-header" quFlexRow>
 							<div class="os-list-item-left">
 								{{sow.number}} (<strong>{{sow.step}}</strong>)
