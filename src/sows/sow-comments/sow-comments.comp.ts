@@ -3,6 +3,7 @@ import { SowsService } from '../sows.svc';
 import { Sow } from '../../model/sow';
 import { Comment } from '../../model/comment';
 import { UserService } from '../../firebase-service/user.svc';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
     selector: 'sow-comments',
@@ -12,31 +13,25 @@ import { UserService } from '../../firebase-service/user.svc';
 export class SowCommentsComponent {
 
     sow = new Sow();
-
     currentComment: string;
+    comments: FirebaseListObservable<any[]>;
 
     constructor(
         private sowsService: SowsService,
-        private userService: UserService
+        private userService: UserService,
+        af: AngularFire
     ) {
         this.sowsService.getSelectedSow().subscribe(
             s => {
                 this.sow = s;
+                this.comments = af.database.list('/sows/' + s.$key + '/comments') as FirebaseListObservable<any[]>;
         });
     }
 
     saveComment() {
-        if (this.sow.comments == null) {
-            this.sow.comments = [];
-        }
-
-        var c = new Comment
-        (this.userService.getName(), this.currentComment);
-
-            this.sow.comments.push(c);
-
-            this.currentComment = ''; //clear textfield
-
-            this.sowsService.saveSow(this.sow);
+        console.log("save comment");
+        var c = new Comment(this.userService.getName(), this.currentComment);
+        this.comments.push(c);
+        this.currentComment = ''; // clear textfield
     }
 }

@@ -11,6 +11,8 @@ $excel-color:#4caf50;
 $word-color:#2196f3;
 $image-color:#FF9800;
 
+$primary-font: "proxima-nova";
+
 html{
   height: 100%;
 }
@@ -25,7 +27,6 @@ body {
 .app {
 	height: calc(100vh - 64px);
   padding-top: 64px;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   display: block;
 }
@@ -52,3 +53,4 @@ h1 {
 @import '../splash/splash';
 @import '../sows/sows';
 @import '../doc-uploader/doc-uploader';
+@import '../error-service/error-component';

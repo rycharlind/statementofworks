@@ -1,0 +1,19 @@
+.error-component{
+    position:fixed;
+    bottom:32px;
+    right:32px;
+    z-index:999999;
+    padding:16px;
+    background-color: #F44336;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    color:#fff;
+    span {
+        padding-right:16px;
+    }
+    a {
+        cursor:pointer;
+    }
+    &.hide {
+        display:none;
+    }
+}

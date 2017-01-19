@@ -17,22 +17,14 @@
 					<div class="os-list-item qu-ripple" *ngFor="let sow of items | async" [id]="sow.$key" (click)="selectSow(sow)">
 						<div class="os-list-item-header" quFlexRow>
 							<div class="os-list-item-left">
-								{{sow.number}} (<strong>{{sow.step}}</strong>)
-							</div>
-							<div class="os-list-item-right">
-								<span>{{sow.businessOwner}}</span> <i class="material-icons">account_box</i>
+								{{sow.number}}
 							</div>
 						</div>
 						<div class="os-list-item-content" quFlexRow>
 							{{sow.title}}
 						</div>
 						<div class="os-list-item-footer" quFlexRow>
-							<div class="os-list-item-left">
-								<i class="material-icons">date_range</i> <span>{{sow.startDate}} - {{sow.endDate}}</span>
-							</div>
-							<div class="os-list-item-right">
-								{{sow.vendor}}
-							</div>
+							<span>{{ sow.businessOwner }}</span>
 						</div>
 						<div class="arrow"><i class="material-icons">keyboard_arrow_right</i></div>
 					</div>
@@ -45,6 +37,12 @@
 
 			<!-- SOW Details -->
 			<div class="qu-whiteframe-6">
+
+				<div class="sow-main-details">
+					
+				</div>
+
+
 				<md-tab-group>
 					<md-tab>
 						<template md-tab-label>

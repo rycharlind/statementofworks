@@ -6,10 +6,10 @@
 				<input name="email" ngModel required #email="ngModel">
 			</qu-input-container>
 			<qu-input-container [placeholder]="'Password'">
-				<input name="password" ngModel required #password="ngModel">
+				<input type="password" name="password" ngModel required #password="ngModel">
 			</qu-input-container>
 			<qu-input-container [placeholder]="'Confirm Password'">
-				<input name="passwordConfirm" required ngModel #passwordConfirm="ngModel">
+				<input type="password" name="passwordConfirm" required ngModel #passwordConfirm="ngModel">
 			</qu-input-container>
 			<qu-input-container [placeholder]="'First Name'">
 				<input name="firstName" required ngModel #firstName="ngModel">
@@ -17,7 +17,7 @@
 			<qu-input-container [placeholder]="'Last Name'">
 				<input name="lastName" required ngModel #lastName="ngModel">
 			</qu-input-container>
-			<qu-button [quDisabled]="!signUpForm.valid" class="qu-raised qu-primary" (click)="signUp(email.value, password.value, firstName.value, lastName.value)">Create Account</qu-button>
+			<qu-button [quDisabled]="!signUpForm.valid" class="qu-raised qu-primary" (click)="signUp(email.value, password.value, passwordConfirm.value, firstName.value, lastName.value)">Create Account</qu-button>
 			<qu-button class="qu-raised qu-secondary" (click)="goTo('sign-in')">Sign In</qu-button>
 		</form>
 	</div>	

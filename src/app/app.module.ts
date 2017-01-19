@@ -13,6 +13,9 @@ import { AppComponent } from './app.comp';
 import { HeaderComponent } from '../header/header.comp';
 import { SideNavComponent } from '../side-nav/side-nav.comp';
 import { DocUploaderComponent } from '../doc-uploader/doc-uploader.comp';
+import { ErrorComponent } from '../error-service/error.comp'
+import { ErrorService } from '../error-service/error.svc'
+
 import { HomeModule } from '../home/home.module';
 import { ProfileModule } from '../profile/profile.module';
 import { SignInModule } from '../sign-in/sign-in.module';
@@ -51,9 +54,11 @@ export const firebaseConfig = {
     AppComponent,
     HeaderComponent,
     SideNavComponent,
-    DocUploaderComponent
+    DocUploaderComponent,
+    ErrorComponent
   ],
   providers: [
+    ErrorService
   ],
   bootstrap: [AppComponent]
 })
