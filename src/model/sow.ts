@@ -1,5 +1,6 @@
 import { Doc } from './doc';
-import { Comment } from './comment'
+import { Comment } from './comment';
+import { Activity } from './activity';
 
 export class Sow {
   $key: string;
@@ -19,6 +20,7 @@ export class Sow {
   fundingGlid: string;
   documents: Doc[];
   comments: Comment[];
+  activities: Activity[];
   constructor() {
     this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
   }

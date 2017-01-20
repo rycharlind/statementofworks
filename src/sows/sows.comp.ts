@@ -9,11 +9,12 @@ import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
 import { SowDetailsComponent } from './sow-details/sow-details.comp';
 import { SowsService } from './sows.svc';
+import { ActivityService } from './activity-service/activity.svc'
 
 @Component({
 	selector: 'sl-sows',
     templateUrl: './sows.html',
-	providers: [UserService]
+	providers: [UserService, ActivityService]
 })
 
 export class SowsComponent implements OnInit {

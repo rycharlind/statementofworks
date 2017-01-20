@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { SignUpService } from './sign-up.svc';
 import { AngularFire, AngularFireAuth, FirebaseListObservable } from 'angularfire2';
 import { UserProfile } from '../model/user-profile';
-
 import { ErrorService } from '../error-service/error.svc'
 
 @Component({
