@@ -36,6 +36,15 @@
     <div id="sowSecondaryDetails">
         <div quFlexRow>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
+                <label>Amount</label>
+                <span>{{ sow.amount | currency: "USD" }}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Amount'">
+                <input type="number" name="sowAmount" [(ngModel)]="sow.amount" required>
+            </qu-input-container>
+        </div>
+        <div quFlexRow>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
                 <label>Start Date</label>
                 <span>{{sow.startDate | date:'MMMM dd, yyyy'}}</span>
             </div>

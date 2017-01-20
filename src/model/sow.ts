@@ -19,6 +19,7 @@ export class Sow {
   fundingGlid: string;
   documents: Doc[];
   comments: Comment[];
+  amount: number;
   constructor() {
     this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
   }
