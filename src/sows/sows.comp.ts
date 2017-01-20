@@ -37,7 +37,13 @@ export class SowsComponent implements OnInit {
 					)
 				) as FirebaseListObservable<any[]>;
 			
-			this.sow = new Sow();		
+			this.sow = new Sow();	
+
+			this.sowsService.getSelectedSow().subscribe(
+				s => {
+					this.sow = s;
+				}
+			);	
 	}
 
 	ngOnInit() {
@@ -53,16 +59,22 @@ export class SowsComponent implements OnInit {
 	
 	}
 
+
+
 	selectSow(sow: Sow) {
 		this.sowsService.isNewSow = false;
 		this.sowsService.announceSowSelected(sow);
-		
+
+		this.setActiveClass();
+	}
+
+	setActiveClass(){
 		let osListItems : HTMLCollectionOf<Element> = document.getElementsByClassName("os-list-item");
 		for (let i in osListItems)
-			if (osListItems.item(Number(i)).getAttribute("id") == sow.$key)
+			if (osListItems.item(Number(i)).getAttribute("id") == this.sow.$key)
 				osListItems.item(Number(i)).classList.add("os-list-active");
 			else
-				osListItems.item(Number(i)).classList.remove("os-list-active");		
+				osListItems.item(Number(i)).classList.remove("os-list-active");
 	}
 
 	newSow() {
