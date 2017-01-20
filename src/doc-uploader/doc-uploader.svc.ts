@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
 import { Sow } from '../model/sow';
 import { Doc } from '../model/doc';
+import { ErrorService } from '../error-service/error.svc'
 
 @Injectable()
 export class DocUploaderService {
@@ -16,6 +17,8 @@ export class DocUploaderService {
 
     storageRef = firebase.storage().ref().child('no-name');
     uploadTask = this.storageRef.put(new File([], "no-name"));
+
+    constructor(private errorService: ErrorService){}
 
     upload(file: File, sow: Sow) {
 
@@ -61,6 +64,7 @@ export class DocUploaderService {
                 (error) => { 
                     console.log(error); 
                     this.uploadState.next(error.message);
+                    this.errorService.displayError(error.message);
                 }
             );
         }

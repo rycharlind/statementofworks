@@ -1,4 +1,4 @@
-import { Injectable, ElementRef, Renderer } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
 

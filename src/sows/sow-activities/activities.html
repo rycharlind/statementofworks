@@ -1,0 +1,13 @@
+<div class="sow-activities">
+
+  <h1> Makin sure we're here </h1>
+
+  <div class="activity">
+    <div *ngFor="let activity of activities | async" class="qu-flex-align-items-end" quFlexColumn>
+      <div class="author">{{activity.actor}}</div>
+      <div class="description text-right">{{activity.description}}</div>
+      <div class="date">{{activity.dateCreated | date:'MM/dd/yyyy @ h:mma' }}</div>
+    </div>
+  </div>
+
+</div>

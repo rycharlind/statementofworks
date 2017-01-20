@@ -25,6 +25,7 @@ export class SowsService {
     }
 
     saveSow(sow: any) {
+
         let key = sow.$key;
         if (key) {
             delete sow.$key;
@@ -36,7 +37,7 @@ export class SowsService {
 
     deleteSow(sow: any) {
         firebase.database().ref('/sows/' + sow.$key).remove();
-        this.isNewSow = false;
+        this.isNewSow = false; //huh?
           //this.announceSowSelected(this.items[0])
     }
 
