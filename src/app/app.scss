@@ -39,6 +39,11 @@ h1 {
   color:rgba(0,0,0,0.68);
 }
 
+.md-dialog-container {
+  background-color:$sl-primary;
+  color:#fff;
+}
+
 @import '../../quSquared/quSquared';
 
 @import '../header/header';

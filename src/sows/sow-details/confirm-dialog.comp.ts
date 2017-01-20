@@ -5,8 +5,9 @@ import { MdDialogRef} from '@angular/material';
   selector: 'your-dialog-selector',
   template: `
   <h2>Are you sure you want to delete this SOW?</h2>
-  <button md-raised-button (click)="dialogRef.close('yes')">Yes</button>
-  <button md-raised-button (click)="dialogRef.close('no')">No</button>`
+  <qu-button class="qu-raised qu-secondary" (click)="dialogRef.close('yes')">Yes</qu-button>
+  <qu-button class="qu-raised qu-tertiary" (click)="dialogRef.close('no')">No</qu-button>
+  `
 })
 export class ConfirmDialogComponent {
   constructor(public dialogRef: MdDialogRef<any>) { }

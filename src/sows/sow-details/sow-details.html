@@ -4,9 +4,6 @@
         <qu-button class="qu-raised qu-danger" (click)="deleteCurrentSow($event, $mdDialog)">
             <i class="material-icons">delete</i>
         </qu-button>
-        <qu-button class="qu-raised qu-tertiary">
-            <i class="material-icons">control_point_duplicate</i>
-        </qu-button>
         <qu-button class="qu-raised qu-secondary" (click)="toggleView()">
             <i class="material-icons" *ngIf="!isEditable">create</i>
             <i class="material-icons" *ngIf="isEditable">save</i>
@@ -37,7 +34,7 @@
         <div quFlexRow>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
                 <label>Amount</label>
-                <span>{{ sow.amount | currency: "USD" }}</span>
+                <span>{{ sow.amount | currency:'USD':true:'1.2-2' }}</span>
             </div>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Amount'">
                 <input type="number" name="sowAmount" [(ngModel)]="sow.amount" required>
