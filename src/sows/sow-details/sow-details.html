@@ -60,13 +60,10 @@
             </qu-input-container>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Type</label>
-                <span>{{sow.type}} - {{sow.subType}}</span>
+                <span>{{sow.type}}</span>
             </div>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Type'">
                 <input type="text" name="sowType" [(ngModel)]="sow.type" required>
-            </qu-input-container>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'SubType'">
-                <input type="text" name="sowSubType" [(ngModel)]="sow.subType" required>
             </qu-input-container>
         </div>
         <div quFlexRow>
