@@ -12,8 +12,7 @@ import { SowsService } from './sows.svc';
 
 @Component({
 	selector: 'sl-sows',
-    templateUrl: './sows.html',
-	providers: [UserService]
+    templateUrl: './sows.html'
 })
 
 export class SowsComponent implements OnInit {
