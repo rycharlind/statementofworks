@@ -14,8 +14,8 @@
 			<!-- OSS List -->
 			<div class="qu-whiteframe-6">
 				<div class="os-list">
-					<div class="os-list-item qu-ripple" *ngFor="let sow of items | async; let isFirst = first" 
-						[class.os-list-active]="isFirst" [id]="sow.$key" (click)="selectSow(sow)">
+					<div class="os-list-item qu-ripple" *ngFor="let sow of items | async; let isLast = last" 
+						[id]="sow.$key" (click)="selectSow(sow)">
 						<div class="os-list-item-header" quFlexRow>
 							<div class="os-list-item-left">
 								{{sow.number}}
@@ -28,6 +28,7 @@
 							<span>{{ sow.businessOwner }}</span>
 						</div>
 						<div class="arrow"><i class="material-icons">keyboard_arrow_right</i></div>
+						{{ isLast ? setActiveClass() : ""}}
 					</div>
 				</div>
 			</div>
