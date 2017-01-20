@@ -28,7 +28,7 @@ export class ActivityService {
     }
 
     getActivities(){
-	return this.activities;
+        return this.activities;
     }
 
 }

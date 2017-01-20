@@ -12,6 +12,9 @@
             padding:10px 50px 10px 10px;
             font-size: 12px;
             position:relative;
+            &.os-list-active {
+                background-color:rgba(33,150,243,0.16);
+            }
             &-header {
                 font-weight: normal;
                 font-style: normal;
@@ -98,8 +101,11 @@
         }
     }
 
+
+
 }
 
 @import './sow-details/sow-details';
 @import './sow-docs/sow-docs';
 @import './sow-comments/sow-comments';
+@import './sow-activities/sow-activities';

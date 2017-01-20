@@ -9,7 +9,7 @@ import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
 import { SowDetailsComponent } from './sow-details/sow-details.comp';
 import { SowsService } from './sows.svc';
-import { ActivityService } from './activity-service/activity.svc'
+import { ActivityService } from './activity-service/activity.svc';
 
 @Component({
 	selector: 'sl-sows',
@@ -28,6 +28,7 @@ export class SowsComponent implements OnInit {
 	constructor(
 		private userService: UserService,
 		private sowsService: SowsService,
+		//private activityService: ActivityService,
 		af: AngularFire, private router: Router) {
 			
 			this.items = af.database
@@ -38,7 +39,13 @@ export class SowsComponent implements OnInit {
 					)
 				) as FirebaseListObservable<any[]>;
 			
-			this.sow = new Sow();		
+			this.sow = new Sow();	
+
+			this.sowsService.getSelectedSow().subscribe(
+				s => {
+					this.sow = s;
+				}
+			);	
 	}
 
 	ngOnInit() {
@@ -54,9 +61,22 @@ export class SowsComponent implements OnInit {
 	
 	}
 
+
+
 	selectSow(sow: Sow) {
 		this.sowsService.isNewSow = false;
 		this.sowsService.announceSowSelected(sow);
+
+		this.setActiveClass();
+	}
+
+	setActiveClass(){
+		let osListItems : HTMLCollectionOf<Element> = document.getElementsByClassName("os-list-item");
+		for (let i in osListItems)
+			if (osListItems.item(Number(i)).getAttribute("id") == this.sow.$key)
+				osListItems.item(Number(i)).classList.add("os-list-active");
+			else
+				osListItems.item(Number(i)).classList.remove("os-list-active");
 	}
 
 	newSow() {
@@ -65,5 +85,6 @@ export class SowsComponent implements OnInit {
 		this.sowsService.isNewSow = true;
 		this.items.push(sow);
 	}
+
 
 }

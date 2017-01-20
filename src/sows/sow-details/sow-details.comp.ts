@@ -4,6 +4,7 @@ import { Sow } from '../../model/sow';
 import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
 
 import { ConfirmDialogComponent } from './confirm-dialog.comp'
+import { ActivityService } from './../activity-service/activity.svc';
 
 @Component({
     selector: 'sow-details',
@@ -16,7 +17,9 @@ export class SowDetailsComponent implements OnInit {
     isEditable: boolean = false;
     dialogRef: MdDialogRef<any>;
 
-    constructor(private sowsService: SowsService, public dialog: MdDialog,
+    constructor(private sowsService: SowsService,
+    private activityService: ActivityService,
+     public dialog: MdDialog,
         public viewContainerRef: ViewContainerRef) {
         this.sowsService.getSelectedSow().subscribe(
             s => {
@@ -34,13 +37,17 @@ export class SowDetailsComponent implements OnInit {
     toggleView() {
         if (this.isEditable) {
             this.isEditable = false;
+
+            if (this.sowsService.isNewSow) {
+                this.activityService.registerActivity("" + this.sow.number + " created.")
+            }
             this.sowsService.saveSow(this.sow);
         } else {
             this.isEditable = true;
         }
     }
 
-    deleteCurrentSow(ev: any, mdDialog: any){
+    deleteCurrentSow(ev: any, mdDialog: any) {
 
         let config = new MdDialogConfig();
         config.viewContainerRef = this.viewContainerRef;
@@ -54,6 +61,6 @@ export class SowDetailsComponent implements OnInit {
 
             this.dialogRef = null;
         });
-	
+
     }
 }
