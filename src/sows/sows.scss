@@ -1,10 +1,13 @@
 .sows {
     padding:16px;
     .qu-whiteframe-6 {
-        padding:16px;
         &:first-child {
             margin-right:12px;
         }
+    }
+
+    .sow-main-container {
+        padding:16px 0px;
     }
 
     .os-list {
@@ -13,9 +16,10 @@
             font-size: 12px;
             position:relative;
             &.os-list-active {
-                background-color:rgba(33,150,243,0.16);
+                background-color:rgb(33,150,243);
+                color:#fff;
                 &:hover {
-                    background-color:rgba(33,150,243,0.22);
+                    background-color:rgba(33,150,243, 0.87);
                 }
             }
             &-header {
@@ -80,7 +84,7 @@
 
             &:hover {
                 cursor:pointer;
-                background-color:rgba(0,0,0,0.03);
+                background-color:rgba(0,0,0,0.06);
             }
         }
     }

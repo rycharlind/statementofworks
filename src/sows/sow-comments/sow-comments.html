@@ -10,8 +10,8 @@
     <qu-input-container [placeholder]="'Enter a comment ...'" class="qu-flex">
           <input type="text" name="currentComment" [(ngModel)]="currentComment" required>
     </qu-input-container>
-    <qu-button class="qu-raised qu-secondary" (click)="saveComment()">
-      Send
+    <qu-button class="qu-raised qu-secondary" (click)="saveComment()" (keyup.enter)="saveComment()">
+      <i class="fa fa-send"></i>
     </qu-button>
   </div>
 </div>

@@ -2,7 +2,7 @@
 
 	<div class="sows-toolbar" quFlexRow>
 		<qu-button class="qu-raised qu-tertiary" (click)="newSow()">
-			<i class="material-icons">add_box</i> New SOW
+			<i class="fa fa-plus-square fa-right"></i>  New SOW
 		</qu-button>
 	</div>
 
@@ -33,9 +33,8 @@
 		</div>
 
 		<div class="qu-flex">
-
 			<!-- SOW Details -->
-			<div class="qu-whiteframe-6">
+			<div class="sow-main-container qu-whiteframe-6">
 
 				<div class="sow-main-details">
 				</div>
@@ -43,7 +42,8 @@
 				<md-tab-group>
 					<md-tab>
 						<template md-tab-label>
-							<i class="material-icons">assignment</i> Details
+							<i class="material-icons">assignment</i> 
+							<span>Details</span>
 						</template>
 						<sow-details></sow-details>
 					</md-tab>

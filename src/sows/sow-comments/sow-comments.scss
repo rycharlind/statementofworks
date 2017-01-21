@@ -1,4 +1,5 @@
 .sow-comments {
+    padding:16px;
     .comment {
         padding:16px;
         max-width:300px;
@@ -32,5 +33,11 @@
     }
     .text-right {
         text-align: right;
+    }
+    .qu-button-container {
+        height:100%;
+        button {
+            height:100%;
+        }
     }
 }
