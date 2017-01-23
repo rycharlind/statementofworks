@@ -9,7 +9,7 @@ import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
 import { SowDetailsComponent } from './sow-details/sow-details.comp';
 import { SowsService } from './sows.svc';
-import { ActivityService } from './activity-service/activity.svc';
+import { ActivityService } from './sow-activities/activity.svc';
 
 @Component({
 	selector: 'sl-sows',
@@ -28,7 +28,7 @@ export class SowsComponent implements OnInit {
 	constructor(
 		private userService: UserService,
 		private sowsService: SowsService,
-		//private activityService: ActivityService,
+		//private : ActivityService,
 		af: AngularFire, private router: Router) {
 			
 			this.items = af.database

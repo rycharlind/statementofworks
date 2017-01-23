@@ -1,7 +1,7 @@
 <div class="sow-details">
 
     <div class="sow-details-toolbar qu-flex-justify-content-end" quFlexRow>
-        <qu-button class="qu-raised qu-danger" (click)="deleteCurrentSow($event, $mdDialog)">
+        <qu-button class="qu-raised qu-danger" (click)="askToDelete()">
             <i class="fa fa-trash"></i>
         </qu-button>
         <qu-button class="qu-raised qu-secondary" (click)="toggleView()">
@@ -105,4 +105,7 @@
             </qu-input-container>
         </div>
     </div>
+    <confirm></confirm> 
 </div>
+
+

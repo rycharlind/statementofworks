@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Activity } from '../../model/activity';
-import { ActivityService } from '../activity-service/activity.svc'
+import { ActivityService } from '../sow-activities/activity.svc'
 import { FirebaseListObservable } from 'angularfire2';
 
 import { SowsService } from '../sows.svc';

@@ -1,0 +1,5 @@
+<div class="confirm-component" [class.hide]="!displayed">
+  <h2>{{ msg }}</h2>
+  <qu-button class="qu-raised qu-secondary" (click)="answer('yes')">Yes</qu-button>
+  <qu-button class="qu-raised qu-tertiary" (click)="answer('no')">No</qu-button>
+</div>
