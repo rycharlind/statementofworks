@@ -15,8 +15,8 @@ import { SowsComponent } from './sows.comp';
 import { SowDetailsComponent } from './sow-details/sow-details.comp';
 import { SowCommentsComponent } from './sow-comments/sow-comments.comp'
 import { SowDocsComponent } from './sow-docs/sow-docs.comp';
-import { ConfirmDialogComponent } from './sow-details/confirm-dialog.comp';
 import { SowActivitiesComponent } from './sow-activities/sow-activities.comp';
+import {ConfirmComponent} from '../confirm-service/confirm.comp';
 
 @NgModule({
     imports: [
@@ -31,10 +31,9 @@ import { SowActivitiesComponent } from './sow-activities/sow-activities.comp';
 	SowDetailsComponent,
 	SowCommentsComponent,
 	SowDocsComponent,
-	ConfirmDialogComponent,
-	SowActivitiesComponent
+	SowActivitiesComponent,
+	ConfirmComponent
     ],
-    entryComponents: [ConfirmDialogComponent],
     providers: [SowsService, DocUploaderService]
 })
 export class SowsModule { }

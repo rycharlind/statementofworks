@@ -1,25 +1,25 @@
 import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { SowsService } from '../sows.svc';
 import { Sow } from '../../model/sow';
-import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+import { ConfirmService } from '../../confirm-service/confirm.svc';
+import { ConfirmComponent } from '../../confirm-service/confirm.comp';
 
-import { ConfirmDialogComponent } from './confirm-dialog.comp'
-import { ActivityService } from './../activity-service/activity.svc';
+import { ActivityService } from '../sow-activities/activity.svc';
 
 @Component({
     selector: 'sow-details',
-    templateUrl: 'sow-details.html'
+    templateUrl: 'sow-details.html',
+    providers: [ConfirmService]
 })
 
 export class SowDetailsComponent implements OnInit {
 
     sow = new Sow();
     isEditable: boolean = false;
-    dialogRef: MdDialogRef<any>;
 
     constructor(private sowsService: SowsService,
-    private activityService: ActivityService,
-     public dialog: MdDialog,
+        private activityService: ActivityService,
+        private confirmService: ConfirmService,
         public viewContainerRef: ViewContainerRef) {
         this.sowsService.getSelectedSow().subscribe(
             s => {
@@ -47,20 +47,12 @@ export class SowDetailsComponent implements OnInit {
         }
     }
 
-    deleteCurrentSow(ev: any, mdDialog: any) {
+    askToDelete() {
 
-        let config = new MdDialogConfig();
-        config.viewContainerRef = this.viewContainerRef;
-
-        this.dialogRef = this.dialog.open(ConfirmDialogComponent, config);
-
-        this.dialogRef.afterClosed().subscribe(result => {
-            if (result == 'yes') {
-                this.sowsService.deleteSow(this.sow);
-            }
-
-            this.dialogRef = null;
+        this.confirmService.displayQuestion('Are you sure you want to delete this SOW?',
+            ans => {
+                if (ans == 'yes')
+                    this.sowsService.deleteSow(this.sow);
         });
-
     }
 }
