@@ -34,4 +34,8 @@ export class SowCommentsComponent {
         this.comments.push(c);
         this.currentComment = ''; // clear textfield
     }
+
+    eventHandler(event) {
+        console.log(event);
+    }
 }
