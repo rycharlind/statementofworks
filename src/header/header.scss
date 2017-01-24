@@ -6,7 +6,15 @@ $sl-primary: white !default;
     width: 100%;
     height: 64px;
     background-color: $sl-primary;
-	
+	transition: 0.3s;
+	&.qu-side-nav-open {
+		left:300px;
+		width:calc(100% - 300px);
+	}
+	&.qu-side-nav-close {
+		left:0;
+		width:100%;
+	}
 	&-logo {
 		height: 38px;
 		width: 240px;

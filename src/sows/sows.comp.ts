@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgForm, FormGroup } from '@angular/forms';
 import { BrowserModule } from "@angular/platform-browser";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';
 import { Sow } from '../model/sow';
@@ -28,7 +28,7 @@ export class SowsComponent implements OnInit {
 	constructor(
 		private userService: UserService,
 		private sowsService: SowsService,
-		//private : ActivityService,
+		private route: ActivatedRoute,
 		af: AngularFire, private router: Router) {
 			
 			this.items = af.database

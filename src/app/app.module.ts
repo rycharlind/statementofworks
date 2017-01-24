@@ -5,17 +5,18 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
-
 import { QuSquaredModule } from '../../quSquared';
 
 import { AppRoutes } from './app.routes';
+
+// Components
 import { AppComponent } from './app.comp';
 import { HeaderComponent } from '../header/header.comp';
 import { SideNavComponent } from '../side-nav/side-nav.comp';
 import { DocUploaderComponent } from '../doc-uploader/doc-uploader.comp';
 import { ErrorComponent } from '../error-service/error.comp';
-import { ErrorService } from '../error-service/error.svc';
 
+// Modules
 import { HomeModule } from '../home/home.module';
 import { ProfileModule } from '../profile/profile.module';
 import { SignInModule } from '../sign-in/sign-in.module';
@@ -23,6 +24,10 @@ import { SignUpModule } from '../sign-up/sign-up.module';
 import { ForgotPasswordModule } from '../forgot-password/forgot-password.module';
 import { SplashModule } from '../splash/splash.module';
 import { SowsModule } from '../sows/sows.module';
+import {SowModule} from '../sow/sow.module';
+
+// Services
+import { ErrorService } from '../error-service/error.svc';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA2lKWhBJZq_shhMFGXtbyH2eD-nKS7RWU",
@@ -46,6 +51,7 @@ export const firebaseConfig = {
     ForgotPasswordModule,
     SplashModule,
     SowsModule,
+    SowModule,
     RouterModule.forRoot(AppRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot()
