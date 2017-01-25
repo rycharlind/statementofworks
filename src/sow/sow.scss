@@ -1,5 +1,16 @@
 .sow {
     padding:16px;
+    .md-tab-header {
+        padding-top:16px;
+        margin-bottom:24px;
+        .md-tab-label.md-tab-active {
+            border-bottom:3px solid $sl-secondary;
+            color:$sl-secondary;
+        }
+    }
+    .md-tab-label {
+        flex-grow:1;
+    }
 }
 
 @import './sow-details/sow-details';

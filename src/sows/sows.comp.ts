@@ -59,8 +59,6 @@ export class SowsComponent implements OnInit {
 	
 	}
 
-
-
 	selectSow(sow: Sow) {
 		this.sowsService.isNewSow = false;
 		this.sowsService.announceSowSelected(sow);

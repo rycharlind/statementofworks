@@ -34,8 +34,12 @@ export class SideNavComponent implements OnInit {
 
   goTo(index) {
     let path = this.items[index].path;
-    this.router.navigate([path]);
-    this.setActive(index);
+    if (index < 3) {
+      this.router.navigate([path]);
+      this.setActive(index);
+    } else {
+      firebase.auth().signOut();
+    }
   }
 
   setActive(index) {
