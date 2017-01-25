@@ -3,7 +3,9 @@ import { Injectable, ElementRef, Renderer } from '@angular/core';
 @Injectable()
 export class SideNavService {
 	private element : HTMLElement;
-	private elementHeader : HTMLElement;
+	private element2 : HTMLElement;
+
+	activeItem: number;
 
 	constructor(private renderer: Renderer) { 
 	}
@@ -19,7 +21,7 @@ export class SideNavService {
 
 	isOpen() {
 		this.element = document.getElementById('quSideNav');
-		this.elementHeader = document.getElementById('header');
+		this.element2 = document.getElementById('appContainer');
 		return this.element.classList.contains('qu-side-nav-open');
 	}
 
@@ -27,15 +29,15 @@ export class SideNavService {
 		this.renderer.setElementClass(this.element, 'qu-side-nav-open', true);
 		this.renderer.setElementClass(this.element, 'qu-side-nav-close', false);
 		
-		this.renderer.setElementClass(this.elementHeader, 'qu-side-nav-open', true);
-		this.renderer.setElementClass(this.elementHeader, 'qu-side-nav-close', false);
-}
+		this.renderer.setElementClass(this.element2, 'qu-side-nav-open', true);
+		this.renderer.setElementClass(this.element2, 'qu-side-nav-close', false);
+	}
 
 	private close() {
 		this.renderer.setElementClass(this.element, 'qu-side-nav-open', false);
 		this.renderer.setElementClass(this.element, 'qu-side-nav-close', true);
 		
-		this.renderer.setElementClass(this.elementHeader, 'qu-side-nav-open', false);
-		this.renderer.setElementClass(this.elementHeader, 'qu-side-nav-close', true);
+		this.renderer.setElementClass(this.element2, 'qu-side-nav-open', false);
+		this.renderer.setElementClass(this.element2, 'qu-side-nav-close', true);
 	}
 }

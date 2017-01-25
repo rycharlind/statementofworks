@@ -3,7 +3,7 @@ import { Sow } from '../../model/sow';
 import { Activity } from '../../model/activity';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { UserService } from '../../firebase-service/user.svc';
-import { SowsService } from '../sows.svc';
+import { SowsService } from '../../sows/sows.svc';
 
 @Injectable()
 export class ActivityService {

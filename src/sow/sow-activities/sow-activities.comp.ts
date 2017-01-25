@@ -3,7 +3,7 @@ import { Activity } from '../../model/activity';
 import { ActivityService } from '../sow-activities/activity.svc'
 import { FirebaseListObservable } from 'angularfire2';
 
-import { SowsService } from '../sows.svc';
+import { SowsService } from '../../sows/sows.svc';
 
 @Component({
     selector: 'sow-activities',

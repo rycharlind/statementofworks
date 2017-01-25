@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
-import { SowsService } from '../sows.svc';
+import { SowService } from '../../sow/sow.svc';
 import { Sow } from '../../model/sow';
 import { ConfirmService } from '../../confirm-service/confirm.svc';
 import { ConfirmComponent } from '../../confirm-service/confirm.comp';
@@ -17,14 +17,14 @@ export class SowDetailsComponent implements OnInit {
     sow = new Sow();
     isEditable: boolean = false;
 
-    constructor(private sowsService: SowsService,
+    constructor(private sowService: SowService,
         private activityService: ActivityService,
         private confirmService: ConfirmService,
         public viewContainerRef: ViewContainerRef) {
-        this.sowsService.getSelectedSow().subscribe(
+        this.sowService.getCurrentSow().subscribe(
             s => {
                 this.sow = s;
-                if (this.sowsService.isNewSow) {
+                if (this.sowService.isNewSow) {
                     this.isEditable = true;
                 }
             }
@@ -38,21 +38,20 @@ export class SowDetailsComponent implements OnInit {
         if (this.isEditable) {
             this.isEditable = false;
 
-            if (this.sowsService.isNewSow) {
+            if (this.sowService.isNewSow) {
                 this.activityService.registerActivity("" + this.sow.number + " created.")
             }
-            this.sowsService.saveSow(this.sow);
+            this.sowService.saveSow(this.sow);
         } else {
             this.isEditable = true;
         }
     }
 
     askToDelete() {
-
         this.confirmService.displayQuestion('Are you sure you want to delete this SOW?',
             ans => {
                 if (ans == 'yes')
-                    this.sowsService.deleteSow(this.sow);
+                    this.sowService.deleteSow(this.sow);
         });
     }
 }

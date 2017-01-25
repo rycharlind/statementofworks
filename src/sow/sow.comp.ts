@@ -7,27 +7,32 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';
 import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
-import { SowsService } from '../sows/sows.svc';
+import { SowService } from '../sow/sow.svc';
+import { ActivityService } from './sow-activities/activity.svc';
 
 @Component({
 	selector: 'sl-sow',
     templateUrl: './sow.html',
-	providers: [UserService]
+	providers: [UserService, ActivityService]
 })
 
 export class SowComponent implements OnInit {
 
     key: string;
-
+	sow: Sow;
 
 	constructor(
 		private userService: UserService,
-		private sowsService: SowsService,
+		private sowService: SowService,
 		private route: ActivatedRoute,
 		private af: AngularFire, 
         private router: Router) {
 				
-            
+        	this.sowService.getCurrentSow().subscribe(
+				s => {
+					this.sow = s;
+				}
+			);
 
     }
 
@@ -37,6 +42,7 @@ export class SowComponent implements OnInit {
 
 		this.route.params.subscribe(params => {
 			this.key = params['key'];
+			this.sowService.pullSow(this.key);
 		});
 	
 	}

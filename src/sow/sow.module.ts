@@ -7,11 +7,17 @@ import { QuSquaredModule } from '../../quSquared';
 
 import { SowRoutes } from './sow.routes';
 
-import { SowsService } from '../sows/sows.svc';
+import { SowService } from '../sow/sow.svc';
 import { DocUploaderService } from '../doc-uploader/doc-uploader.svc';
 import { UserService } from '../firebase-service/user.svc';
 
+import { SowDetailsComponent } from './sow-details/sow-details.comp';
+import { SowCommentsComponent } from './sow-comments/sow-comments.comp'
+import { SowDocsComponent } from './sow-docs/sow-docs.comp';
+import { SowActivitiesComponent } from './sow-activities/sow-activities.comp';
+
 import {SowComponent } from './sow.comp';
+import {ConfirmComponent} from '../confirm-service/confirm.comp';
 
 @NgModule({
     imports: [
@@ -22,8 +28,13 @@ import {SowComponent } from './sow.comp';
 	MaterialModule
     ],
     declarations: [
-	SowComponent
+	SowComponent,
+	SowDetailsComponent,
+	SowCommentsComponent,
+	SowDocsComponent,
+	SowActivitiesComponent,
+	ConfirmComponent
     ],
-    providers: [SowsService, DocUploaderService]
+    providers: [SowService, DocUploaderService]
 })
 export class SowModule { }

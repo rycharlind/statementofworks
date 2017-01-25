@@ -1,5 +1,5 @@
 import { Component, Input, ViewContainerRef } from '@angular/core';
-import { SowsService } from '../sows.svc';
+import { SowService } from '../../sow/sow.svc';
 import { Sow } from '../../model/sow';
 import { Comment } from '../../model/comment';
 import { UserService } from '../../firebase-service/user.svc';
@@ -17,11 +17,11 @@ export class SowCommentsComponent {
     comments: FirebaseListObservable<any[]>;
 
     constructor(
-        private sowsService: SowsService,
+        private sowService: SowService,
         private userService: UserService,
         af: AngularFire
     ) {
-        this.sowsService.getSelectedSow().subscribe(
+        this.sowService.getCurrentSow().subscribe(
             s => {
                 this.sow = s;
                 this.comments = af.database.list('/sows/' + s.$key + '/comments') as FirebaseListObservable<any[]>;

@@ -3,6 +3,13 @@ $sow-list-item-bg-color:#606060;
 
 .side-nav {
 
+	button.side-nav-btn-close {
+		border-style: none;
+		background-color:transparent;
+		color:#fff;
+		cursor: pointer;
+	}
+
 	.side-nav-content {
 		padding-top:32px;
 		.side-nav-sows-tv {

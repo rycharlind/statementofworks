@@ -7,38 +7,33 @@
 	</div>
 
 	<div quFlexRow>
-		<div class="qu-flex-30">
-			<!-- OSS List -->
-			<div class="qu-whiteframe-6">
-				<div class="os-list">
-					<div class="os-list-item qu-ripple" *ngFor="let sow of items | async; let isLast = last" 
-						[id]="sow.$key" (click)="selectSow(sow)">
-						<div class="os-list-item-header" quFlexRow>
-							<div class="os-list-item-left">
-								{{sow.number}}
-							</div>
+		<!-- OSS List -->
+		<div class="os-list-container qu-whiteframe-6">
+			<div class="os-list">
+				<div class="os-list-item qu-ripple" *ngFor="let sow of items | async; let isLast = last" 
+					[id]="sow.$key" (click)="goTo(sow)">
+					<div class="os-list-item-header" quFlexRow>
+						<div class="os-list-item-left">
+							{{sow.number}}
 						</div>
-						<div class="os-list-item-content" quFlexRow>
-							{{sow.title}}
-						</div>
-						<div class="os-list-item-footer" quFlexRow>
-							<span>{{ sow.businessOwner }}</span>
-						</div>
-						<div class="arrow"><i class="material-icons">keyboard_arrow_right</i></div>
-						{{ isLast ? setActiveClass() : ""}}
 					</div>
+					<div class="os-list-item-content" quFlexRow>
+						{{sow.title}}
+					</div>
+					<div class="os-list-item-footer" quFlexRow>
+						<span>{{ sow.amount | currency:'USD':true:'1.2-2' }}</span>
+					</div>
+					<div class="arrow"><i class="material-icons">keyboard_arrow_right</i></div>
+					<!--{{ isLast ? setActiveClass() : ""}}-->
 				</div>
 			</div>
-
 		</div>
 
+
+		<!--
+
 		<div class="qu-flex">
-			<!-- SOW Details -->
 			<div class="sow-main-container qu-whiteframe-6">
-
-				<div class="sow-main-details">
-				</div>
-
 				<md-tab-group>
 					<md-tab>
 						<template md-tab-label>
@@ -77,8 +72,10 @@
 
 		</div>
 
+		-->
 
-
+	
+	
 	</div>
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SowsService } from '../sows.svc';
+import { SowService } from '../../sow/sow.svc';
 import { DocUploaderService } from '../../doc-uploader/doc-uploader.svc';
 import { Sow } from '../../model/sow';
 import { Doc } from '../../model/doc';
@@ -15,8 +15,8 @@ export class SowDocsComponent implements OnInit {
     sow = new Sow();
     progress: any;
 
-    constructor(private sowsService: SowsService, private docUploaderService: DocUploaderService, af: AngularFire) {
-        this.sowsService.getSelectedSow().subscribe(
+    constructor(private sowService: SowService, private docUploaderService: DocUploaderService, af: AngularFire) {
+        this.sowService.getCurrentSow().subscribe(
             s => {
                 this.sow = s;
             }

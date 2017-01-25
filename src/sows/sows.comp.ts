@@ -7,14 +7,12 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';
 import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
-import { SowDetailsComponent } from './sow-details/sow-details.comp';
 import { SowsService } from './sows.svc';
-import { ActivityService } from './sow-activities/activity.svc';
 
 @Component({
 	selector: 'sl-sows',
     templateUrl: './sows.html',
-	providers: [UserService, ActivityService]
+	providers: [UserService]
 })
 
 export class SowsComponent implements OnInit {
@@ -70,7 +68,11 @@ export class SowsComponent implements OnInit {
 		this.setActiveClass();
 	}
 
-	setActiveClass(){
+	goTo(sow: Sow) {
+		this.router.navigate(['/sow/' + sow.$key]);
+	}
+
+	setActiveClass() {
 		let osListItems : HTMLCollectionOf<Element> = document.getElementsByClassName("os-list-item");
 		for (let i in osListItems)
 			if (osListItems.item(Number(i)).getAttribute("id") == this.sow.$key)

@@ -1,43 +1,22 @@
 <qu-side-nav class="side-nav">
+	<button class="side-nav-btn-close" (click)="close()"><i class="fa fa-close"></i></button>
 	<div class="side-nav-content" quFlexColumn>
 
 		<div class="side-nav-sows-tv">
 			<div class="title">Total Value</div>
-			<div class="value">$2,544,344</div>	
+			<div class="value">$2,544,344</div>
 		</div>
+
+		<div *ngFor="let item of items; let i = index;" class="side-nav-item side-nav-link" (click)="goTo(i)" [class.active]="item.isActive">
+			<span class="side-nav-item-icon fa {{item.icon}}"></span>
+			<span class="side-nav-item-content">{{item.title}}</span>
+		</div>
+
 
 		<!--
-		<div class="side-nav-links">
-			<qu-link [qlHref]="'/'" class="qu-primary"><i class="material-icons">dashboard</i>Dashboard</qu-link>
-			<qu-link [qlHref]="'/sows'" class="qu-primary"><i class="material-icons">folder</i>SOWs</qu-link>
-			<qu-link class="qu-primary"><i class="material-icons">settings</i>Settings</qu-link>
-			<qu-link [qlHref]="'/sign-in'" class="qu-primary" (click)="signOut()"><i class="material-icons">power_settings_new</i>Sign Out</qu-link>
-		</div>
-		-->
-
-		<div class="side-nav-item side-nav-link" (click)="goTo('/')">
-			<span class="side-nav-item-icon fa fa-home"></span>
-			<span class="side-nav-item-content">Home</span>
-		</div>
-		<div class="side-nav-item side-nav-link active" (click)="showSows()">
+		<div class="side-nav-item side-nav-link active" (click)="goTo('/sows')">
 			<span class="side-nav-item-icon fa fa-file-text"></span>
 			<span class="side-nav-item-content">SOWs</span>
-		</div>
-
-		<div class="side-nav-sows">
-			<div class="side-nav-item side-nav-link sow-list-item" *ngFor="let sow of sows | async" (click)="selectSow(sow)">
-				<div class="sow-list-item-header" quFlexRow>
-					<div class="sow-list-item-left">
-						{{sow.number}}
-					</div>
-				</div>
-				<div class="sow-list-item-content" quFlexRow>
-					{{sow.title}}
-				</div>
-				<div class="sow-list-item-footer" quFlexRow>
-					<span>{{ sow.amount | currency:'USD':true:'1.2-2' }}</span>
-				</div>
-			</div>
 		</div>
 
 		<div class="side-nav-item side-nav-link" (click)="goTo('/')">
@@ -48,7 +27,7 @@
 			<span class="side-nav-item-icon fa fa-sign-out"></span>
 			<span class="side-nav-item-content">Sign Out</span>
 		</div>
-
+		-->
 
 	</div>
 </qu-side-nav>

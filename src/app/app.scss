@@ -13,6 +13,28 @@ $image-color:#FF9800;
 
 $primary-font: "proxima-nova";
 
+$phone-width:320px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin phone {
+  @media (min-width: #{$phone-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
 html{
   height: 100%;
 }
@@ -26,13 +48,26 @@ body {
 
 .app {
 	height: calc(100vh - 64px);
-  padding-top: 64px;
   text-align: center;
   display: block;
 }
 
 .app > * > * {
 	min-height: calc(100% - 32px);
+}
+
+#appContainer {
+  transition: 0.3s;
+  &.qu-side-nav-open {
+		@include desktop {
+			padding-left:300px;
+			//width:calc(100% - 300px);
+		}
+	}
+	&.qu-side-nav-close {
+		padding-left:0;
+		//width:100%;
+	}
 }
 
 h1 {
@@ -71,6 +106,7 @@ h1 {
 @import '../forgot-password/forgot-password';
 @import '../splash/splash';
 @import '../sows/sows';
+@import '../sow/sow';
 @import '../doc-uploader/doc-uploader';
 @import '../error-service/error-component';
 @import '../confirm-service/confirm-component';

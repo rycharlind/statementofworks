@@ -1,7 +1,9 @@
-<sl-header></sl-header>
 <sl-side-nav></sl-side-nav>
 <div class="app">
-    <router-outlet></router-outlet>
+    <div id="appContainer" class="app-container qu-side-nav-open">
+        <sl-header></sl-header>
+        <router-outlet></router-outlet>
+    </div>
 </div>
 <doc-uploader></doc-uploader>
 <errors></errors>
