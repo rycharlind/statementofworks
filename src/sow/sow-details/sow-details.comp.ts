@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
+import { Router, ActivatedRoute } from "@angular/router";
 import { SowService } from '../../sow/sow.svc';
 import { Sow } from '../../model/sow';
 import { ConfirmService } from '../../confirm-service/confirm.svc';
@@ -20,6 +21,7 @@ export class SowDetailsComponent implements OnInit {
     constructor(private sowService: SowService,
         private activityService: ActivityService,
         private confirmService: ConfirmService,
+        private router: Router,
         public viewContainerRef: ViewContainerRef) {
         this.sowService.getCurrentSow().subscribe(
             s => {
@@ -52,6 +54,7 @@ export class SowDetailsComponent implements OnInit {
             ans => {
                 if (ans == 'yes')
                     this.sowService.deleteSow(this.sow);
+                    this.router.navigate(['/sows']);
         });
     }
 }

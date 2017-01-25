@@ -25,6 +25,7 @@ import { ForgotPasswordModule } from '../forgot-password/forgot-password.module'
 import { SplashModule } from '../splash/splash.module';
 import { SowsModule } from '../sows/sows.module';
 import {SowModule} from '../sow/sow.module';
+import {SettingsModule} from '../settings/settings.module';
 
 // Services
 import { ErrorService } from '../error-service/error.svc';
@@ -52,6 +53,7 @@ export const firebaseConfig = {
     SplashModule,
     SowsModule,
     SowModule,
+    SettingsModule,
     RouterModule.forRoot(AppRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     MaterialModule.forRoot()
