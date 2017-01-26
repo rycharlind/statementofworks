@@ -1,0 +1,16 @@
+.settings {
+    padding:16px;
+    text-align: left;
+    .qu-input-container {
+        margin-right:8px;
+    }
+    .steps {
+        padding:16px 0px;
+        .step {
+            margin-bottom:24px;
+            .title {
+                font-weight:bold;
+            }
+        }
+    }
+}

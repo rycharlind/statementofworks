@@ -47,22 +47,17 @@ export class SowsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-
 		this.userService.authUser();
-		
 		let sowRef = firebase.database().ref('/sows');
 		sowRef.on('child_added', snapShot => {
 			var sow = snapShot.val();
 			sow.$key = snapShot.key;
-			this.sowsService.announceSowSelected(sow);
 		});
-	
 	}
 
 	selectSow(sow: Sow) {
 		this.sowsService.isNewSow = false;
 		this.sowsService.announceSowSelected(sow);
-
 		this.setActiveClass();
 	}
 
@@ -83,7 +78,10 @@ export class SowsComponent implements OnInit {
 		let sow = new Sow();
 		sow.number = "SOW-";
 		this.sowsService.isNewSow = true;
-		this.items.push(sow);
+		this.items.push(sow).then(snap => {
+			console.log(snap.key);
+			this.router.navigate(['/sow/' + snap.key]);
+		})
 	}
 
 
