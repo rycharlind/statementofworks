@@ -15,14 +15,21 @@ export class SideNavComponent implements OnInit {
   items = [
     { title:"Home", icon:"fa-home", isActive: false, path:"/" },
     { title:"SOWs", icon:"fa-file-text", isActive: false, path:"/sows" },
-    { title:"Settings", icon:"fa-cogs", isActive: false, path:"/" },
-    { title:"Sign Out", icon:"fa-sign-out", isActive: false, path:"/" }
+    { title:"Settings", icon:"fa-cogs", isActive: false, path:"/settings" },
+    { title:"Sign Out", icon:"fa-sign-out", isActive: false, path:"/signout" }
   ];
 
   constructor(
     private router: Router,
     af: AngularFire,
     private sideNavSvc: SideNavService) {
+      router.events.subscribe((val) => {
+        for (let index in this.items){
+          if (this.items[index].path == val.url){
+            this.setActive(index);
+          }
+        }
+      });
   }
 
   ngOnInit() {
@@ -34,9 +41,8 @@ export class SideNavComponent implements OnInit {
 
   goTo(index) {
     let path = this.items[index].path;
-    if (index < 3) {
+    if (path != "/signout") {
       this.router.navigate([path]);
-      this.setActive(index);
     } else {
       firebase.auth().signOut();
     }
