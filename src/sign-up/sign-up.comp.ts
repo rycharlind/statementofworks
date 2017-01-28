@@ -42,7 +42,17 @@ export class SignUpComponent implements OnInit {
 				console.log("No User");
 			}
 		});
+
+		document.getElementsByClassName("qu-side-nav")[0].classList.add("sign-in-hide");
+		document.getElementsByClassName("header")[0].classList.add("sign-in-hide");
+		document.getElementById("appContainer").classList.add("sign-in-no-left");
 	}
+
+	ngOnDestroy(){
+		document.getElementsByClassName("qu-side-nav")[0].classList.remove("sign-in-hide");
+		document.getElementsByClassName("header")[0].classList.remove("sign-in-hide");
+		document.getElementById("appContainer").classList.remove("sign-in-no-left");
+	} 
 
 	signUp(email, password, password2, fname, lname) {
 
