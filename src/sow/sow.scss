@@ -1,15 +1,23 @@
 .sow {
     padding:16px;
     .md-tab-header {
-        padding-top:16px;
-        margin-bottom:24px;
         .md-tab-label.md-tab-active {
-            border-bottom:3px solid $sl-secondary;
-            color:$sl-secondary;
+            color:#673AB7;
         }
     }
     .md-tab-label {
         flex-grow:1;
+        i, span {
+            font-size: 16px;
+        }
+    }
+
+    .sow-main-container {
+        width:100%;
+    }
+
+    .sow-timeline {
+        margin-right:16px;
     }
 }
 

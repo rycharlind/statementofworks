@@ -61,12 +61,10 @@ body {
   &.qu-side-nav-open {
 		@include desktop {
 			padding-left:300px;
-			//width:calc(100% - 300px);
 		}
 	}
 	&.qu-side-nav-close {
 		padding-left:0;
-		//width:100%;
 	}
 }
 
@@ -92,6 +90,8 @@ h1 {
       margin-right:6px;
     }
 }
+
+@import '../../node_modules/@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 
 @import '../../quSquared/quSquared';
 

@@ -5,6 +5,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { MaterialModule } from '@angular/material';
+import 'hammerjs';
 import { QuSquaredModule } from '../../quSquared';
 
 import { AppRoutes } from './app.routes';
