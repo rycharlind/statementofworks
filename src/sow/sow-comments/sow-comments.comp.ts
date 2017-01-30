@@ -24,7 +24,15 @@ export class SowCommentsComponent {
         this.sowService.getCurrentSow().subscribe(
             s => {
                 this.sow = s;
-                this.comments = af.database.list('/sows/' + s.$key + '/comments') as FirebaseListObservable<any[]>;
+
+                this.comments = af.database
+				.list('/sows/' + s.$key + '/comments')
+				.map(
+					items => items.sort(
+						(a,b) => 1
+					)
+				) as FirebaseListObservable<any[]>;
+        
         });
     }
 

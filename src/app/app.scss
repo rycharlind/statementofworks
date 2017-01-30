@@ -91,6 +91,25 @@ h1 {
     }
 }
 
+.hide {
+  display:none;
+  &-phone {
+    @include phone {
+      display:none;
+    }
+  }
+  &-desktop {
+    @include desktop {
+      display:none;
+    }
+  }
+}
+
+.show {
+  display:block;
+}
+
+
 @import '../../node_modules/@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 
 @import '../../quSquared/quSquared';

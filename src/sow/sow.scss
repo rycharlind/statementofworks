@@ -19,6 +19,10 @@
     .sow-timeline {
         margin-right:16px;
     }
+
+    @include phone {
+        padding:4px;
+    }
 }
 
 @import './sow-details/sow-details';

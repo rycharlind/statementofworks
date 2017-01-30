@@ -1,17 +1,17 @@
 <div class="sow-comments">
-  <div *ngFor="let comment of comments | async" quFlexColumn> 
-    <div class="comment"> 
-    <div class="author">{{comment.author}}</div>
-    <div class="msg">{{comment.msg}}</div>
-    <div class="date">{{comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}</div>
-    </div>
-  </div>
-  <div quFlexRow>
+    <div quFlexRow>
     <qu-input-container [placeholder]="'Enter a comment ...'" class="qu-flex">
           <input type="text" name="currentComment" [(ngModel)]="currentComment" required (keyup.enter)="saveComment()">
     </qu-input-container>
     <qu-button class="qu-raised qu-secondary" (click)="saveComment()">
       <i class="fa fa-send"></i>
     </qu-button>
+  </div>
+  <div *ngFor="let comment of comments | async" quFlexColumn> 
+    <div class="comment"> 
+    <div class="author">{{comment.author}}</div>
+    <div class="msg">{{comment.msg}}</div>
+    <div class="date">{{comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}</div>
+    </div>
   </div>
 </div>
