@@ -4,6 +4,7 @@ import { Sow } from '../../model/sow';
 import { Comment } from '../../model/comment';
 import { UserService } from '../../firebase-service/user.svc';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Observable, Subject } from 'rxjs/Rx';
 
 @Component({
     selector: 'sow-comments',
@@ -27,23 +28,22 @@ export class SowCommentsComponent {
 
                 this.comments = af.database
 				.list('/sows/' + s.$key + '/comments')
-				.map(
-					items => items.sort(
-						(a,b) => 1
-					)
-				) as FirebaseListObservable<any[]>;
+                .map(comments => {
+                    comments.map(c=> {
+                        c.authorUser = af.database.object('/userProfiles/' + c.authorUID);
+                    });
+                    comments.sort((a,b)=>1);
+                    return comments;
+                }) as FirebaseListObservable<any[]>;
         
         });
     }
 
     saveComment() {
-        console.log("save comment");
-        var c = new Comment(this.userService.getName(), this.currentComment);
-        this.comments.push(c);
-        this.currentComment = ''; // clear textfield
-    }
-
-    eventHandler(event) {
-        console.log(event);
+        var comment = new Comment();
+        comment.authorUID = this.userService.getUID();
+        comment.msg = this.currentComment;
+        this.comments.push(comment);
+        this.currentComment = '';
     }
 }

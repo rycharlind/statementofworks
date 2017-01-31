@@ -36,4 +36,8 @@ export class UserService {
         return this.user.email
     }
 
+    getUID() {
+        return this.user.uid;
+    }
+
 }

@@ -1,12 +1,13 @@
+import { User } from './user';
+
 export class Comment {
 
-    dateCreated: any;
+    dateCreated: Date;
+    authorUID: string;
+    msg: string;
     
-    constructor(
-	public author: string,
-	public msg: string
-    ){
-	this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
+    constructor(){
+	    this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
     }
 }
 
