@@ -76,8 +76,9 @@ export class SowStepsComponent implements OnInit {
         ref.orderByChild('ref').equalTo(step.$key)
             .once('value', snap => {
                 snap.forEach(childSnap => {
-                    ref.child(childSnap.key).remove();
+                    console.log("uncomplete");
                     step.isComplete = false;
+                    ref.child(childSnap.key).remove();
                     return true;
                 });
             });

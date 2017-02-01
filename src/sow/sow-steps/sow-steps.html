@@ -3,9 +3,8 @@
         <div class="step" *ngFor="let step of steps" [class.complete]="step.isComplete">
             <div class="order">{{step.order}}</div>
             <div class="title"><strong>{{step.title}}</strong></div>
-            <div class="business-owner">{{step.businessOwner}}</div>
             <div class="date-completed">{{step.dateCompleted}}</div>
-            <md-slide-toggle [color]="color" [checked]="step.isComplete" [disabled]="disabled" (click)="toggleStep(step)">
+            <md-slide-toggle [color]="color" [checked]="step.isComplete" [disabled]="disabled" (change)="toggleStep(step)">
                 <span *ngIf="step.isComplete">Complete</span>
                 <span *ngIf="!step.isComplete">Incomplete</span>
             </md-slide-toggle>  

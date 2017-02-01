@@ -1,15 +1,15 @@
 .sow-steps {
-    padding:16px;
+    padding:0px 16px;
     .steps {
         .step {
-            margin-bottom:32px;
+            background: white;
+            box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+            margin-bottom:16px;
             text-align: left;
-            transition:0.3s;
+            transition:0.2s;
+            padding: 6px 12px;
             &.complete {
-                background-color: #DCEDC8;
-                padding: 6px 12px;
-                border: 1px solid #33691E;
-                border-radius: 4px;
+                background-color: #42A5F5;
             }
             .order {
                 color:#424242;

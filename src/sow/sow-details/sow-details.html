@@ -1,12 +1,12 @@
 <div class="sow-details">
 
     <div class="sow-details-toolbar qu-flex-justify-content-end" quFlexRow>
-        <qu-button class="qu-raised qu-danger" (click)="askToDelete()">
-            <i class="fa fa-trash"></i>
+        <qu-button class="qu-raised qu-secondary" (click)="toggleView()" [class.qu-secondary]="!isEditable" [class.qu-tertiary]="isEditable">
+            <span *ngIf="!isEditable"><i class="fa fa-pencil-square-o"></i> Edit</span>
+            <span *ngIf="isEditable"><i class="fa fa-floppy-o"></i> Save</span>
         </qu-button>
-        <qu-button class="qu-raised qu-secondary" (click)="toggleView()">
-            <i class="fa fa-pencil-square-o" *ngIf="!isEditable"></i>
-            <i class="fa fa-floppy-o" *ngIf="isEditable"></i>
+        <qu-button class="qu-raised qu-danger" (click)="askToDelete()">
+            <span><i class="fa fa-trash"></i> Delete</span>
         </qu-button>
     </div>
 
@@ -105,7 +105,5 @@
             </qu-input-container>
         </div>
     </div>
-    <confirm></confirm> 
+    <confirm></confirm>
 </div>
-
-

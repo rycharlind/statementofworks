@@ -4,7 +4,7 @@
       <input type="text" name="currentComment" [(ngModel)]="currentComment" required (keyup.enter)="saveComment()">
     </qu-input-container>
     <qu-button class="qu-raised qu-secondary" (click)="saveComment()">
-      <i class="fa fa-send"></i>
+      <span><i class="fa fa-send"></i> Send</span>
     </qu-button>
   </div>
   <div *ngFor="let comment of comments | async" quFlexColumn>
