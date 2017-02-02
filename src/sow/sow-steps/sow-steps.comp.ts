@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, ChangeDetectorRef, NgZone, ApplicationRef } from '@angular/core';
-import { MaterialModule } from '@angular/material'; ''
+import { MaterialModule } from '@angular/material'; 
 import { SowService } from '../../sow/sow.svc';
 import { DocUploaderService } from '../../doc-uploader/doc-uploader.svc';
+import { UserService } from '../../firebase-service/user.svc';
 import { Sow } from '../../model/sow';
 import { Doc } from '../../model/doc';
 import { Step } from '../../model/step';
@@ -21,12 +22,15 @@ export class SowStepsComponent implements OnInit {
     steps = new Array<Step>();
 
     constructor(
+        private userService: UserService,
         private sowService: SowService,
         private docUploaderService: DocUploaderService,
         private af: AngularFire,
         private chRef: ChangeDetectorRef,
         private zone: NgZone,
         private appRef: ApplicationRef) {
+
+
         this.sowService.getCurrentSow().subscribe(
             s => {
                 this.sow = s;
@@ -53,6 +57,8 @@ export class SowStepsComponent implements OnInit {
                             let completedStep = this.sow.completedSteps[index];
                             if (step.$key == completedStep.ref) {
                                 step.isComplete = true;
+                                step.dateCompleted = completedStep.dateCreated;
+                                // Step businessOwner is equal to completedStep owner
                             }
                         }
                     }
@@ -66,6 +72,7 @@ export class SowStepsComponent implements OnInit {
     completeStep(step: Step) {
         let completedStep = new CompletedStep();
         completedStep.ref = step.$key;
+        completedStep.ownerRef = this.userService.getUID();
         firebase.database().ref('/sows/' + this.sow.$key + '/completedSteps').push(completedStep).then(error => {
             step.isComplete = true;
         });

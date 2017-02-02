@@ -1,5 +1,4 @@
 .sow-steps {
-    padding:0px 16px;
     .steps {
         .step {
             background: white;
@@ -13,6 +12,12 @@
             }
             .order {
                 color:#424242;
+            }
+            .title {
+                margin-bottom:10px;
+            }
+            .fa {
+                font-size:14px;
             }
         }
     }
