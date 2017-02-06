@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectorRef, NgZone, ApplicationRef } from '@angular/core';
-import { MaterialModule } from '@angular/material'; 
+import { MaterialModule } from '@angular/material';
 import { SowService } from '../../sow/sow.svc';
 import { DocUploaderService } from '../../doc-uploader/doc-uploader.svc';
 import { UserService } from '../../firebase-service/user.svc';
@@ -75,6 +75,7 @@ export class SowStepsComponent implements OnInit {
         completedStep.ownerRef = this.userService.getUID();
         firebase.database().ref('/sows/' + this.sow.$key + '/completedSteps').push(completedStep).then(error => {
             step.isComplete = true;
+            step.dateCompleted = new Date();
         });
     }
 
