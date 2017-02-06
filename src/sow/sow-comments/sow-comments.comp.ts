@@ -46,4 +46,8 @@ export class SowCommentsComponent {
         this.comments.push(comment);
         this.currentComment = '';
     }
+
+    deleteComment(comment) {
+        firebase.database().ref('/sows/' + this.sow.$key + '/comments/' + comment.$key).remove();
+    }
 }
