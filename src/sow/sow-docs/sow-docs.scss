@@ -60,8 +60,15 @@
             display:none;
         }
     } 
-    
-    .toolbar {
+
+    &-uploader {
         margin-bottom:8px;
+        padding:10px 0px 32px 10px;
+        border-radius:3px;
+        border:2px dashed gray;
+        h2 {
+            text-align: center;
+            color:gray;
+        }
     } 
 }
