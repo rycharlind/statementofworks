@@ -41,7 +41,7 @@ export class SowDocsComponent implements OnInit {
             console.log('drop');
             event.stopPropagation();
             event.preventDefault();
-            var files = event.dataTransfer.files; // Array of all files
+            var files = event.dataTransfer.files;
 
             for (var i = 0, file; file = files[i]; i++) {
                 this.docUploaderService.upload(file, this.sow);
@@ -56,9 +56,6 @@ export class SowDocsComponent implements OnInit {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
         this.docUploaderService.upload(file, this.sow);
     }
-
-
-
 
 
 }

@@ -38,6 +38,10 @@
         .fa-file-word-o {
             color:$word-color;
         }
+        md-progress-circle {
+            height:25px;
+            width:25px;
+        }
     }
     &.show {
         bottom:32px;
