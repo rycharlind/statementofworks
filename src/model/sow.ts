@@ -3,8 +3,6 @@ import { Comment } from './comment';
 import { Activity } from './activity';
 import { CompletedStep } from './completedStep';
 
-
-
 export class Sow {
   $key: string;
   dateCreated: Date;
