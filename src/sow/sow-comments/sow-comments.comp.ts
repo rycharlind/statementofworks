@@ -29,10 +29,15 @@ export class SowCommentsComponent {
                 this.comments = af.database
 				.list('/sows/' + s.$key + '/comments')
                 .map(comments => {
+                    comments.sort((a : Comment, b : Comment)=> {
+                        var d1 = new Date(a.dateCreated);
+                        var d2 = new Date(b.dateCreated);
+                        if (d1>d2) return -1;
+                        if (d2>d1) return 1;
+                    });
                     comments.map(c=> {
                         c.authorUser = af.database.object('/userProfiles/' + c.authorUID);
                     });
-                    comments.sort((a,b)=>1);
                     return comments;
                 }) as FirebaseListObservable<any[]>;
         
