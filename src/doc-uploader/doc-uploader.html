@@ -14,7 +14,6 @@
                     [class.fa-file-word-o]="getFileType(file)=='word'"
                     [class.fa-file-image-o]="getFileType(file)=='image'"  
                     [class.fa-file-o]="getFileType(file)=='other'"></i> {{ file.name }}</span>
-        <md-progress-circle mode="determinate" class="md-primary" value="{{progress}}" style="height:25px;width:25px"></md-progress-circle>
-        <!--<span>{{ progress }}</span>-->
+        <md-progress-circle mode="determinate" class="md-primary" value="{{progress}}"></md-progress-circle>
     </div>
 </div>
