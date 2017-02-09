@@ -8,15 +8,26 @@
     <qu-button class="qu-raised qu-secondary" (click)="saveComment()" [quDisabled]="!commentForm.valid">
       <span><i class="fa fa-send"></i> Send</span>
     </qu-button>
-</form>
-<div *ngFor="let comment of comments | async" quFlexColumn>
-  <div class="comment">
-    <div class="author">{{ (comment.authorUser | async)?.firstName }}</div>
-    <div class="msg">{{ comment.msg }}</div>
-    <div class="footer">
-      <span>{{ comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}</span> -
-      <qu-button (click)="deleteComment(comment)">Delete</qu-button>
+  </form>
+  <div *ngFor="let comment of comments | async" quFlexColumn>
+    <div class="comment">
+      <div class="author">{{ (comment.authorUser | async)?.firstName }}</div>
+      <div *ngIf="!comment.isEditable" class="msg">{{ comment.msg }}</div>
+      <div *ngIf="comment.isEditable" class="comment-frame qu-flex">
+        <div class="comment-box">
+          <textarea name="currentComment" [(ngModel)]="comment.msg">{{comment.msg}}</textarea>
+        </div>
+      </div>
+      <div *ngIf="!comment.isEditable" class="footer">
+        <span>{{ comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}</span> -
+        <qu-button (click)="editComment(comment)">Edit</qu-button> -
+        <qu-button (click)="deleteComment(comment)">Delete</qu-button>
+      </div>
+      <div *ngIf="comment.isEditable">
+        <qu-button class="qu-raised qu-tertiary" (click)="updateComment(comment)">
+          <span>Save</span>
+        </qu-button>
+      </div>
     </div>
   </div>
-</div>
 </div>
