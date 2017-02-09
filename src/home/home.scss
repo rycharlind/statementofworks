@@ -1,3 +1,11 @@
 .home {
-
+    padding:6px;
+    .chart {
+        display:block;
+        position:relative;
+	    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        background-color:#fff;
+        padding:10px;
+        margin:10px;
+    }
 }

@@ -16,6 +16,7 @@ import { HeaderComponent } from '../header/header.comp';
 import { SideNavComponent } from '../side-nav/side-nav.comp';
 import { DocUploaderComponent } from '../doc-uploader/doc-uploader.comp';
 import { ErrorComponent } from '../error-service/error.comp';
+import { ProgressIndicatorComponent } from '../progress-indicator/progress-indicator.comp';
 
 // Modules
 import { HomeModule } from '../home/home.module';

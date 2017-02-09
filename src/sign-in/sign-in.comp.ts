@@ -11,6 +11,7 @@ import { UserService } from '../firebase-service/user.svc';
 })
 export class SignInComponent implements OnInit {
 	errorMessage: string;
+	isLoading: boolean = false;
 
 	constructor(
 		private userService: UserService,
@@ -27,6 +28,7 @@ export class SignInComponent implements OnInit {
 			} else {
 				console.log("No User");
 			}
+			this.isLoading = false;
 		});
 		
 		document.getElementsByClassName("qu-side-nav")[0].classList.add("sign-in-hide");
@@ -44,6 +46,7 @@ export class SignInComponent implements OnInit {
 	}
 
 	signIn(email, password) {
+		this.isLoading = true;
 		this.userService.signIn(email, password);
 	}
 

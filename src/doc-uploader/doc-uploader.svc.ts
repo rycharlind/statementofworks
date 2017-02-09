@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
 import { Sow } from '../model/sow';
 import { Doc } from '../model/doc';
-import { ErrorService } from '../error-service/error.svc'
+import { ErrorService } from '../error-service/error.svc';
 
 @Injectable()
 export class DocUploaderService {
