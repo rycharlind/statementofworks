@@ -1,13 +1,17 @@
 <div class="sow">
 
-    <div quFlexRow>
+
+    <!--
         <div class="sow-timeline qu-flex-30 hide-phone">
             <sow-steps></sow-steps>
         </div>
-       
-       
-        <div class="sow-main-container qu-whiteframe-6">
-            <md-tab-group>
+        -->
+
+
+    <div class="sow-main-container">
+
+        <div quFlexRow>
+            <md-tab-group class="qu-flex-50 qu-whiteframe-6" style="margin-right:16px;">
                 <md-tab>
                     <template md-tab-label>
                         <i class="material-icons">assignment</i>
@@ -15,6 +19,15 @@
                     </template>
                     <sow-details></sow-details>
                 </md-tab>
+                <md-tab>
+                    <template md-tab-label>
+                        <i class="material-icons">assignment</i>
+                        <span>Steps</span>
+                    </template>
+                    <sow-steps></sow-steps>
+                </md-tab>
+            </md-tab-group>
+            <md-tab-group class="qu-flex-50 qu-whiteframe-6">
                 <!--
                 <md-tab>
                     <template md-tab-label>
@@ -35,17 +48,18 @@
                     </template>
                     <sow-docs></sow-docs>
                 </md-tab>
-                <md-tab>
+                <!--<md-tab>
                     <template md-tab-label>
                         <i class="material-icons">people</i> Members
                     </template>
                     <h1>Members</h1>
                     <p>...</p>
-                </md-tab>
+                </md-tab>-->
             </md-tab-group>
+
         </div>
-    
-    
-    
     </div>
+
+
+
 </div>
