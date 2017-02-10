@@ -8,7 +8,7 @@
 		</div>
 
 		<div *ngFor="let item of items; let i = index;" class="side-nav-item side-nav-link" (click)="goTo(i)" [class.active]="item.isActive">
-			<span class="side-nav-item-icon fa {{item.icon}}"></span>
+			<span class="side-nav-item-icon {{item.icon}}"></span>
 			<span class="side-nav-item-content">{{item.title}}</span>
 		</div>
 
