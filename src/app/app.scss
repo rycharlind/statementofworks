@@ -1,5 +1,5 @@
-$sl-primary: #546E7A;//#8BC34A;
-$sl-secondary: #1976D2;
+$sl-primary: #0073ad;//#8BC34A;
+$sl-secondary: #8BC34A;
 $sl-tertiary: #ff9800;
 
 $sl-danger: #F44336;
@@ -45,20 +45,6 @@ body {
   color: rgba(0,0,0,0.87);
   margin: 0;
 }
-
-/*
-@font-face {
-  font-family: 'icomoon';
-  src:  url('https://firebasestorage.googleapis.com/v0/b/statement-of-works.appspot.com/o/fonts%2Ficomoon.eot?alt=media&token=2cdaa1d6-6322-464d-9628-387414f3653d?s81pln');
-  src:  url('https://firebasestorage.googleapis.com/v0/b/statement-of-works.appspot.com/o/fonts%2Ficomoon.eot?alt=media&token=2cdaa1d6-6322-464d-9628-387414f3653d?s81pln#iefix') format('embedded-opentype'),
-    url('https://firebasestorage.googleapis.com/v0/b/statement-of-works.appspot.com/o/fonts%2Ficomoon.ttf?alt=media&token=d09bd082-44d3-489e-9d1c-32a40ea37aa3?s81pln') format('truetype'),
-    url('https://firebasestorage.googleapis.com/v0/b/statement-of-works.appspot.com/o/fonts%2Ficomoon.woff?alt=media&token=ea27b404-6161-4b67-8b1b-730256140c24?s81pln') format('woff'),
-    url('https://firebasestorage.googleapis.com/v0/b/statement-of-works.appspot.com/o/fonts%2Ficomoon.svg?alt=media&token=44e7694b-b212-45f3-89f7-7986020541f8?s81pln#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-*/
-
 
 @font-face {
   font-family: 'icomoon';

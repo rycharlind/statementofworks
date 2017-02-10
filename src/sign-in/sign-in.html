@@ -1,7 +1,7 @@
 <div class="sign-in">
-	<span class="icon-statementOfWorks" style="font-size:18px;color:blue;"></span>
-	<div class="sign-in-container qu-whiteframe-6">		
-		<h1>Sign In</h1>
+	<div class="sign-in-container">
+		<div class="logo"><span class="icon-statementOfWorks"></span></div>		
+		<h1>statementOfWorks</h1>
 		<form #loginForm="ngForm">
 			<qu-input-container [placeholder]="'Email'">
 				<input name="email" ngModel required #email="ngModel">
@@ -11,9 +11,8 @@
 				<input type="password" name="password" ngModel required #password="ngModel">
 			</qu-input-container>
 			<br/>
-			<qu-button [quDisabled]="isLoading" class="qu-raised qu-primary" (click)="signIn(email.value, password.value)">Sign In</qu-button>
-			<qu-button class="qu-raised qu-secondary" (click)="goTo('sign-up')">Sign Up</qu-button>
-			<qu-link class="qu-primary" [qlHref]="'/forgot-password'">Forgot Password</qu-link>
+			<qu-button [quDisabled]="isLoading" class="qu-raised qu-tertiary" (click)="signIn(email.value, password.value)">Sign In</qu-button>
+			<qu-link class="qu-tertiary" [qlHref]="'/forgot-password'">Forgot Password</qu-link>
 		</form>
 	</div>
 </div>

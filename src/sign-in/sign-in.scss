@@ -1,37 +1,52 @@
-.sign-in {    
+.sign-in { 
+  position:fixed;
+  background-color:$sl-primary;   
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding: 16px; 
-
+  height:100%;
+  width:100%;
 	&-container {
-		background-color: white;
-		
-		padding: 64px 32px;
-		
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 
+    form {
+      width:100%;
+    }
+
+    .logo {
+      font-size:74px;
+      color:#fff;
+    }
+
 		h1 {
 			margin:0;
 			margin-bottom:32px;
+      color:#fff;
 		}
 
 	}
-
-	&-logo {
-		height: 230px;
-		width: 200px;
-		background-image: url('../../img/SL-logo-black.png');
-		background-repeat: no-repeat;
-		background-clip: border-box;
-		background-origin: border-box;
-		background-size: cover;
-	}
-
+  .qu-input-container {
+    input {
+      border-radius:5px;
+      border:2px solid #fff;
+      background:transparent;
+      color:#fff;
+    }
+    label {
+      color:#fff;
+      top:15px;
+    }
+    /* active state */
+    > input:focus ~ label, > input:valid ~ label {
+      top: 9px;
+      font-size: 12px;
+      color: $sl-tertiary;
+    }
+  }
 	.qu-button-container {
 		width: 100%;
 	}
@@ -41,6 +56,9 @@
 	}
   .qu-link-container {
     text-align: center;
+    a {
+      color:#fff;
+    }
   }
 }
 
