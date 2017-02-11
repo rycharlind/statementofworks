@@ -2,6 +2,7 @@
     text-align: left;
     font-family: "proxima-nova";
     padding:16px;
+    background: #f7f7f7;
     #sowPrimaryDetails {
         margin-bottom:24px;
         .number {
@@ -51,7 +52,8 @@
     }
 
     .qu-input-container {
-        padding:6px;
+        padding:6px 0px;
+        background-color: #fff;
     }
 
     .qu-flex-align-items-end {

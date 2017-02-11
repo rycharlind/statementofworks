@@ -8,15 +8,17 @@ import { SideNavComponent } from './side-nav/side-nav.comp';
 import { DropdownNotClosableZone } from './dropdown/dropdown-not-closable-zone.dir';
 import { Dropdown } from './dropdown/dropdown.dir'; 
 import { DropdownOpen } from './dropdown/dropdown-open.dir';
+import { TextareaContainerComponent } from './textarea-container/textarea-container.comp';
 
 export const quSquaredProvider: Provider[] = [
 	ButtonComponent,
 	FlexAlignDirective,
-  FlexColumnDirective,
+  	FlexColumnDirective,
 	FlexRowDirective,
 	InputContainerComponent,	 
 	LinkComponent,
 	SideNavComponent,
 	Dropdown,
-	DropdownOpen
+	DropdownOpen,
+	TextareaContainerComponent
 ];

@@ -25,9 +25,9 @@
         </div>
         <div class="desc">
             <span *ngIf="!isEditable" class="sow-detail-item">{{sow.description}}</span>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Description'">
-                <input type="text" name="sowDescription" [(ngModel)]="sow.description" required>
-            </qu-input-container>
+            <qu-textarea-container *ngIf="isEditable">
+                <textarea placeholder="Description" [(ngModel)]="sow.description" required></textarea>
+            </qu-textarea-container>
         </div>
     </div>
     <div id="sowSecondaryDetails">
@@ -36,7 +36,7 @@
                 <label>Amount</label>
                 <span>{{ sow.amount | currency:'USD':true:'1.2-2' }}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Amount'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Amount'" class="qu-flex-50">
                 <input type="number" name="sowAmount" [(ngModel)]="sow.amount" required>
             </qu-input-container>
         </div>
@@ -45,14 +45,14 @@
                 <label>Start Date</label>
                 <span>{{sow.startDate}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Start Date'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Start Date'" class="qu-flex-50">
                 <input type="date" name="sowStartDate" [(ngModel)]="sow.startDate" required>
             </qu-input-container>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>End Date</label>
                 <span>{{sow.endDate}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'End Date'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'End Date'" class="qu-flex-50">
                 <input type="date" name="sowEndDate" [(ngModel)]="sow.endDate" required>
             </qu-input-container>
         </div>
@@ -61,14 +61,14 @@
                 <label>Step</label>
                 <span>{{sow.step}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Step'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Step'" class="qu-flex-50">
                 <input type="text" name="sowStep" [(ngModel)]="sow.step" required>
             </qu-input-container>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Type</label>
                 <span>{{sow.type}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Type'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Type'" class="qu-flex-50">
                 <input type="text" name="sowType" [(ngModel)]="sow.type" required>
             </qu-input-container>
         </div>
@@ -77,14 +77,14 @@
                 <label>Business Owner</label>
                 <span>{{sow.businessOwner}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Business Owner'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Business Owner'" class="qu-flex-50">
                 <input type="text" name="sowBusinessOwner" [(ngModel)]="sow.businessOwner" required>
             </qu-input-container>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Vendor</label>
                 <span>{{sow.vendor}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Vendor'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Vendor'" class="qu-flex-50">
                 <input type="text" name="sowVendor" [(ngModel)]="sow.vendor" required>
             </qu-input-container>
         </div>
@@ -93,14 +93,14 @@
                 <label>Funding Source</label>
                 <span>{{sow.fundingSource}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Funding Source'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Funding Source'" class="qu-flex-50">
                 <input type="text" name="sowFundingSource" [(ngModel)]="sow.fundingSource" required>
             </qu-input-container>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Funding Glid</label>
                 <span>{{sow.fundingGlid}}</span>
             </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Funding Glid'">
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Funding Glid'" class="qu-flex-50">
                 <input type="text" name="sowFundingGlid" [(ngModel)]="sow.fundingGlid" required>
             </qu-input-container>
         </div>

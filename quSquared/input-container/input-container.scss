@@ -3,6 +3,10 @@ $qu-input-container-focus-color:#2196F3;
 .qu-input-container {
 
 	* { box-sizing:border-box; }
+
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.23);
+    margin: 4px 4px 9pt 0;
 	
 	position:relative; 
     display:flex;
@@ -10,11 +14,24 @@ $qu-input-container-focus-color:#2196F3;
 	
 	> input {
     font-size: 18px;
-    padding: 20px 0.88889em 0.44444em 12px;
+    padding: 20px 0px 0px 12px;
     display: block;
     width: 100%;
-    border: 1px solid #bdbdbd;
     border-radius: 3px;
+
+
+        overflow: hidden;
+        word-wrap: break-word;
+        border: 0;
+        background: 0 0;
+        margin: 0;
+        width: 100%;
+        resize: none;
+        transition: background 85ms ease-in,border-color 85ms ease-in;
+        &:focus, &:active {
+            outline: 0;
+            box-shadow: none;
+        }
 	}
 
 	> input:focus { 

@@ -1,10 +1,15 @@
 <div class="sow-comments">
   <form #commentForm="ngForm">
-    <div class="comment-frame qu-flex">
+    
+    <!--<div class="comment-frame qu-flex">
       <div class="comment-box">
         <textarea placeholder="Write a comment ..." name="currentComment" [(ngModel)]="currentComment" required></textarea>
       </div>
-    </div>
+    </div>-->
+    <qu-textarea-container>
+      <textarea placeholder="Write a comment ..." name="currentComment" [(ngModel)]="currentComment" required></textarea>
+    </qu-textarea-container>
+    
     <qu-button class="qu-raised qu-secondary" (click)="saveComment()" [quDisabled]="!commentForm.valid">
       <span><i class="fa fa-send"></i> Send</span>
     </qu-button>
