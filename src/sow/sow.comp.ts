@@ -19,7 +19,7 @@ import { ActivityService } from './sow-activities/activity.svc';
 export class SowComponent implements OnInit {
 
     key: string;
-	sow: Sow;
+	sow: Sow = new Sow();
 
 	constructor(
 		private userService: UserService,
@@ -46,6 +46,11 @@ export class SowComponent implements OnInit {
 		});
 	
 	}
+
+	save() {
+        this.sowService.saveSow(this.sow);
+    }
+
 
 
 }

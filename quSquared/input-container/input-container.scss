@@ -7,19 +7,17 @@ $qu-input-container-focus-color:#2196F3;
     border-radius: 3px;
     box-shadow: 0 1px 2px rgba(0,0,0,.23);
     margin: 4px 4px 9pt 0;
-	
 	position:relative; 
     display:flex;
     flex-grow:1;
 	
 	> input {
-    font-size: 18px;
-    padding: 20px 0px 0px 12px;
-    display: block;
-    width: 100%;
-    border-radius: 3px;
-
-
+        height:48px;
+        font-size: 18px;
+        padding:0px 10px;
+        display: block;
+        width: 100%;
+        border-radius: 3px;
         overflow: hidden;
         word-wrap: break-word;
         border: 0;
@@ -40,21 +38,21 @@ $qu-input-container-focus-color:#2196F3;
 
 	/* LABEL ======================================= */
 	> label {
-    color: #999;
-    font-size: 18px;
-    font-weight: 100;
-    position: absolute;
-    pointer-events: none;
-    left: 12px;
-    top: 19px;
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
+        color: #999;
+        font-size: 18px;
+        font-weight: 100;
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 19px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
 	}
 
 	/* active state */
 	> input:focus ~ label, > input:valid ~ label 		{
-    top: 10px;
+    top: 6px;
     font-size: 12px;
     color: $qu-input-container-focus-color;
 	}
@@ -62,4 +60,18 @@ $qu-input-container-focus-color:#2196F3;
 	> input:active, > input:focus {
 		border-color: $qu-input-container-focus-color;
 	}
+}
+
+.os-input-text {
+    border:none;
+    font-size:16px;
+    background:transparent;
+    width:100%;
+    padding:4px;
+    &.medium {
+        font-size:24px;
+    }
+    &.large {
+        font-size:28px;
+    }
 }

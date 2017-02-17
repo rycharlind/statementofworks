@@ -17,6 +17,7 @@ export class SowDetailsComponent implements OnInit {
 
     sow = new Sow();
     isEditable: boolean = false;
+    isNumberEditable: boolean = false;
 
     constructor(private sowService: SowService,
         private activityService: ActivityService,
@@ -47,6 +48,10 @@ export class SowDetailsComponent implements OnInit {
         } else {
             this.isEditable = true;
         }
+    }
+
+    save() {
+        this.sowService.saveSow(this.sow);
     }
 
     askToDelete() {

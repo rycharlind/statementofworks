@@ -17,6 +17,9 @@
 
     .sow-main-container {
         width:100%;
+        > div {
+            margin-bottom:16px;
+        }
     }
 
     .sow-timeline {
@@ -32,3 +35,4 @@
 @import './sow-docs/sow-docs';
 @import './sow-comments/sow-comments';
 @import './sow-activities/sow-activities';
+@import './sow-permissions/sow-permissions';

@@ -24,6 +24,7 @@ export class Sow {
   amount: number;
   activities: Activity[];
   completedSteps: Array<CompletedStep>;
+  permissions: Array<String>;
   constructor() {
     this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
   }

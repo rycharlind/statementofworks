@@ -1,45 +1,40 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm, FormGroup } from '@angular/forms';
-import {BrowserModule} from "@angular/platform-browser";
+import { BrowserModule } from "@angular/platform-browser";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Project } from '../model/project';
 import { Sow } from '../model/sow';
-import { Step } from '../model/step';
 import { UserService } from '../firebase-service/user.svc';
 
 @Component({
-	selector: 'sl-settings',
-	templateUrl: './settings.html',
+	selector: 'sl-clients',
+    templateUrl: './clients.html',
 	providers: [UserService]
 })
 
-export class SettingsComponent implements OnInit {
+export class ClientsComponent implements OnInit {
 
-	newStep = new Step();
-	steps: FirebaseListObservable<any[]>;
+	items: FirebaseListObservable<any[]>;
+	isNewSow: boolean;
 
 	constructor(
 		private userService: UserService,
+		private route: ActivatedRoute,
 		af: AngularFire, private router: Router) {
-
-			this.steps = af.database
-				.list('/steps')
-				.map(
-					steps => steps.sort(
-						(a,b) => a.order - b.order
-					)
-				) as FirebaseListObservable<any[]>;
-
+			
+			this.items = af.database.list('/vendors') as FirebaseListObservable<any[]>;
 	}
 
 	ngOnInit() {
-		this.userService.authUser();
 	}
 
-	goTo(path) {
-		this.router.navigate(path);
-	}
+    execute() {
+        var object = {
+            name:"Amdocs"
+        }
+        this.items.push(object);
+    }
 
 }

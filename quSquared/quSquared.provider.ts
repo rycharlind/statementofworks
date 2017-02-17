@@ -9,6 +9,8 @@ import { DropdownNotClosableZone } from './dropdown/dropdown-not-closable-zone.d
 import { Dropdown } from './dropdown/dropdown.dir'; 
 import { DropdownOpen } from './dropdown/dropdown-open.dir';
 import { TextareaContainerComponent } from './textarea-container/textarea-container.comp';
+import { ListComponent } from './list/list.comp';
+import { ListItemComponent } from './list/list-item/list-item.comp';
 
 export const quSquaredProvider: Provider[] = [
 	ButtonComponent,
@@ -20,5 +22,7 @@ export const quSquaredProvider: Provider[] = [
 	SideNavComponent,
 	Dropdown,
 	DropdownOpen,
-	TextareaContainerComponent
+	TextareaContainerComponent,
+	ListComponent,
+	ListItemComponent
 ];

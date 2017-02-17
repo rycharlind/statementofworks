@@ -1,0 +1,5 @@
+<div class="sow-permissions">
+    <div class="user" *ngFor="let user of users | async" (click)="addUserToSow(user)">
+        {{user.firstName}} {{user.lastName}}
+    </div>
+</div>

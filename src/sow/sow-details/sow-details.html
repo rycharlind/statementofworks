@@ -33,7 +33,7 @@
     <div id="sowSecondaryDetails">
         <div quFlexRow>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
-                <label>Amount</label>
+                <label>Total Contract Value</label>
                 <span>{{ sow.amount | currency:'USD':true:'1.2-2' }}</span>
             </div>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Amount'" class="qu-flex-50">
@@ -42,7 +42,7 @@
         </div>
         <div quFlexRow>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
-                <label>Start Date</label>
+                <label>Effective Date</label>
                 <span>{{sow.startDate}}</span>
             </div>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Start Date'" class="qu-flex-50">
@@ -57,13 +57,6 @@
             </qu-input-container>
         </div>
         <div quFlexRow>
-            <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
-                <label>Step</label>
-                <span>{{sow.step}}</span>
-            </div>
-            <qu-input-container *ngIf="isEditable" [placeholder]="'Step'" class="qu-flex-50">
-                <input type="text" name="sowStep" [(ngModel)]="sow.step" required>
-            </qu-input-container>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Type</label>
                 <span>{{sow.type}}</span>

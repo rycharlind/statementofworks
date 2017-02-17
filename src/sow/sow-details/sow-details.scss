@@ -61,4 +61,18 @@
         align-items: flex-end;
     }
 
+    .os-input-text {
+        border:none;
+        font-size:16px;
+        background:transparent;
+        width:100%;
+        padding:4px;
+        &.medium {
+            font-size:20px;
+        }
+        &.large {
+            font-size:24px;
+        }
+    }
+
 }

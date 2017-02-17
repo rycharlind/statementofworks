@@ -16,6 +16,7 @@ import { SowCommentsComponent } from './sow-comments/sow-comments.comp'
 import { SowDocsComponent } from './sow-docs/sow-docs.comp';
 import { SowActivitiesComponent } from './sow-activities/sow-activities.comp';
 import { SowStepsComponent } from './sow-steps/sow-steps.comp';
+import { SowPermissionsComponent } from './sow-permissions/sow-permissions.comp';
 
 import {SowComponent } from './sow.comp';
 import {ConfirmComponent} from '../confirm-service/confirm.comp';
@@ -35,6 +36,7 @@ import {ConfirmComponent} from '../confirm-service/confirm.comp';
 	SowDocsComponent,
 	SowActivitiesComponent,
 	SowStepsComponent,
+	SowPermissionsComponent,
 	ConfirmComponent
     ],
     providers: [SowService, DocUploaderService]

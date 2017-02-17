@@ -4,20 +4,18 @@ import { CommonModule }  from '@angular/common';
 
 import { QuSquaredModule } from '../../quSquared';
 
-import { SettingsRoutes } from './settings.routes';
-import { SettingsComponent } from './settings.comp';
-import { SettingsStepsComponent } from './settings-steps/settings-steps.comp';
+import { ClientsRoutes } from './clients.routes';
+import { ClientsComponent } from './clients.comp';
 
 @NgModule({
   imports: [
     CommonModule,
 		FormsModule,
-		SettingsRoutes,
+		ClientsRoutes,
 		QuSquaredModule
   ],
   declarations: [
-		SettingsComponent,
-    SettingsStepsComponent
+	ClientsComponent
   ]
 })
-export class SettingsModule { }
+export class ClientsModule { }

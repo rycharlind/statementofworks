@@ -30,19 +30,23 @@
 
 	}
   .qu-input-container {
+    height:60px;
+    margin:0;
     input {
-      border-radius:5px;
+      border-radius:2px;
       border:2px solid #fff;
       background:transparent;
       color:#fff;
+      padding:0px 10px;
     }
     label {
       color:#fff;
-      top:15px;
+      top:20px;
+      left:10px;
     }
     /* active state */
     > input:focus ~ label, > input:valid ~ label {
-      top: 9px;
+      top: 6px;
       font-size: 12px;
       color: $sl-tertiary;
     }
