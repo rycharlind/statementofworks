@@ -2,8 +2,11 @@ import { Component, OnInit, Input, ViewContainerRef } from '@angular/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { SowService } from '../../sow/sow.svc';
 import { Sow } from '../../model/sow';
+import { Vendor } from '../../model/vendor';
 import { ConfirmService } from '../../confirm-service/confirm.svc';
 import { ConfirmComponent } from '../../confirm-service/confirm.comp';
+import { MaterialModule } from '@angular/material';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { ActivityService } from '../sow-activities/activity.svc';
 
@@ -18,20 +21,25 @@ export class SowDetailsComponent implements OnInit {
     sow = new Sow();
     isEditable: boolean = false;
     isNumberEditable: boolean = false;
+    vendors: FirebaseListObservable<Vendor[]>;
 
     constructor(private sowService: SowService,
         private activityService: ActivityService,
         private confirmService: ConfirmService,
         private router: Router,
-        public viewContainerRef: ViewContainerRef) {
-        this.sowService.getCurrentSow().subscribe(
-            s => {
-                this.sow = s;
-                if (this.sowService.isNewSow) {
-                    this.isEditable = true;
+        public viewContainerRef: ViewContainerRef,
+        af: AngularFire) {
+        
+            this.sowService.getCurrentSow().subscribe(
+                s => {
+                    this.sow = s;
+                    if (this.sowService.isNewSow) {
+                        this.isEditable = true;
+                    }
                 }
-            }
-        );
+            );
+
+            this.vendors = af.database.list('/vendors');
     }
 
     ngOnInit() {
