@@ -24,7 +24,9 @@
             </qu-input-container>
         </div>
         <div class="desc">
-            <span *ngIf="!isEditable" class="sow-detail-item">{{sow.description}}</span>
+            <span *ngIf="!isEditable" class="sow-detail-item">
+                <pre>{{sow.description}}</pre>
+            </span>
             <qu-textarea-container *ngIf="isEditable">
                 <textarea placeholder="Description" [(ngModel)]="sow.description" required></textarea>
             </qu-textarea-container>

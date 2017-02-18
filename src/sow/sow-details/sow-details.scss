@@ -3,6 +3,7 @@
     font-family: "proxima-nova";
     padding:16px;
     background: #f7f7f7;
+
     #sowPrimaryDetails {
         margin-bottom:24px;
         .number {
@@ -20,6 +21,13 @@
             font-size: 16px;
 	        letter-spacing: -0.3px;
 	        color: rgba(0, 0, 0, 0.58);
+            span {
+                //max-width:400px;
+                display: inline-block;
+            }
+            pre {
+                white-space: pre-wrap;
+            }
         }
     }
 
@@ -30,7 +38,6 @@
     }
 
     .sow-detail-item {
-        padding-right:64px;
         label {
             display:block;
             font-size: 14px;
@@ -59,6 +66,12 @@
     .qu-flex-align-items-end {
         -webkit-align-items: flex-end;
         align-items: flex-end;
+    }
+    
+    .qu-textarea-box {
+        textarea {
+            min-height:125px;
+        }
     }
 
     .os-input-text {
