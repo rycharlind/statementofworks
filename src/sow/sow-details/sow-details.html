@@ -79,7 +79,7 @@
                 <span>{{sow.vendor.name}}</span>
             </div>
             <md-select *ngIf="isEditable" placeholder="Vendor" [(ngModel)]="sow.vendor" name="vendor">
-                <md-option *ngFor="let vendor of vendors | async">
+                <md-option *ngFor="let vendor of vendors | async" [value]="vendor">
                     {{vendor.name}}
                 </md-option>
             </md-select>    

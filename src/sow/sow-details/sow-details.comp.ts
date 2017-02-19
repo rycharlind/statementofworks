@@ -18,7 +18,7 @@ import { ActivityService } from '../sow-activities/activity.svc';
 
 export class SowDetailsComponent implements OnInit {
 
-    sow = new Sow();
+    sow: Sow;
     isEditable: boolean = false;
     isNumberEditable: boolean = false;
     vendors: FirebaseListObservable<Vendor[]>;
@@ -29,6 +29,9 @@ export class SowDetailsComponent implements OnInit {
         private router: Router,
         public viewContainerRef: ViewContainerRef,
         af: AngularFire) {
+
+            this.sow = new Sow();
+            this.sow.vendor = new Vendor();
         
             this.sowService.getCurrentSow().subscribe(
                 s => {

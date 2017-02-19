@@ -25,20 +25,29 @@ export class SowService {
 
     pullSow(key) {
         firebase.database().ref('/sows/' + key).once('value').then(snapshot => {
-            let sow = snapshot.val();
+            var sow: Sow = snapshot.val();
             sow.$key = key;
-            this.currentSow.next(sow);
+            firebase.database().ref('/companies/vendors/' + sow.vendorRef).once('value').then(snapshot => {
+                sow.vendor = snapshot.val();
+                this.currentSow.next(sow);
+            });
 		});
     }
 
     saveSow(sow: any) {
         console.log(sow);
         let key = sow.$key;
+        let vendor = sow.vendor;
         if (key) {
+            sow.vendorRef = vendor.$key;
+            
+            delete sow.vendor;
             delete sow.$key;
             delete sow.$exists;
+
             firebase.database().ref('/sows/' + key).update(sow);
             sow.$key = key;
+            sow.vendor = vendor;
         } else {
             console.log("No key with SOW.  Cannot save the SOW without the key");
         }

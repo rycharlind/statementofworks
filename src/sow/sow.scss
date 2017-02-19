@@ -1,16 +1,16 @@
 .sow {
     padding:16px;
-    .md-tab-header {
-        .md-tab-label {
+    .mat-tab-header {
+        .mat-tab-label {
             flex-grow:1;
-            &.md-tab-active {
+            &.mat-tab-active {
                 color:#42A5F5;
             }
             i, span {
                 font-size: 16px;
             }
         }
-        md-ink-bar {
+        mat-ink-bar {
             background-color:#42A5F5;
         }
     }

@@ -17,6 +17,7 @@ export class Sow {
   type: string;
   subType: string;
   vendor: Vendor;
+  vendorRef: string;
   businessOwner: string;
   fundingSource: string;
   fundingGlid: string;
