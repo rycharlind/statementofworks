@@ -1,0 +1,45 @@
+.mat-select {
+    background-color:#fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.23);
+    margin: 4px 4px 9pt 0;
+	position:relative;  
+    display:flex;
+    flex-grow:1;
+    > div {
+        transition: background 85ms ease-in,border-color 85ms ease-in;
+        height:48px;
+        font-size: 18px;
+        padding:0px 10px;
+        display: block;
+        width: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+        word-wrap: break-word;
+        border: 0;
+        background: 0 0;
+        margin: 0;
+        width: 100%;
+        resize: none;
+    }
+    .mat-select-placeholder {
+        top:16px;
+        &.mat-floating-placeholder {
+            top:0px !important;
+            font-size: 12px;
+            color: #2196F3;
+        }
+    }
+    .mat-select-value {
+        padding:0px 10px;
+        top:16px;
+    }
+    .mat-select-underline {
+        display:none;
+    }
+    .mat-select-arrow {
+        position:absolute;
+        top:28px;
+        right:10px;
+    }
+}

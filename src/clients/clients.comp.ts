@@ -24,7 +24,7 @@ export class ClientsComponent implements OnInit {
 		private route: ActivatedRoute,
 		af: AngularFire, private router: Router) {
 			
-			this.items = af.database.list('/vendors') as FirebaseListObservable<any[]>;
+			this.items = af.database.list('/companies/clients') as FirebaseListObservable<any[]>;
 	}
 
 	ngOnInit() {
@@ -32,7 +32,7 @@ export class ClientsComponent implements OnInit {
 
     execute() {
         var object = {
-            name:"Amdocs"
+            name:"Charter"
         }
         this.items.push(object);
     }

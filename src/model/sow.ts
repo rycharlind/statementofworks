@@ -2,6 +2,7 @@ import { Doc } from './doc';
 import { Comment } from './comment';
 import { Activity } from './activity';
 import { CompletedStep } from './completedStep';
+import { Vendor } from './vendor';
 
 export class Sow {
   $key: string;
@@ -15,7 +16,7 @@ export class Sow {
   cost: number;
   type: string;
   subType: string;
-  vendor: string;
+  vendor: Vendor;
   businessOwner: string;
   fundingSource: string;
   fundingGlid: string;

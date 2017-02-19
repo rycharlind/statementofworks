@@ -39,7 +39,7 @@ export class SowDetailsComponent implements OnInit {
                 }
             );
 
-            this.vendors = af.database.list('/vendors');
+            this.vendors = af.database.list('/companies/vendors');
     }
 
     ngOnInit() {

@@ -1,5 +1,4 @@
 <div class="sow-details">
-
     <div class="sow-details-toolbar qu-flex-justify-content-end" quFlexRow>
         <qu-button class="qu-raised qu-secondary" (click)="toggleView()" [class.qu-secondary]="!isEditable" [class.qu-tertiary]="isEditable">
             <span *ngIf="!isEditable"><i class="fa fa-pencil-square-o"></i> Edit</span>
@@ -35,6 +34,15 @@
     <div id="sowSecondaryDetails">
         <div quFlexRow>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
+                <label>Total Contract Value</label>
+                <span>{{ sow.amount | currency:'USD':true:'1.2-2' }}</span>
+            </div>
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Amount'" class="qu-flex-50">
+                <input type="number" name="sowAmount" [(ngModel)]="sow.amount" required>
+            </qu-input-container>
+        </div>
+        <div quFlexRow>
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">
                 <label>Effective Date</label>
                 <span>{{sow.startDate}}</span>
             </div>
@@ -66,18 +74,15 @@
             <qu-input-container *ngIf="isEditable" [placeholder]="'Business Owner'" class="qu-flex-50">
                 <input type="text" name="sowBusinessOwner" [(ngModel)]="sow.businessOwner" required>
             </qu-input-container>
-
-
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Vendor</label>
-                <span>{{sow.vendor}}</span>
+                <span>{{sow.vendor.name}}</span>
             </div>
             <md-select *ngIf="isEditable" placeholder="Vendor" [(ngModel)]="sow.vendor" name="vendor">
                 <md-option *ngFor="let vendor of vendors | async">
                     {{vendor.name}}
                 </md-option>
             </md-select>    
-
         </div>
         <div quFlexRow>
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">

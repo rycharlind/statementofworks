@@ -32,7 +32,7 @@ export class SowService {
     }
 
     saveSow(sow: any) {
-        console.log("Save SOW");
+        console.log(sow);
         let key = sow.$key;
         if (key) {
             delete sow.$key;
