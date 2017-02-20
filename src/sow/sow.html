@@ -1,6 +1,6 @@
 <div class="sow">
     <div class="sow-main-container">
-        <div quFlexRow>
+        <div quFlexRow class="hide-phone">
             <md-tab-group class="qu-flex-50 qu-whiteframe-6" style="margin-right:16px;">
                 <md-tab>
                     <template md-tab-label>
@@ -18,6 +18,36 @@
                 </md-tab>
             </md-tab-group>
             <md-tab-group class="qu-flex-50 qu-whiteframe-6">
+                <md-tab>
+                    <template md-tab-label>
+                        <i class="material-icons">chat</i> Comments
+                    </template>
+                    <sow-comments></sow-comments>
+                </md-tab>
+                <md-tab>
+                    <template md-tab-label>
+                        <i class="material-icons">insert_drive_file</i> Docs
+                    </template>
+                    <sow-docs></sow-docs>
+                </md-tab>
+            </md-tab-group>
+        </div>
+        <div quFlexRow class="hide-desktop">
+            <md-tab-group class="qu-whiteframe-6">
+                <md-tab>
+                    <template md-tab-label>
+                        <i class="material-icons">assignment</i>
+                        <span>Details</span>
+                    </template>
+                    <sow-details></sow-details>
+                </md-tab>
+                <md-tab>
+                    <template md-tab-label>
+                        <i class="material-icons">list</i>
+                        <span>Steps</span>
+                    </template>
+                    <sow-steps></sow-steps>
+                </md-tab>
                 <md-tab>
                     <template md-tab-label>
                         <i class="material-icons">chat</i> Comments

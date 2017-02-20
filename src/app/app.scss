@@ -124,12 +124,12 @@ h1 {
   display:none;
   &-phone {
     @include phone {
-      display:none;
+      display:none !important;
     }
   }
   &-desktop {
     @include desktop {
-      display:none;
+      display:none !important;
     }
   }
 }

@@ -4,6 +4,7 @@
 
 	-webkit-flex-direction: row;
 	flex-direction: row;
+
 }
 
 .qu-flex-column {
@@ -62,6 +63,15 @@
 
 .qu-flex-25 {
     flex-basis: 25%;
+}
+
+.qu-flex-100 {
+    flex-basis:100%;
+    &-phone {
+        @include phone {
+            flex-basis:100% !important;
+        }
+    }
 }
 
 .qu-flex {

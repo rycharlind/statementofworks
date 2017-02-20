@@ -6,6 +6,7 @@ $sl-primary: white !default;
     height: 64px;
     background-color: $sl-primary;
 	&-logo {
+		/*
 		height: 38px;
 		width:100%;
 		max-width: 240px;
@@ -14,8 +15,11 @@ $sl-primary: white !default;
 		background-clip: border-box;
 		background-origin: border-box;
 		background-size: cover;
+		*/
+		color:#fff;
+		font-size:24px;
 		@include phone {
-			display:none;
+			font-size:16px;
 		}
 	}
 
