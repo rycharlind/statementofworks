@@ -29,14 +29,12 @@ export class SowService {
             sow.$key = key;
             firebase.database().ref('/companies/vendors/' + sow.vendorRef).once('value').then(snapshot => {
                 sow.vendor = snapshot.val();
-                console.log(sow);
                 this.currentSow.next(sow);
             });
 		});
     }
 
     saveSow(sow: any) {
-        console.log(sow);
         let key = sow.$key;
         let vendor = sow.vendor;
         if (key) {

@@ -59,6 +59,11 @@
 
 .qu-flex-50 {
     flex-basis: 50%;
+    &-phone {
+        @include phone {
+            flex-basis:50% !important;
+        }
+    }
 }
 
 .qu-flex-25 {

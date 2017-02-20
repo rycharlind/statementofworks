@@ -8,7 +8,7 @@
     </div>
 
     <div quFlexRow class="qu-flex-wrap">
-        <div class="document qu-flex-25" *ngFor="let document of sow.documents" 
+        <div class="document qu-flex-25 qu-flex-50-phone" *ngFor="let document of sow.documents" 
             [class.doc-type-pdf]="document.type=='pdf'" 
             [class.doc-type-excel]="document.type=='excel'" 
             [class.doc-type-word]="document.type=='word'"
