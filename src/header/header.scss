@@ -6,18 +6,12 @@ $sl-primary: white !default;
     height: 64px;
     background-color: $sl-primary;
 	&-logo {
-		/*
-		height: 38px;
-		width:100%;
-		max-width: 240px;
-		background-image: url('https://firebasestorage.googleapis.com/v0/b/statement-of-works.appspot.com/o/app-images%2Fstatement-of-works-logo-white.png?alt=media&token=35f9e5fa-8833-44da-a33f-18e6098e5dd5');
-		background-repeat: no-repeat;
-		background-clip: border-box;
-		background-origin: border-box;
-		background-size: cover;
-		*/
 		color:#fff;
-		font-size:24px;
+		font-size:32px;
+		.fa {
+			vertical-align: middle;
+			font-size: inherit;
+		}
 		@include phone {
 			font-size:16px;
 		}
@@ -29,22 +23,6 @@ $sl-primary: white !default;
 		> span {
 			flex: 100%;
 		}			
-	}
-
-	&-brand {			
-		span {
-			padding: 0 !important;
-		}
-		
-		&-logo {
-			height: 45px;
-			width: 45px;
-			background-image: url('../../img/SL-logo-white.png');
-			background-repeat: no-repeat;
-			background-clip: border-box;
-			background-origin: border-box;
-			background-size: cover;
-		}
 	}
 
 	.qu-button-container {
