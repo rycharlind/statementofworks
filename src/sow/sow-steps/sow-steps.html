@@ -1,7 +1,7 @@
 <div class="sow-steps">
     <div class="steps">
         <div class="step" *ngFor="let step of steps" [class.complete]="step.isComplete">
-            <div class="title"><span class="order">{{step.order}}</span>  <strong>{{step.title}}</strong></div>
+            <div class="title"><span class="order"><strong>{{step.order}}</strong></span>  {{step.title}}</div>
             <md-slide-toggle [color]="color" [checked]="step.isComplete" [disabled]="disabled" (change)="toggleStep(step)">
                 <span *ngIf="step.isComplete">Complete</span>
                 <span *ngIf="!step.isComplete">Incomplete</span>

@@ -29,6 +29,8 @@ $sow-list-item-bg-color:#606060;
 			background-color:transparent;
 			color:#fff;
 			padding:10px 20px;
+			display: flex;
+			align-items: center;
 			&-icon {
 				margin-right:6px;
 			}

@@ -46,6 +46,7 @@ export class SideNavComponent implements OnInit {
     } else {
       firebase.auth().signOut();
     }
+    this.sideNavSvc.toggle();
   }
 
   setActive(index) {

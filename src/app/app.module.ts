@@ -28,6 +28,7 @@ import { SplashModule } from '../splash/splash.module';
 import { SowsModule } from '../sows/sows.module';
 import {SowModule} from '../sow/sow.module';
 import {SettingsModule} from '../settings/settings.module';
+import { SettingsStepsModule } from '../settings/settings-steps/settings-steps.module';
 import {WorkflowModule} from '../workflow/workflow.module';
 import {ClientsModule} from '../clients/clients.module';
 
@@ -58,6 +59,7 @@ export const firebaseConfig = {
     SowsModule,
     SowModule,
     SettingsModule,
+    SettingsStepsModule,
     WorkflowModule,
     ClientsModule,
     RouterModule.forRoot(AppRoutes),

@@ -10,11 +10,13 @@
   <div *ngFor="let comment of comments | async" quFlexColumn>
     <div class="comment">
       <div class="author">{{ (comment.authorUser | async)?.firstName }}</div>
-      <div *ngIf="!comment.isEditable" class="msg">{{ comment.msg }}</div>
+      <div *ngIf="!comment.isEditable" class="msg">
+        <pre>{{ comment.msg }}</pre>
+      </div>
       <div *ngIf="comment.isEditable" class="comment-frame qu-flex">
-        <div class="comment-box">
-          <textarea name="currentComment" [(ngModel)]="comment.msg">{{comment.msg}}</textarea>
-        </div>
+        <qu-textarea-container>
+          <textarea [(ngModel)]="comment.msg">{{comment.msg}}</textarea>
+        </qu-textarea-container>
       </div>
       <div *ngIf="!comment.isEditable" class="footer">
         <span>{{ comment.dateCreated | date:'MM/dd/yyyy @ h:mma' }}</span> -

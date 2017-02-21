@@ -1,27 +1,11 @@
 <div class="settings-steps">
-
     <div quFlexRow>
-        <qu-input-container [placeholder]="'Title'">
-            <input type="text" [(ngModel)]="newStep.title" required>
-        </qu-input-container>
-        <qu-input-container [placeholder]="'Business Owner'">
-            <input type="text" [(ngModel)]="newStep.businessOwner" required>
-        </qu-input-container>
-        <qu-input-container [placeholder]="'Order'">
-            <input type="number" [(ngModel)]="newStep.order" required>
-        </qu-input-container>
         <qu-button class="qu-raised qu-tertiary" (click)="pushNewStep()">
-            <i class="fa fa-plus-square fa-right"></i> New Step
+            <span><i class="fa fa-plus-square fa-right"></i> New Step</span>
         </qu-button>
     </div>
 
-    <div class="steps">
-        <div class="step" *ngFor="let step of steps | async">
-            <div class="order">{{step.order}}</div>
-            <div class="title">{{step.title}}</div>
-            <div class="business-owner">{{step.businessOwner}}</div>
-            <div class="date-completed">{{step.dateCompleted}}</div>
-        </div>
+    <div class="steps-list qu-whiteframe-6">
+        <settings-steps-cell *ngFor="let step of steps | async" [step]="step"></settings-steps-cell>
     </div>
-
 </div>

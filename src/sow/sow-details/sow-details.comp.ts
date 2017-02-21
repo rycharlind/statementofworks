@@ -6,6 +6,7 @@ import { Vendor } from '../../model/vendor';
 import { ConfirmService } from '../../confirm-service/confirm.svc';
 import { ConfirmComponent } from '../../confirm-service/confirm.comp';
 import { MaterialModule } from '@angular/material';
+import {MdSelectChange} from '@angular/material';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { ActivityService } from '../sow-activities/activity.svc';
@@ -22,6 +23,7 @@ export class SowDetailsComponent implements OnInit {
     isEditable: boolean = false;
     isNumberEditable: boolean = false;
     vendors: FirebaseListObservable<Vendor[]>;
+    latestChangeEvent: MdSelectChange;
 
     constructor(private sowService: SowService,
         private activityService: ActivityService,
@@ -43,14 +45,18 @@ export class SowDetailsComponent implements OnInit {
             );
 
             this.vendors = af.database.list('/companies/vendors');
+
     }
 
     ngOnInit() {
     }
 
     toggleView() {
+
         if (this.isEditable) {
             this.isEditable = false;
+
+            //console.log(this.latestChangeEvent.value);
 
             if (this.sowService.isNewSow) {
                 this.activityService.registerActivity("" + this.sow.number + " created.")
@@ -59,10 +65,7 @@ export class SowDetailsComponent implements OnInit {
         } else {
             this.isEditable = true;
         }
-    }
-
-    save() {
-        this.sowService.saveSow(this.sow);
+        
     }
 
     askToDelete() {

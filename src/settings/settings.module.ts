@@ -6,7 +6,6 @@ import { QuSquaredModule } from '../../quSquared';
 
 import { SettingsRoutes } from './settings.routes';
 import { SettingsComponent } from './settings.comp';
-import { SettingsStepsComponent } from './settings-steps/settings-steps.comp';
 
 @NgModule({
   imports: [
@@ -16,8 +15,7 @@ import { SettingsStepsComponent } from './settings-steps/settings-steps.comp';
 		QuSquaredModule
   ],
   declarations: [
-		SettingsComponent,
-    SettingsStepsComponent
+		SettingsComponent
   ]
 })
 export class SettingsModule { }

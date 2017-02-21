@@ -6,7 +6,7 @@ import { Sow } from '../../model/sow';
 import { Doc } from '../../model/doc';
 import { Step } from '../../model/step';
 import { CompletedStep } from '../../model/completedStep';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Observable, Subject } from 'rxjs/Rx';
 
 @Component({
@@ -17,12 +17,21 @@ import { Observable, Subject } from 'rxjs/Rx';
 
 export class SettingsStepsComponent implements OnInit {
 
+    newStep = new Step();
+	steps: FirebaseListObservable<any[]>;
+
     constructor(
         private userService: UserService,
         private sowService: SowService,
-        private af: AngularFire,) {
+        private af: AngularFire) {
 
-            
+        this.steps = af.database
+            .list('/steps')
+            .map(
+            steps => steps.sort(
+                (a, b) => a.order - b.order
+            )
+            ) as FirebaseListObservable<any[]>;
 
     }
 

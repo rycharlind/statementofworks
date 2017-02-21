@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm, FormGroup } from '@angular/forms';
-import {BrowserModule} from "@angular/platform-browser";
+import { BrowserModule } from "@angular/platform-browser";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { Router } from "@angular/router";
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
@@ -24,13 +24,6 @@ export class SettingsComponent implements OnInit {
 		private userService: UserService,
 		af: AngularFire, private router: Router) {
 
-			this.steps = af.database
-				.list('/steps')
-				.map(
-					steps => steps.sort(
-						(a,b) => a.order - b.order
-					)
-				) as FirebaseListObservable<any[]>;
 
 	}
 
@@ -39,7 +32,7 @@ export class SettingsComponent implements OnInit {
 	}
 
 	goTo(path) {
-		this.router.navigate(path);
+		this.router.navigate([path]);
 	}
 
 }

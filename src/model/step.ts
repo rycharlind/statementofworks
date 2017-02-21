@@ -1,3 +1,5 @@
+import { UserProfile } from './user-profile';
+
 export class Step {
     $key: string;
     dateCreated: Date;
@@ -6,6 +8,7 @@ export class Step {
     dateCompleted: Date;
     order: number;
     isComplete: boolean;
+    keyContacts: Array<UserProfile>
     constructor() {
         this.dateCreated = firebase.database['ServerValue']['TIMESTAMP'];
     }

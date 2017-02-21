@@ -1,0 +1,32 @@
+<div class="step">
+    <div quFlexRow class="step-header qu-flex-justify-content-space-between">
+        <div class="order">
+            <span *ngIf="!isEditable"><strong>{{step.order}}</strong></span>
+            <qu-input-container [placeholder]="'Order'" *ngIf="isEditable">
+                <input type="number" [(ngModel)]="step.order" required>
+            </qu-input-container>
+        </div>
+        <qu-button class="qu-raised qu-secondary" (click)="toggleEdit()" [class.qu-secondary]="!isEditable" [class.qu-tertiary]="isEditable">
+            <span *ngIf="!isEditable"><i class="fa fa-pencil-square-o"></i> Edit</span>
+            <span *ngIf="isEditable"><i class="fa fa-floppy-o"></i> Save</span>
+        </qu-button>
+    </div>
+    <div class="title">
+        <div class="os-display-field" *ngIf="!isEditable">
+            <label>Title</label>
+            <span>{{step.title}}</span>
+        </div>
+        <qu-input-container [placeholder]="'Title'" *ngIf="isEditable">
+            <input type="text" [(ngModel)]="step.title" required>
+        </qu-input-container>
+    </div>
+    <div class="business-owner">
+        <div class="os-display-field" *ngIf="!isEditable">
+            <label>Business Owner</label>
+            <span>{{step.businessOwner}}</span>
+        </div>
+        <qu-input-container [placeholder]="'Business Owner'" *ngIf="isEditable">
+            <input type="text" [(ngModel)]="step.businessOwner" required>
+        </qu-input-container>
+    </div>
+</div>
