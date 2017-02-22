@@ -38,11 +38,10 @@ export class DocUploaderService {
 
                 var doc = new Doc();
                 doc.name = file.name;
-                doc.type = this.getFileType(file);
+                doc.type = file.type;
                 doc.downloadURL = snapshot.downloadURL;
 
-                sow.documents.push(doc);
-                this.saveSow(sow);
+                firebase.database().ref('/sows/' + sow.$key + '/documents').push(doc);
 
                 this.uploadState.next("Upload is complete");
 
@@ -51,12 +50,10 @@ export class DocUploaderService {
             this.uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
                 this.progress.next((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
                 switch (snapshot.state) {
-                    case firebase.storage.TaskState.PAUSED: // or 'paused'
-                        console.log('Upload is paused');
+                    case firebase.storage.TaskState.PAUSED:
                         this.uploadState.next('Upload is paused');
                         break;
-                    case firebase.storage.TaskState.RUNNING: // or 'running'
-                        console.log('Upload is running');
+                    case firebase.storage.TaskState.RUNNING: 
                         this.uploadState.next('Upload is running');
                         break;
                     }
@@ -100,8 +97,8 @@ export class DocUploaderService {
         }
     }
 
-    public getFileType(file: File) {
-        switch (file.type) {
+    public getFileType(type) {
+        switch (type) {
             case "application/pdf":
                 return "pdf";
             case "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":

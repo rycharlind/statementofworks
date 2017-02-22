@@ -3,7 +3,7 @@ import { SowService } from '../../sow/sow.svc';
 import { DocUploaderService } from '../../doc-uploader/doc-uploader.svc';
 import { Sow } from '../../model/sow';
 import { Doc } from '../../model/doc';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
     selector: 'sow-docs',
@@ -13,6 +13,7 @@ import { AngularFire } from 'angularfire2';
 
 export class SowDocsComponent implements OnInit {
     sow = new Sow();
+    documents: FirebaseListObservable<Doc[]>;
     progress: any;
 
     constructor(
@@ -25,6 +26,7 @@ export class SowDocsComponent implements OnInit {
         this.sowService.getCurrentSow().subscribe(
             s => {
                 this.sow = s;
+                this.documents = af.database.list('/sows/' + this.sow.$key + '/documents');
             }
         );
     }
@@ -55,6 +57,10 @@ export class SowDocsComponent implements OnInit {
     uploadFile() {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
         this.docUploaderService.upload(file, this.sow);
+    }
+
+    getFileType(type) {
+        return this.docUploaderService.getFileType(type);
     }
 
 

@@ -8,6 +8,7 @@ import { Project } from '../model/project';
 import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
 import { SowsService } from './sows.svc';
+import { SowService } from '../sow/sow.svc';
 
 @Component({
 	selector: 'sl-sows',
@@ -26,6 +27,7 @@ export class SowsComponent implements OnInit {
 	constructor(
 		private userService: UserService,
 		private sowsService: SowsService,
+		private sowService: SowService,
 		private route: ActivatedRoute,
 		af: AngularFire, private router: Router) {
 			
@@ -33,7 +35,10 @@ export class SowsComponent implements OnInit {
 				.list('/sows')
 				.map(
 					items => items.sort(
-						(a,b) => 1
+						(a: Sow,b: Sow) =>  {
+							if (a.number > b.number) return 1;
+							if (b.number > a.number) return -1;
+						}
 					)
 				) as FirebaseListObservable<any[]>;
 			
@@ -76,12 +81,12 @@ export class SowsComponent implements OnInit {
 
 	newSow() {
 		let sow = new Sow();
-		sow.number = "SOW-";
+		sow.number = 0;
 		this.sowsService.isNewSow = true;
 		this.items.push(sow).then(snap => {
-			console.log(snap.key);
+			this.sowService.isNewSow = true;
 			this.router.navigate(['/sow/' + snap.key]);
-		})
+		});
 	}
 
 

@@ -58,7 +58,7 @@ export class WorkflowComponent implements OnInit {
 
 	newSow() {
 		let sow = new Sow();
-		sow.number = "SOW-";
+		sow.number = 0;
 		this.sowsService.isNewSow = true;
 		this.items.push(sow).then(snap => {
 			console.log(snap.key);

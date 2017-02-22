@@ -7,7 +7,7 @@ import { Vendor } from './vendor';
 export class Sow {
   $key: string;
   dateCreated: Date;
-  number: string;
+  number: number;
   description: string;
   title: string;
   step:string;

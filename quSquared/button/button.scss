@@ -96,3 +96,22 @@
     	transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 	}
 }
+
+.qu-button-icon {
+	.qu-button-container {
+		height:100%;
+		button {
+			background-color:transparent;
+			height:100%;
+			text-align: center;
+			margin-top:-2px;
+			i.fa {
+				font-size:22px;
+				vertical-align: middle;
+				margin:0;
+				color:#263238;
+			}
+		}
+
+	}
+}

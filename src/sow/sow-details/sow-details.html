@@ -1,18 +1,19 @@
 <div class="sow-details">
     <div class="sow-details-toolbar qu-flex-justify-content-end" quFlexRow>
+        <qu-button class="qu-raised qu-danger" (click)="askToDelete()">
+            <span><i class="fa fa-trash"></i> Delete</span>
+        </qu-button>
         <qu-button class="qu-raised qu-secondary" (click)="toggleView()" [class.qu-secondary]="!isEditable" [class.qu-tertiary]="isEditable">
             <span *ngIf="!isEditable"><i class="fa fa-pencil-square-o"></i> Edit</span>
             <span *ngIf="isEditable"><i class="fa fa-floppy-o"></i> Save</span>
         </qu-button>
-        <qu-button class="qu-raised qu-danger" (click)="askToDelete()">
-            <span><i class="fa fa-trash"></i> Delete</span>
-        </qu-button>
+        <qu-button *ngIf="isEditable" class="qu-button-icon" (click)="closeEdit()"><i class="fa fa-close"></i></qu-button>
     </div>
     <div id="sowPrimaryDetails">
         <div class="number">
             <span *ngIf="!isEditable" class="sow-detail-item">{{sow.number}}</span>
             <qu-input-container *ngIf="isEditable" [placeholder]="'Number'">
-                <input type="text" name="sowNumber" [(ngModel)]="sow.number" required>
+                <input type="number" name="sowNumber" [(ngModel)]="sow.number" required>
             </qu-input-container>
         </div>
         <div class="title">
@@ -73,24 +74,24 @@
             <qu-input-container *ngIf="isEditable" [placeholder]="'Business Owner'" class="qu-flex-50 qu-flex-100-phone">
                 <input type="text" name="sowBusinessOwner" [(ngModel)]="sow.businessOwner" required>
             </qu-input-container>
-            
-            
-            
+
+
+
 
 
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Vendor</label>
                 <span>{{sow.vendor?.name}}</span>
             </div>
-            <md-select *ngIf="isEditable" placeholder="Vendor" [(ngModel)]="sow.vendor" name="vendor" (change)="latestChangeEvent = $event">
+            <md-select *ngIf="isEditable" placeholder="Vendor" [(ngModel)]="sow.vendor" name="vendor" (change)="vendorChanged($event)">
                 <md-option *ngFor="let vendor of vendors | async" [value]="vendor">
                     {{vendor.name}}
                 </md-option>
-            </md-select> 
-        
-        
-        
-        
+            </md-select>
+
+
+
+
         </div>
         <div quFlexRow class="qu-flex-wrap">
             <div *ngIf="!isEditable" class="sow-detail-item qu-flex-50">

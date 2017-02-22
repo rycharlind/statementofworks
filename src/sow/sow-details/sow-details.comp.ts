@@ -23,7 +23,6 @@ export class SowDetailsComponent implements OnInit {
     isEditable: boolean = false;
     isNumberEditable: boolean = false;
     vendors: FirebaseListObservable<Vendor[]>;
-    latestChangeEvent: MdSelectChange;
 
     constructor(private sowService: SowService,
         private activityService: ActivityService,
@@ -56,16 +55,19 @@ export class SowDetailsComponent implements OnInit {
         if (this.isEditable) {
             this.isEditable = false;
 
-            //console.log(this.latestChangeEvent.value);
-
             if (this.sowService.isNewSow) {
                 this.activityService.registerActivity("" + this.sow.number + " created.")
             }
+
             this.sowService.saveSow(this.sow);
         } else {
             this.isEditable = true;
         }
         
+    }
+
+    closeEdit() {
+        this.isEditable = false;
     }
 
     askToDelete() {
@@ -75,5 +77,9 @@ export class SowDetailsComponent implements OnInit {
                     this.sowService.deleteSow(this.sow);
                     this.router.navigate(['/sows']);
         });
+    }
+
+    vendorChanged($event) {
+        console.log($event);
     }
 }
