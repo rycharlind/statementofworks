@@ -27,7 +27,7 @@ export class SowCommentsComponent {
                 this.sow = s;
 
                 this.comments = af.database
-                    .list('/sows/' + s.$key + '/comments')
+                    .list('/sows/' + this.sowService.groupKey + '/sows/' + s.$key + '/comments')
                     .map(comments => {
                         comments.sort((a: Comment, b: Comment) => {
                             var d1 = new Date(a.dateCreated);
@@ -64,7 +64,7 @@ export class SowCommentsComponent {
             delete comment.$exists;
             delete comment.authorUser;
             delete comment.isEditable;
-            firebase.database().ref('/sows/' + this.sow.$key + '/comments/' + key).update(comment);
+            firebase.database().ref('/sows/' + this.sowService.groupKey + '/sows/' + this.sow.$key + '/comments/' + key).update(comment);
             comment.$key = key;
             comment.isEditable = false;
         } else {
@@ -73,6 +73,6 @@ export class SowCommentsComponent {
     }
 
     deleteComment(comment) {
-        firebase.database().ref('/sows/' + this.sow.$key + '/comments/' + comment.$key).remove();
+        firebase.database().ref('/sows/' + this.sowService.groupKey + '/sows/' + this.sow.$key + '/comments/' + comment.$key).remove();
     }
 }

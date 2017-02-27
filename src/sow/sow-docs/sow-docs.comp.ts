@@ -26,7 +26,7 @@ export class SowDocsComponent implements OnInit {
         this.sowService.getCurrentSow().subscribe(
             s => {
                 this.sow = s;
-                this.documents = af.database.list('/sows/' + this.sow.$key + '/documents');
+                this.documents = af.database.list('/sows/' + this.sowService.groupKey + '/sows/' + this.sow.$key + '/documents');
             }
         );
     }
@@ -46,7 +46,7 @@ export class SowDocsComponent implements OnInit {
             var files = event.dataTransfer.files;
 
             for (var i = 0, file; file = files[i]; i++) {
-                this.docUploaderService.upload(file, this.sow);
+                this.docUploaderService.upload(file, this.sowService.groupKey, this.sow);
             }
         });
     }
@@ -56,7 +56,7 @@ export class SowDocsComponent implements OnInit {
 
     uploadFile() {
         var file = (<HTMLInputElement>document.getElementById("upload")).files[0];
-        this.docUploaderService.upload(file, this.sow);
+        this.docUploaderService.upload(file, this.sowService.groupKey, this.sow);
     }
 
     getFileType(type) {

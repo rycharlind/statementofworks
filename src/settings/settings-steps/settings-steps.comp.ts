@@ -38,6 +38,10 @@ export class SettingsStepsComponent implements OnInit {
     ngOnInit() {
     }
 
+    pushNewStep() {
+        firebase.database().ref('/groups').push({name: "Charter"});
+    }
+
 
 
 }

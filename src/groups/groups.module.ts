@@ -4,18 +4,18 @@ import { CommonModule }  from '@angular/common';
 
 import { QuSquaredModule } from '../../quSquared';
 
-import { ClientsRoutes } from './clients.routes';
-import { ClientsComponent } from './clients.comp';
+import { GroupsRoutes } from './groups.routes';
+import { GroupsComponent } from './groups.comp';
 
 @NgModule({
   imports: [
     CommonModule,
 		FormsModule,
-		ClientsRoutes,
+		GroupsRoutes,
 		QuSquaredModule
   ],
   declarations: [
-	ClientsComponent
+	GroupsComponent
   ]
 })
 export class ClientsModule { }

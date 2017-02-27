@@ -11,6 +11,7 @@ export class SowService {
 
     private currentSow = new Subject<Sow>();
     public isNewSow: boolean = false;
+    public groupKey: string;
 
     constructor(af: AngularFire) {
     }
@@ -23,12 +24,14 @@ export class SowService {
         return this.currentSow.asObservable();
     }
 
-    pullSow(key) {
-        firebase.database().ref('/sows/' + key).once('value').then(snapshot => {
+    pullSow(groupKey, sowKey) {
+        this.groupKey = groupKey;
+        firebase.database().ref('/sows/' + groupKey + '/sows/' + sowKey).once('value').then(snapshot => {
             var sow: Sow = snapshot.val();
-            sow.$key = key;
+            sow.$key = sowKey;
+            
             firebase.database().ref('/companies/vendors/' + sow.vendorRef).once('value').then(snapshot => {
-                sow.vendor = snapshot.val();
+                sow.vendor = {"$key": sow.vendorRef, "name": snapshot.val().name};
                 this.currentSow.next(sow);
             });
 		});
@@ -36,9 +39,9 @@ export class SowService {
 
     saveSow(sow: any) {
         let key = sow.$key;
-        let vendor = sow.vendor;
+        //let vendor = sow.vendor;
         if (key) {
-            sow.vendorRef = vendor.$key;
+            //sow.vendorRef = vendor.$key;
             
             delete sow.vendor;
             delete sow.$key;
@@ -46,14 +49,14 @@ export class SowService {
 
             firebase.database().ref('/sows/' + key).update(sow);
             sow.$key = key;
-            sow.vendor = vendor;
+            //sow.vendor = vendor;
         } else {
             console.log("No key with SOW.  Cannot save the SOW without the key");
         }
     }
 
     deleteSow(sow: any) {
-        firebase.database().ref('/sows/' + sow.$key).remove();
+        firebase.database().ref('/sows/' + this.groupKey + '/sows/' + sow.$key).remove();
     }
 
 }

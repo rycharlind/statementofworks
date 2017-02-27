@@ -20,7 +20,7 @@ export class DocUploaderService {
 
     constructor(private errorService: ErrorService){}
 
-    upload(file: File, sow: Sow) {
+    upload(file: File, groupKey: string, sow: Sow) {
 
         if (file && sow) {
 
@@ -41,7 +41,7 @@ export class DocUploaderService {
                 doc.type = file.type;
                 doc.downloadURL = snapshot.downloadURL;
 
-                firebase.database().ref('/sows/' + sow.$key + '/documents').push(doc);
+                firebase.database().ref('/sows/' + groupKey + '/sows/' + sow.$key + '/documents').push(doc);
 
                 this.uploadState.next("Upload is complete");
 
@@ -87,12 +87,12 @@ export class DocUploaderService {
         this.uploadTask.cancel();
     }
 
-    saveSow(sow: any) {
+    saveSow(groupKey: string, sow: any) {
         let key = sow.$key;
         if (key) {
             delete sow.$key;
             delete sow.$exists;
-            firebase.database().ref('/sows/' + key).update(sow);
+            firebase.database().ref('/sows/' + groupKey + '/sows/' + key).update(sow);
             sow.$key = key;
         }
     }

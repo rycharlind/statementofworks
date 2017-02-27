@@ -1,0 +1,18 @@
+<div class="groups">
+
+    <div class="toolbar">
+        <qu-button class="qu-raised qu-tertiary" (click)="execute()">
+            <span><i class="fa fa-plus"></i> New Group</span>
+        </qu-button>
+    </div>
+
+    <os-list>
+        <os-list-item *ngFor="let userGroup of userGroups | async" (click)="goToGroupSows(userGroup)">
+            <div class="group">
+                {{ (userGroup.group | async)?.name }}
+            </div>
+            <div class="arrow"><i class="material-icons">keyboard_arrow_right</i></div>
+        </os-list-item>
+    </os-list>
+
+</div>

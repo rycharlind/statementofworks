@@ -79,15 +79,15 @@
 
 
 
-            <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
+            <!--<div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Vendor</label>
                 <span>{{sow.vendor?.name}}</span>
             </div>
-            <md-select *ngIf="isEditable" placeholder="Vendor" [(ngModel)]="sow.vendor" name="vendor" (change)="vendorChanged($event)">
-                <md-option *ngFor="let vendor of vendors | async" [value]="vendor">
+            <md-select *ngIf="isEditable" placeholder="Vendor" [(ngModel)]="sow.vendorRef" name="vendor" (change)="vendorChanged($event)">
+                <md-option *ngFor="let vendor of vendors | async" [value]="vendor.$key">
                     {{vendor.name}}
                 </md-option>
-            </md-select>
+            </md-select>-->
 
 
 

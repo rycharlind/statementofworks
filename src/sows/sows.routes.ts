@@ -4,6 +4,6 @@ import { Routes, RouterModule } from "@angular/router";
 import { SowsComponent } from './sows.comp';
 
 const routes: Routes = [
-   { path: "sows", component: SowsComponent }
+   { path: "sows/:groupKey", component: SowsComponent }
 ];
 export const SowsRoutes: ModuleWithProviders = RouterModule.forChild(routes);

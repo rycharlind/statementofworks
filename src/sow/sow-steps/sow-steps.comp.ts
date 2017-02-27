@@ -73,14 +73,14 @@ export class SowStepsComponent implements OnInit {
         let completedStep = new CompletedStep();
         completedStep.ref = step.$key;
         completedStep.ownerRef = this.userService.getUID();
-        firebase.database().ref('/sows/' + this.sow.$key + '/completedSteps').push(completedStep).then(error => {
+        firebase.database().ref('/sows/' + this.sowService.groupKey + '/sows/' + this.sow.$key + '/completedSteps').push(completedStep).then(error => {
             step.isComplete = true;
             step.dateCompleted = new Date();
         });
     }
 
     unCompleteStep(step: Step) {
-        var ref = firebase.database().ref('/sows/' + this.sow.$key + '/completedSteps');
+        var ref = firebase.database().ref('/sows/' + this.sowService.groupKey + '/sows/' + this.sow.$key + '/completedSteps');
         ref.orderByChild('ref').equalTo(step.$key)
             .once('value', snap => {
                 snap.forEach(childSnap => {

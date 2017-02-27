@@ -22,7 +22,8 @@ export class SowDetailsComponent implements OnInit {
     sow: Sow;
     isEditable: boolean = false;
     isNumberEditable: boolean = false;
-    vendors: FirebaseListObservable<Vendor[]>;
+    //vendors: FirebaseListObservable<Vendor[]>;
+    vendors: Array<Vendor>;
 
     constructor(private sowService: SowService,
         private activityService: ActivityService,
@@ -43,7 +44,12 @@ export class SowDetailsComponent implements OnInit {
                 }
             );
 
-            this.vendors = af.database.list('/companies/vendors');
+            //this.vendors = af.database.list('/companies/vendors');
+            firebase.database().ref('/vendors').once('value', snapshot => {
+                this.vendors = snapshot.val();
+                console.log(this.vendors);
+            })
+
 
     }
 
@@ -80,6 +86,19 @@ export class SowDetailsComponent implements OnInit {
     }
 
     vendorChanged($event) {
-        console.log($event);
+        
+        /*
+        this.vendors.forEach(vendors => {
+            vendors.forEach(vendor => {
+                if (vendor.$key == $event.value) {
+                    this.sow.vendor.name = vendor.name;
+                }
+            })
+        })
+        */
+    }
+
+    setNewVendor() {
+        
     }
 }

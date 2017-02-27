@@ -18,7 +18,6 @@ import { ActivityService } from './sow-activities/activity.svc';
 
 export class SowComponent implements OnInit {
 
-    key: string;
 	sow: Sow = new Sow();
 
 	constructor(
@@ -41,8 +40,9 @@ export class SowComponent implements OnInit {
 		this.userService.authUser();
 
 		this.route.params.subscribe(params => {
-			this.key = params['key'];
-			this.sowService.pullSow(this.key);
+			let groupKey = params['groupKey'];
+			let sowKey = params['sowKey'];
+			this.sowService.pullSow(groupKey, sowKey);
 		});
 	
 	}

@@ -9,32 +9,46 @@ import { Sow } from '../model/sow';
 import { UserService } from '../firebase-service/user.svc';
 
 @Component({
-	selector: 'sl-clients',
-    templateUrl: './clients.html',
+	selector: 'sl-groups',
+	templateUrl: './groups.html',
 	providers: [UserService]
 })
 
-export class ClientsComponent implements OnInit {
+export class GroupsComponent implements OnInit {
 
-	items: FirebaseListObservable<any[]>;
+	userGroups: FirebaseListObservable<any[]>;
 	isNewSow: boolean;
 
 	constructor(
 		private userService: UserService,
 		private route: ActivatedRoute,
 		af: AngularFire, private router: Router) {
-			
-			this.items = af.database.list('/companies/clients') as FirebaseListObservable<any[]>;
+
+			firebase.auth().onAuthStateChanged((user: firebase.User) => {
+				if (user) {
+
+					this.userGroups = af.database.list('/userGroups/' + user.uid)
+						.map(userGroups => {
+							userGroups.map(ug => {
+								ug.group = af.database.object('/groups/' + ug.groupRef);
+							});
+							return userGroups;
+						}) as FirebaseListObservable<any[]>;
+
+				}
+			});
 	}
 
 	ngOnInit() {
+
 	}
 
-    execute() {
-        var object = {
-            name:"Charter"
-        }
-        this.items.push(object);
-    }
+	execute() {
+	}
+
+	goToGroupSows(userGroup) {
+		console.log(userGroup);
+		this.router.navigate(['/sows/' + userGroup.groupRef])
+	}
 
 }

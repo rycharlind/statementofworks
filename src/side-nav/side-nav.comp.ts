@@ -14,7 +14,7 @@ export class SideNavComponent implements OnInit {
 
   items = [
     { title:"Home", icon:"fa fa-home", isActive: false, path:"/" },
-    { title:"SOWs", icon:"fa icon-statementOfWorks", isActive: false, path:"/sows" },
+    { title:"SOWs", icon:"fa icon-statementOfWorks", isActive: false, path:"/groups" },
     { title:"Settings", icon:"fa fa-cogs", isActive: false, path:"/settings" },
     { title:"Sign Out", icon:"fa fa-sign-out", isActive: false, path:"/signout" }
   ];

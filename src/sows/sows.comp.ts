@@ -12,7 +12,7 @@ import { SowService } from '../sow/sow.svc';
 
 @Component({
 	selector: 'sl-sows',
-    templateUrl: './sows.html',
+	templateUrl: './sows.html',
 	providers: [UserService]
 })
 
@@ -21,6 +21,7 @@ export class SowsComponent implements OnInit {
 	items: FirebaseListObservable<any[]>;
 	email: string;
 	sow: Sow;
+	groupKey: string;
 
 	isNewSow: boolean;
 
@@ -30,25 +31,29 @@ export class SowsComponent implements OnInit {
 		private sowService: SowService,
 		private route: ActivatedRoute,
 		af: AngularFire, private router: Router) {
-			
-			this.items = af.database
-				.list('/sows')
-				.map(
-					items => items.sort(
-						(a: Sow,b: Sow) =>  {
-							if (a.number > b.number) return 1;
-							if (b.number > a.number) return -1;
-						}
-					)
-				) as FirebaseListObservable<any[]>;
-			
-			this.sow = new Sow();	
 
-			this.sowsService.getSelectedSow().subscribe(
-				s => {
-					this.sow = s;
-				}
-			);	
+		this.route.params.subscribe(params => {
+			this.groupKey = params['groupKey'];
+
+			this.items = af.database
+				.list('/sows/' + this.groupKey + '/sows')
+				.map(
+				items => items.sort(
+					(a: Sow, b: Sow) => {
+						if (a.number > b.number) return 1;
+						if (b.number > a.number) return -1;
+					}
+				)
+				) as FirebaseListObservable<any[]>;
+		});
+
+		this.sow = new Sow();
+
+		this.sowsService.getSelectedSow().subscribe(
+			s => {
+				this.sow = s;
+			}
+		);
 	}
 
 	ngOnInit() {
@@ -60,23 +65,8 @@ export class SowsComponent implements OnInit {
 		});
 	}
 
-	selectSow(sow: Sow) {
-		this.sowsService.isNewSow = false;
-		this.sowsService.announceSowSelected(sow);
-		this.setActiveClass();
-	}
-
 	goTo(sow: Sow) {
-		this.router.navigate(['/sow/' + sow.$key]);
-	}
-
-	setActiveClass() {
-		let osListItems : HTMLCollectionOf<Element> = document.getElementsByClassName("os-list-item");
-		for (let i in osListItems)
-			if (osListItems.item(Number(i)).getAttribute("id") == this.sow.$key)
-				osListItems.item(Number(i)).classList.add("os-list-active");
-			else
-				osListItems.item(Number(i)).classList.remove("os-list-active");
+		this.router.navigate(['/sow/' + this.groupKey + '/' + sow.$key]);
 	}
 
 	newSow() {
@@ -85,7 +75,7 @@ export class SowsComponent implements OnInit {
 		this.sowsService.isNewSow = true;
 		this.items.push(sow).then(snap => {
 			this.sowService.isNewSow = true;
-			this.router.navigate(['/sow/' + snap.key]);
+			this.router.navigate(['/sow/' + this.sowService.groupKey + '/sows/' + snap.key]);
 		});
 	}
 

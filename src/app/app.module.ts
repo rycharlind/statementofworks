@@ -30,7 +30,7 @@ import {SowModule} from '../sow/sow.module';
 import {SettingsModule} from '../settings/settings.module';
 import { SettingsStepsModule } from '../settings/settings-steps/settings-steps.module';
 import {WorkflowModule} from '../workflow/workflow.module';
-import {ClientsModule} from '../clients/clients.module';
+import {ClientsModule} from '../groups/groups.module';
 
 // Services
 import { ErrorService } from '../error-service/error.svc';
