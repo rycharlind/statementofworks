@@ -52,6 +52,4 @@ export class SowComponent implements OnInit {
         this.sowService.saveSow(this.sow);
     }
 
-
-
 }

@@ -49,11 +49,6 @@ export class SowDetailsComponent implements OnInit {
 
         if (this.isEditable) {
             this.isEditable = false;
-
-            if (this.sowService.isNewSow) {
-                this.activityService.registerActivity("" + this.sow.number + " created.")
-            }
-
             this.sowService.saveSow(this.sow);
         } else {
             this.isEditable = true;
@@ -70,24 +65,8 @@ export class SowDetailsComponent implements OnInit {
             ans => {
                 if (ans == 'yes')
                     this.sowService.deleteSow(this.sow);
-                    this.router.navigate(['/sows']);
+                    this.router.navigate(['/groups']);
         });
     }
 
-    vendorChanged($event) {
-        
-        /*
-        this.vendors.forEach(vendors => {
-            vendors.forEach(vendor => {
-                if (vendor.$key == $event.value) {
-                    this.sow.vendor.name = vendor.name;
-                }
-            })
-        })
-        */
-    }
-
-    setNewVendor() {
-        
-    }
 }

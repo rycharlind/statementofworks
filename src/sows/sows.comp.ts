@@ -66,6 +66,7 @@ export class SowsComponent implements OnInit {
 	}
 
 	goTo(sow: Sow) {
+		this.sowService.isNewSow = false;
 		this.router.navigate(['/sow/' + this.groupKey + '/' + sow.$key]);
 	}
 
@@ -75,7 +76,8 @@ export class SowsComponent implements OnInit {
 		this.sowsService.isNewSow = true;
 		this.items.push(sow).then(snap => {
 			this.sowService.isNewSow = true;
-			this.router.navigate(['/sow/' + this.sowService.groupKey + '/sows/' + snap.key]);
+			this.sowService.groupKey = this.groupKey;
+			this.router.navigate(['/sow/' + this.groupKey + '/' + snap.key]);
 		});
 	}
 
