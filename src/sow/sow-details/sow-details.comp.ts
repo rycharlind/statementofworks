@@ -19,11 +19,9 @@ import { ActivityService } from '../sow-activities/activity.svc';
 
 export class SowDetailsComponent implements OnInit {
 
-    sow: Sow;
+    sow: Sow = new Sow();
     isEditable: boolean = false;
     isNumberEditable: boolean = false;
-    //vendors: FirebaseListObservable<Vendor[]>;
-    vendors: Array<Vendor>;
 
     constructor(private sowService: SowService,
         private activityService: ActivityService,
@@ -31,9 +29,6 @@ export class SowDetailsComponent implements OnInit {
         private router: Router,
         public viewContainerRef: ViewContainerRef,
         af: AngularFire) {
-
-            this.sow = new Sow();
-            this.sow.vendor = new Vendor();
         
             this.sowService.getCurrentSow().subscribe(
                 s => {
@@ -43,12 +38,6 @@ export class SowDetailsComponent implements OnInit {
                     }
                 }
             );
-
-            //this.vendors = af.database.list('/companies/vendors');
-            firebase.database().ref('/vendors').once('value', snapshot => {
-                this.vendors = snapshot.val();
-                console.log(this.vendors);
-            })
 
 
     }

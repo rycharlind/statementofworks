@@ -25,7 +25,6 @@ export class UserService {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.user = user;
-                console.log(user);
             } else {
                 console.log("No User");
                 this.router.navigate(['sign-in']);

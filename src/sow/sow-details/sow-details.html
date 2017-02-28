@@ -76,20 +76,13 @@
             </qu-input-container>
 
 
-
-
-
-            <!--<div *ngIf="!isEditable" class="sow-detail-item qu-flex">
+            <div *ngIf="!isEditable" class="sow-detail-item qu-flex">
                 <label>Vendor</label>
-                <span>{{sow.vendor?.name}}</span>
+                <span>{{sow.vendor}}</span>
             </div>
-            <md-select *ngIf="isEditable" placeholder="Vendor" [(ngModel)]="sow.vendorRef" name="vendor" (change)="vendorChanged($event)">
-                <md-option *ngFor="let vendor of vendors | async" [value]="vendor.$key">
-                    {{vendor.name}}
-                </md-option>
-            </md-select>-->
-
-
+            <qu-input-container *ngIf="isEditable" [placeholder]="'Vendor'" class="qu-flex-50 qu-flex-100-phone">
+                <input type="text" name="sowVendor" [(ngModel)]="sow.vendor" required>
+            </qu-input-container>
 
 
         </div>
